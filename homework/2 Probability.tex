@@ -1,0 +1,488 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Detailed properties of probability}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] Detailed properties of probability} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+
+
+
+\item
+We flip a fair coin many times.
+Find the probability that
+\begin{enumerate}
+\item we have exactly 5 heads in the first 11 flips.
+\\
+{\color{blue}{\bf Sol.}}
+${11 \choose 5}(\f{1}{2})^5(\f{1}{2})^6$
+\item we have the very first head at the 11-th flip.
+\\
+{\color{blue}{\bf Sol.}}
+$\f{1}{2^{11}}$
+\item we have the very second head at the 11-th flip.
+\\
+{\color{blue}{\bf Sol.}}
+${10 \choose 1}(\f{1}{2})^1\cdot (\f{1}{2})^9\cdot \f{1}{2}$
+
+\item we have the very third head at the 11-th flip.
+\\
+{\color{blue}{\bf Sol.}}
+${10 \choose 2}(\f{1}{2})^2\cdot (\f{1}{2})^8\cdot \f{1}{2}$
+\item we have more heads than tails for the first time at the 11-th flip.
+\\
+{\color{blue}{\bf Sol.}}
+$\f{{8 \choose 4}-{8 \choose 2}}{2^{11}}$
+
+
+
+\end{enumerate}
+
+
+
+
+
+\item 
+A fair dice is rolled five times. 
+What is the probability that
+\begin{enumerate}
+\item the second dice lands on a higher value than the first?
+\\
+{\color{blue}{\bf Sol.}}
+$\f{15\cdot6^3}{6^5}$
+\item 6 comes up at least once?
+\\
+{\color{blue}{\bf Sol.}}
+(Complement)
+Let $A$ be the event that there are at least one 6.
+$A^c$ is the event that there are no 6 and 
+$$
+P(A^c)=(\f{5}{6})^5
+\Ra
+P(A)=1-P(A^c)=1-(\f{5}{6})^5
+$$
+
+\item all outcomes from the five rolls are identical?
+\\
+{\color{blue}{\bf Sol.}}
+$\f{6}{6^5}$
+\item the five outcomes are different?
+\\
+{\color{blue}{\bf Sol.}}
+$\f{6\cdot5\cdot4\cdot3\cdot2}{6^5}$
+\end{enumerate}
+
+
+
+
+\item 
+We have a colored fair dice. 
+Each of the two faces of this dice are colored red, green, and blue.
+We roll this fair dice 11 times. 
+Find the probability that
+\begin{enumerate}
+\item we have exactly 5 reds in the first 11 flips.
+\\
+{\color{blue}{\bf Sol.}}
+${11\choose 5}\cdot(\f{1}{3})^5\cdot(\f{2}{3})^6$
+\item we have the very first red at the 11-th flip.
+\\
+{\color{blue}{\bf Sol.}}
+${10\choose 0}\cdot(\f{1}{3})^0\cdot(\f{2}{3})^{10}\cdot(\f{1}{3})$
+\item we have the very second red at the 11-th flip.
+\\
+{\color{blue}{\bf Sol.}}
+${10\choose 1}\cdot(\f{1}{3})^1\cdot(\f{2}{3})^{9}\cdot(\f{1}{3})$
+\item we have the very third red at the 11-th flip.
+\\
+{\color{blue}{\bf Sol.}}
+${10\choose 2}\cdot(\f{1}{3})^2\cdot(\f{2}{3})^{8}\cdot(\f{1}{3})$
+\end{enumerate}
+
+
+
+
+
+\item
+A roulette wheel has 38 spaces: 18 red, 18 black, and 2 green. 
+The wheel will be spun five times.
+Find the probability that
+\begin{enumerate}
+\item all the five land on red.
+\\
+{\color{blue}{\bf Sol.}}
+${5\choose 5}\cdot(\f{18}{38})^5$
+\item the first two land on red and the last three land on other colors.
+\\
+{\color{blue}{\bf Sol.}}
+$(\f{18}{38})^2\cdot(\f{20}{38})^3$
+\item two land on red and three land on other colors.
+\\
+{\color{blue}{\bf Sol.}}
+${5\choose 2}\cdot(\f{18}{38})^2\cdot(\f{20}{38})^3$
+\end{enumerate}
+
+
+
+
+
+\item 
+There are 10 hotels in a certain town. 
+If 7 different group of people check into hotels in a day, 
+what is the probability that each check into a different hotel? 
+\\
+{\color{blue}{\bf Sol.}}
+When the first person checks into the hotel, the next person will check into a different hotel with probability $\f{9}{10}$. The next person will check into a different hotel with probability $\f{8}{10}$.Thus the probability that we check into seven different hotels is given by
+$$\f{10}{10} \cdot \f{9}{10} \cdot \f{8}{10} \cdots \f{4}{10}=\f{{10 \choose 7}\cdot7!}{10^7}$$
+
+
+
+
+\item
+In a drawer there are 10 red, 3 green and 7 blue socks.
+Seven socks are withdrawn. 
+Find the probability that 
+\begin{enumerate}
+\item 3 red, 2 green, and 2 blue socks are withdrawn.
+\\
+{\color{blue}{\bf Sol.}}
+$\f{{10 \choose 3}\cdot{3 \choose 2}\cdot{7 \choose 2}}{{20 \choose 7}}$  
+\item at least 2 red socks are withdrawn.
+\\
+{\color{blue}{\bf Sol.}}
+$1-P(\mb{no red socks withdrawn})-P(\mb{only 1 red socks withdrawn})$\\
+=$1-\f{{10 \choose 0}\cdot{10 \choose 7}}{{20 \choose 7}}-\f{{10 \choose 1}\cdot{10 \choose 6}}{{20 \choose 7}}$
+\item exactly one color is missing among the three withdrawn socks.
+\\
+{\color{blue}{\bf Sol.}}
+$1-\f{{10 \choose 3}+{3 \choose 3}+{7 \choose 3}+{10 \choose 1}\cdot{3 \choose 1}\cdot{7 \choose 1}}{{20 \choose 3}}$
+\item exactly two colors are missing among the three withdrawn socks.
+\\
+{\color{blue}{\bf Sol.}}
+$\f{{10 \choose 3}+{3 \choose 3}+{7 \choose 3}}{{20 \choose 3}}$
+\item no colors are missing among the three withdrawn socks.
+\\
+{\color{blue}{\bf Sol.}}
+$\f{{10 \choose 1}\cdot{3 \choose 1}\cdot{7 \choose 1}}{{20 \choose 3}}$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+\item
+In a drawer there are 10 red, 3 green and 7 blue socks.
+Starting from Author,  Author and Bob withdraw socks  from the draw consecutively
+until a green sock is selected. 
+Find the probability that Author selects the green sock.
+\\
+{\color{blue}{\bf Sol.}}
+$\f{3}{20}+\f{17}{20}\cdot\f{16}{19}\cdot\f{3}{18}+\f{17}{20}\cdot\f{16}{19}\cdot\f{15}{18}\cdot\f{14}{17}\cdot\f{3}{16}+\f{17}{20}\cdot\f{16}{19}\cdot\f{15}{18}\cdot\f{14}{17}\cdot\f{13}{16}\cdot\f{12}{15}\cdot\f{3}{14}+\f{17}{20}\cdot\f{16}{19}\cdot\f{15}{18}\cdot\f{14}{17}\cdot\f{13}{16}\cdot\f{12}{15}\cdot\f{11}{14}\cdot\f{10}{13}\cdot\f{3}{12}+\f{17}{20}\cdot\f{16}{19}\cdot\f{15}{18}\cdot\f{14}{17}\cdot\f{13}{16}\cdot\f{12}{15}\cdot\f{11}{14}\cdot\f{10}{13}\cdot\f{9}{12}\cdot\f{8}{11}\cdot\f{3}{10}+\f{17}{20}\cdot\f{16}{19}\cdot\f{15}{18}\cdot\f{14}{17}\cdot\f{13}{16}\cdot\f{12}{15}\cdot\f{11}{14}\cdot\f{10}{13}\cdot\f{9}{12}\cdot\f{8}{11}\cdot\f{7}{10}\cdot\f{6}{9}\cdot\f{3}{8}+\f{17}{20}\cdot\f{16}{19}\cdot\f{15}{18}\cdot\f{14}{17}\cdot\f{13}{16}\cdot\f{12}{15}\cdot\f{11}{14}\cdot\f{10}{13}\cdot\f{9}{12}\cdot\f{8}{11}\cdot\f{7}{10}\cdot\f{6}{9}\cdot\f{5}{8}\cdot\f{4}{7}\cdot\f{3}{6}+\f{17}{20}\cdot\f{16}{19}\cdot\f{15}{18}\cdot\f{14}{17}\cdot\f{13}{16}\cdot\f{12}{15}\cdot\f{11}{14}\cdot\f{10}{13}\cdot\f{9}{12}\cdot\f{8}{11}\cdot\f{7}{10}\cdot\f{6}{9}\cdot\f{5}{8}\cdot\f{4}{7}\cdot\f{3}{6}\cdot\f{2}{5}\cdot\f{3}{4}=\f{41}{76}$
+
+\item
+In a certain region there are many elks.
+We captured, tagged, and then released  5 elks. 
+A certain time later, we captured 4 elks and 2 of these 4 have been tagged. 
+\begin{enumerate}
+\item Compute the probability that this happens as a function of the total number $n$ of the elks in the region.
+\\
+{\color{blue}{\bf Sol.}}
+The number of total events is ${n\choose 4}$. And there are ${5\choose 2}\cdot {n-5 \choose 2}$ different ways to choose 2 from the previously tagged elks, and 2 from the elks which have not been tagged before.
+\\
+Therefore, the probability is $\f{{5\choose 2}\cdot {n-5 \choose 2}}{{n\choose 4}}$
+different ways to choose
+2 from the previously tagged elks, and 2 from the elks which have not been tagged before.
+\item Find $n$ which maximizes this probability.
+\\
+{\color{blue}{\bf Sol.}}
+Let $f(n) = \f{{5\choose 2}\cdot {n-5 \choose 2}}{{n\choose 4}} = \f{120(n-5)(n-6)}{n(n-1)(n-2)(n-3)}$\\
+We want to find $n$ such that 
+$$\f{f(n)}{f(n-1)}\ge 1, \f{f(n+1)}{f(n)}\le 1$$
+$$9 \le n \le 10 $$
+So $n$ is 9 or 10, $f(9)=\f{10}{21}, f(10)=\f{10}{21}$
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item 
+An instructor gives her class a set of 20 problems 
+with the information that the final exam will consist of a random selection of 10 of them. 
+If a student has figured out how to do 15 of the problems, 
+what is the probability that he or she will answer correctly
+\begin{enumerate}
+\item all 10 problems?
+\\
+{\color{blue}{\bf Sol.}}
+$\f{{15 \choose 10}}{{20 \choose 10}}$ 
+\item at least 8 of the problems?
+\\
+{\color{blue}{\bf Sol.}}
+$\f{{15 \choose 8}\cdot{5 \choose 2}}{{20 \choose 10}}
++ \f{{15 \choose 9}\cdot{5 \choose 1}}{{20 \choose 10}}
++\f{{15 \choose 10}\cdot{5 \choose 0}}{{20 \choose 10}}=\f{1}{2}$ 
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+\item 
+A closet contains 10 pairs of shoes. 
+If 8 shoes are randomly selected, what is the probability that there will be
+\begin{enumerate}
+\item no complete pair?
+\\
+{\color{blue}{\bf Sol.}}
+ 10 pairs = 20 shoes
+\\
+There are ${20 \choose 8}$ ways to select the 8 shoes.
+\\
+There are ${10 \choose 8}$ ways to choose which pairs contribute one shoe each, and two possibilities for picking the shoe from each of the pairs (left or right).
+\\
+This gives a total of ${10 \choose 8}\cdot 2^8$ ways to choose 8 shoe that are unpaired
+$$\f{{10 \choose 8}\cdot 2^8}{{20 \choose 8}} $$
+
+  
+      
+\item exactly 1 complete pair?
+\\
+{\color{blue}{\bf Sol.}}
+There are 10 ways to choose the single pair of shoes and 
+ ${9 \choose 6}\cdot 2^6$ ways to choose the remaining six shoes so that they unpaired
+$$\f{10\cdot{9 \choose 6}\cdot 2^6}{{20 \choose 8}} $$
+\end{enumerate}
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+\begin{center}
+{\Large\bf [Extra] Detailed properties of probability} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+\item 
+We choose balls successively without replacement 
+from an urn containing 20 red  and 10 blue balls. 
+What is the probability that all the red balls are removed before all the blue ones are removed from the urn? 
+
+
+\end{enumerate}
+
+\end{document}

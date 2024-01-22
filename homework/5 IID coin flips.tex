@@ -1,0 +1,658 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] IID coin flips}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] IID coin flips} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+
+\item
+The joint PMF of $X$ and $Y$ are given by
+
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c||c|} \hline
+{\color{red}{\bf$y_j$}}&&&&                                     \\\hline\hline  
+{\color{red}{\bf 3}}&$\f{2}{10}$&$\f{1}{10}$&$\f{1}{10}$&\\\hline
+{\color{red}{\bf 2}}&$\f{1}{10}$&0&$\f{1}{10}$&\\\hline
+{\color{red}{\bf 1}}&$\f{2}{10}$&$\f{1}{10}$&0&\\\hline
+{\color{red}{\bf 0}}&0&$\f{1}{10}$&0&\\\hline\hline
+&{\color{red}{\bf 0}}&{\color{red}{\bf 1}}&{\color{red}{\bf 2}}&{\color{red}{\bf$x_i$}}\\\hline
+\end{tabular}
+\end{table}
+
+\begin{enumerate}
+\item
+Find the marginal PMF of $X$.
+\\
+{\color{blue}{\bf Sol.}}
+
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c||c|} \hline
+           $i$        &   $0$      &   $1$   &$2$    & \\
+\hline 
+$P(X=i)$    & $\f{5}{10}$  & $\f{3}{10}$&$\f{1}{10}$ & 1\\
+\hline
+
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+
+
+\item
+Find the marginal PMF of $Y$.
+\\
+{\color{blue}{\bf Sol.}}
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c|c||c|} \hline
+           $i$        &   $0$      &   $1$   &$2$    &$3$    &  \\
+\hline 
+$P(Y=i)$    & $\f{1}{10}$  & $\f{3}{10}$&$\f{2}{10}$ & $\f{4}{10}$ &1\\
+\hline
+
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+
+\item
+Find the conditional PMF of $X$ given $Y=1$.
+\\
+{\color{blue}{\bf Sol.}}
+$$P(X=0|Y=1)=\f{P(x=0,Y=1)}{P(Y=1)}=\f{\f{2}{10}}{\f{3}{10}}=\f{2}{3}$$
+$$P(X=1|Y=1)=\f{P(x=1,Y=1)}{P(Y=1)}=\f{\f{1}{10}}{\f{3}{10}}=\f{1}{3}$$
+$$P(X=2|Y=1)=\f{P(x=2,Y=1)}{P(Y=1)}=\f{0}{\f{3}{10}}=0$$
+\item
+Find the conditional PMF of $Y$ given $X=2$.
+\\
+{\color{blue}{\bf Sol.}}
+$$P(Y=0|X=2)=\f{P(x=2,Y=0)}{P(X=2)}=\f{0}{\f{2}{10}}=0$$
+$$P(Y=1|X=2)=\f{P(x=2,Y=1)}{P(X=2)}=\f{0}{\f{2}{10}}=0$$
+$$P(Y=2|X=2)=\f{P(x=2,Y=2)}{P(X=2)}=\f{\f{1}{10}}{\f{2}{10}}=\f{1}{2}$$
+$$P(Y=3|X=2)=\f{P(x=2,Y=3)}{P(X=2)}=\f{\f{1}{10}}{\f{2}{10}}=\f{1}{2}$$
+\end{enumerate}
+
+
+
+
+
+\item 
+The CDF $F$  is given by
+$$
+F(x)=\left\{\ba{ll}
+0&\mb{for}\ x< 0\\
+0.2&\mb{for}\ 0\le x<1\\
+0.5&\mb{for}\ 1\le x<2\\
+0.9&\mb{for}\ 2\le x<3\\
+1&\mb{for}\ 3\le x
+\ea\right.
+$$
+Compute the corresponding PMF, i.e.,
+calculate $p_i=P(X=i)$, $i=0,1,2,3$.
+\\
+{\color{blue}{\bf Sol.}}
+
+
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c|c||c|} \hline
+           $i$        &   $0$      &   $1$   &$2$    &$3$    &  \\
+\hline 
+$P(X=i)$    & $0.2$  & $0.3$&$0.4$ & $0.1$ &1\\
+\hline
+
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item
+Two balls are chosen randomly from an urn containing 8 white, 4 black, and 2 orange balls. 
+Suppose that we win \$2 for each black ball selected and we lose \$1 for each white ball selected. 
+Let $X$ denote our winnings. 
+\begin{enumerate}
+\item What are the possible values of $X$?
+\\
+{\color{blue}{\bf Sol.}}
+The possible results of the experiment are \\
+$$\{W,W \}, \{W,B \}, \{W,O \}, \{B,B \}, \{B,O \}, \{O,O \}$$
+Then $X$ can take the values:\\
+$-2$ for $\{W,W \}$, $1$ for $\{W,B \}$\\
+$-1$ for $\{W,O \}$, $4$ for $\{B,B \}$\\
+$2$ for $\{B,O \}$, $0$ for $\{O,O \}$\\
+\item What are the probabilities associated with each value?
+\\
+{\color{blue}{\bf Sol.}}f
+$$P(X=-2)=P(\{W,W\})=\f{{8 \choose 2}}{{14 \choose 2}}=\f{28}{91}$$
+$$P(X=1)=P(\{W,B\})=\f{{8 \choose 1}\cdot {4 \choose 1}}{{14 \choose 2}}=\f{32}{91}$$
+$$P(X=-1)=P(\{W,O\})=\f{{8 \choose 1}\cdot {2 \choose 1}}{{14 \choose 2}}=\f{16}{91}$$
+$$P(X=4)=P(\{B,B\})=\f{{4 \choose 2}}{{14 \choose 2}}=\f{6}{91}$$
+$$P(X=2)=P(\{B,O\})=\f{{4 \choose 1}\cdot {2 \choose 1}}{{14 \choose 2}}=\f{8}{91}$$
+$$P(X=0)=P(\{O,O\})=\f{{2 \choose 2}}{{14 \choose 2}}=\f{1}{91}$$
+
+
+
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c|c|c|c||c|} \hline
+                   & $-2$                & $-1$   &  $0$      &   $1$   &$2$   & $4$  & \\
+\hline 
+$p$    & $\f{28}{91}$  & $\f{16}{91}$&$\f{1}{91}$&$\f{32}{91}$    &   $\f{8}{91}$    &$\f{6}{91}$  &1\\
+\hline
+
+
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+\item  
+A salesman has scheduled two appointments to sell encyclopedias. 
+His first appointment will lead to a sale with probability 0.3, and 
+his second will lead independently to a sale with probability 0.6. 
+Any sale made is equally likely to be 
+either for the deluxe model, which costs \$1000, 
+or the standard model, which costs \$500. 
+Determine the probability mass function of $X$, 
+the total dollar value of all sales.
+\\
+{\color{blue}{\bf Sol.}}
+For $i = 1, 2$ consider the events $S_i$ := $\{$sale on the $i$th appointment$\}$. We know that $S_1$ and $S_2$ are independent, $P(S_1)=0.3,P(S_2)=0.6$. Let $D_i$ := deluxe on $i$th, also. We know that $P(D_i|S_i)=P(D_i^c|S_i)=\f{1}{2}$. \\
+Consequently, $P(S_i \cap D_i)=\f{P(S_i)}{2}$ and $P(S_i \cap D_i^c)=\f{P(S_i)}{2}$.\\
+The possible values of $X$ are:\\
+$2000$ dollars. In this case, we have\\ 
+$$P\{X=2000\}=P(S_1 \cap D_1)P(S_2 \cap D_2)=\f{0.3}{2}\cdot\f{0.6}{2}=0.045$$\\
+$1500$ dollars. In this case, we have\\ 
+$$P\{X=1500\}=P(S_1 \cap D_1)P(S_2 \cap D_2^c)+P(S_1 \cap D_1^c)P(S_2 \cap D_2)=0.09$$\\
+$1000$ dollars. In this case, we have \\
+$$P\{X=1000\}=P(S_1 \cap D_1)P(S_2^c)+P(S_1^c)P(S_2 \cap D_2)+P(S_1 \cap D_1^c)P(S_2 \cap D_2^c)=0.315$$ 
+$500$ dollars. In this case, we have \\
+$$P\{X=500\}=P(S_1 \cap D_1^c)P(S_2^c)+P(S_1^c)P(S_2 \cap D_2^c)=0.27$$ 
+$0$ dollars. In this case, we have \\
+$$P\{X=0\}=P(S_1^c)P(S_2^c)=0.28$$ 
+
+
+\item
+Five distinct numbers are randomly distributed 
+to players numbered 1 through 5. 
+Whenever two players compare their numbers, 
+the one with the higher one is declared the winner. 
+Initially, players 1 and 2 compare their numbers; 
+the winner then compares her number with that of player 3, and so on. 
+Let $X$ denote the number of times player 1 is a winner. 
+Find $P(X = i)$, $i = 0, 1, 2, 3, 4$.
+\\
+{\color{blue}{\bf Sol.}}
+Let $Y_j$ denote the number distributed to player $j$. Note that $(Y_1 ,\cdots, Y_5)$ is a random permutation of $(1 ,\cdots, 5)$, all permutations being equally likely. Therefore, $p(0)=P\{X=0\}=P(Y_1<Y_2)$. But half of all permutations of $(1 ,\cdots, 5)$
+have $Y_1 < Y_2$, whereas half have $Y_1 > Y_2$. Therefore,
+$$p(0)=\f{\f{1}{2}\cdot5!}{5!}=\f{1}{2}$$
+Next note that $p(1) = P\{Y_2 < Y_1 < Y_3\}$. The number of ways to end up with
+$Y_2 < Y_1 < Y_3$ is the same as the number of ways to get $Y_1 < Y_2 < Y_3$. This is the same as $\cdots$. Therefore, the number of ways to get $Y_2 < Y_1 < Y_3$ is $\f{1}{3!}$ times the total number of permutations. That is,
+$$p(1)=\f{\f{1}{3!}\cdot5!}{5!}=\f{1}{6}$$
+\bea
+p(2)
+&=&P\{Y_2 < Y_1 , Y_3 < Y_1 , Y_4 > Y_1\}\nn\\
+&=& P\{Y_1 = 3 , Y_2 = 1 , Y_3 = 2\} + P\{Y_1 = 3 , Y_2 = 2 , Y_3 = 1\}
+\nn\\
+&&+ P\{Y_1 = 4 , Y_2 = 1 , Y_3 = 2 , Y_4 = 5\} + P\{Y_1 = 4 , Y_2 = 2 , Y_3 = 1 , Y_4 = 5\}\nn\\
+&&+ P\{Y_1 = 4 , Y_2 = 1 , Y_3 = 3 , Y_4 = 5\} + \cdots \nn\\
+&=&(\f{2}{5!}+\f{2}{5!})+(\f{1}{5!}+\f{1}{5!}+\cdots)\nn\\
+&=&(2\cdot\f{2}{5!})+(6\cdot\f{1}{5!})=\f{1}{12}\nn
+\eea
+
+Next we note that
+\bea
+p(3)
+&=&P\{Y_2 < Y_1 , Y_3 < Y_1 , Y_4 < Y_1 , Y_5 > Y_1\}\nn\\
+&=& P\{Y_1 = 4 , Y_1 = 1 , Y_2 = 2 , Y_3 = 3 , Y_4 = 4 , Y_5 = 5\}+\cdots \nn\\
+&=&\f{3!}{5!}=\f{1}{20} \nn
+\eea
+
+Finally,
+$$p(4) = P\{Y_1 = 5\} = \f{1}{5}$$
+
+
+
+\item 
+On a multiple-choice exam of 20 questions  with 4 possible answers for each question, 
+let $S$ be the number of correct answers obtained just by guessing and
+let $X_i$, $1\le i\le 20$, be the indicator of choosing the correct answer for the problem $i$.
+\begin{enumerate}
+\item Represent $S$ in terms of $X_i$.
+\\
+{\color{blue}{\bf Sol.}}
+$$S=X_1+X_2+\cdots+X_{20}=\sum_{i=1}^{20}X_i$$
+\item What is the distribution of $X_i$?
+\\
+{\color{blue}{\bf Sol.}}
+$X_i$:Bernoulli distribution with $p=\f{1}{4}$. $X_i \sim B(\f{1}{4})$
+\item Discuss the independence, pairwise independence, or dependence of $X_i$.
+\\
+{\color{blue}{\bf Sol.}}
+Since
+$$P(X_i=1,X_j=1)=P(X_i=1)P(X_j=1)$$
+$$P(X_i=1,X_j=0)=P(X_i=1)P(X_j=0)$$
+$$P(X_i=0,X_j=1)=P(X_i=0)P(X_j=1)$$
+$$P(X_i=0,X_j=0)=P(X_i=0)P(X_j=0)$$
+So, pairwise independence.\\
+Since
+$$P(X_1=a_1,X_2=a_2,\cdots X_{20}=a_{20})=P(X_1=a_1)P(X_2=a_2)\cdots P(X_{20}=a_{20})$$
+where $a_1, \cdots a_{20}=0$ or $1$\\
+independet.
+\item Can we declare the distribution of $S$ is binomial? Why or why not.
+\\
+{\color{blue}{\bf Sol.}}
+$$S=X_1+X_2+\cdots+X_{20}=\sum_{i=1}^{20}X_i  \sim  B(20,\f{1}{4}) $$
+\end{enumerate}
+
+
+
+
+
+\item 
+We flip the fair coin 5 times independently and let $X$ be the number of heads.
+Let $D$ be the number of heads minus the number of tails.
+\begin{enumerate}
+\item Represent $D$ in terms of $X$.
+\\
+{\color{blue}{\bf Sol.}}
+$$D=2X-5 $$
+\item What is the distribution of $X$?
+\\
+{\color{blue}{\bf Sol.}}
+$$
+X_i=\left\{\ba{ll}
+1 &\mb{head}\ \\
+0 &\mb{tail}\
+\ea\right.
+$$
+
+$$X=X_1+X_2+\cdots +X_5$$
+$$X_i \sim B(\f{1}{2}), X \sim B(5, \f{1}{2}) $$
+\item Calculate the PMF of $D$.
+\\
+{\color{blue}{\bf Sol.}}
+$$P(X=k)= P(D=2k-5)={5 \choose k}(\f{1}{2})^k(\f{1}{2})^{5-k},\ (k=0,1,\cdots ,4,5)$$
+
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c|c|c|c||c|} \hline
+           $d$        &   $-5$      &   $-3$   &$-1$    & $1$& $3$ & $5$ & \\
+\hline 
+$P(D=d)$    & $ {5 \choose 0}(\f{1}{2})^5 $  & $ {5 \choose 1}(\f{1}{2})^5 $&${5 \choose 2}(\f{1}{2})^5 $ &$ {5 \choose 3}(\f{1}{2})^5 $ & $ {5 \choose 4}(\f{1}{2})^5 $ & $ {5 \choose 5}(\f{1}{2})^5 $ &  1\\
+\hline
+
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+
+\end{enumerate}
+
+
+
+\item 
+We flip coins $n$ times independently and let $X$ be the number of heads.
+For the $i$-th flip we use the $p_i$-coin which lands on head with probability $p_i$.
+Let $A_i$ be the event that the $i$-coin lands on head
+and let $1_{A_i}$ be its indicator.
+\begin{enumerate}
+\item Represent $X$ in terms of $1_{A_i}$.
+\\
+{\color{blue}{\bf Sol.}}
+$$
+1_{A_i}=\left\{\ba{ll}
+1 &i\mb{th head}\ p_i\ \\
+0 &\ $ {} $   \mb{tail}\ 1-p_i\
+\ea\right.
+$$
+$$S=1_{A_1}+1_{A_2}+\cdots +1_{A_n}$$
+\item What is the distribution of $1_{A_i}$?
+\\
+{\color{blue}{\bf Sol.}}
+$$1_{A_i} \sim B(p_i)$$
+\item Discuss the independence, pairwise independence, or dependence of $1_{A_i}$.
+\\
+{\color{blue}{\bf Sol.}}
+$$P(1_{A_1} \cdots 1_{A_n})=P(1_{A_1})P(1_{A_2})\cdots P(1_{A_n})$$
+$1_{A_i}$ is pairwise independence and independent.
+\item Is the distribution of $X$ is binomial? Why or why not.
+\\
+{\color{blue}{\bf Sol.}}
+If all $p_i$'s are same then $S \sim B(n,p)$.\\
+If all $p_i$'s are diffenent then $S$ is not bibomial.\\
+$1_{A_i}$:Bernolli distribution, independent\\
+But, $S=\sum_{i=1}^n 1_{A_i}$ : not binomial. 
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item
+A fair coin is tossed thirteen times, independently. Let $X$ be the number of times the coin lands heads in the first ten tosses, and let $Y$ be the number of times the coin lands tails in the last ten tosses.
+Are $X$ and $Y$ independent?
+\begin{enumerate}
+\item Provide an intuitive argument.
+\\
+{\color{blue}{\bf Sol.}}
+not independent.
+$$P(X=5)={10 \choose 5}(\f{1}{2})^{10}$$
+$$P(Y=7)={10 \choose 7}(\f{1}{2})^{10}$$
+$$P(X=3,Y=10)=\f{1}{2^{13}}\cdot\{{7 \choose 4}\cdot{3 \choose 1}+{3 \choose 2}\cdot{7 \choose 5} \}$$
+$$P(X=5)P(Y=7) \neq P(X=3,Y=10)$$
+\item Provide a mathematical back up.
+\\
+{\color{blue}{\bf Sol.}}
+$$P(X=3)={10 \choose 3}(\f{1}{2})^{3}, P(Y=10)={10 \choose 10}(\f{1}{2})^{10}$$
+$$P(X=3,Y=10)=(\f{1}{2})^{13}$$
+But,
+$$P(X=3)\cdot  P(Y=10) \neq P(X=3,Y=10)$$
+Therefore $X$ and $Y$ are not independent
+\end{enumerate}
+
+
+
+
+
+
+
+\item 
+Initially a jar contains $n$ red candies and no white candies. 
+A boy successively takes a candy from the jar and put a new white candy.
+The boy draws a candy until he has a white candy. 
+Let $X$ be the number of draws.
+\begin{enumerate}
+\item Can we declare the distribution of $X$ is geometric? Why or why not. 
+\\
+{\color{blue}{\bf Sol.}}
+$X$ is not geometric because it is neither independent and identical
+\item Compute the PMF of $X$.
+\\
+{\color{blue}{\bf Sol.}}
+Let
+$E_i$ = the event of not drawing a previous chip on the $i$th draw.\\
+$p_i$ = probability of stopping on the $i$th draw\\
+$n$ = the number of chips\\
+$X$ = the number of draws before ending\\
+Then,
+\bea
+P(X=x)
+&=&P( \mb{probability of not stopping on any previous draws and stopping on the} x \mb{th draw}) \nn\\
+&=& P(E_1E_2\cdots E_{x-1}(E_x)^c) \nn\\
+&=&P(E_x^c | E_{x-1}E_{x-2}\cdots E_1)P(E_{x-1}  | E_{x-2}E_{x-3}\cdots E_1)\cdots P(E_2 | E_1)P(E_1) \nn
+\eea
+Now the probability of not drawing a previously seen chip given that there have been no repeat draws is just the number of unseen chips divided by the total number of chips. On draw $i$, this is just $\f{n-i+1}{n}$.\\ 
+Similarly, the probability of drawing a previously seen chip on draw $x$, given that there have been no repeats thus far, is just $\f{x-1}{n}$. Thus the above becomes:
+$$P(X=x)=\f{x-1}{n}\cdot \prod_{i=1}^{x-1} \f{n-i+1}{n}=\f{x-1}{n}\cdot\f{n!}{(n-x+1)!\cdot n^{x-1}}$$
+Finally, since it is impossible to stop on the first draw, or draw a new one on the $(n+1)$ draw, we can give the following formula that includes the domain information:
+$$
+P(X=x)=\left\{\ba{ll}
+\f{x-1}{n}\cdot \prod_{i=1}^{x-1} \f{n-i+1}{n} & x \in \{2,3,\cdots,n+1\}\ \\
+0 &\mb{otherwise}\
+\ea\right.
+$$
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+\begin{center}
+{\Large\bf [Extra] IID coin flips} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+
+\item 
+Four buses carrying 148 students from the same school 
+arrive at a football stadium. 
+The buses carry, respectively, 40, 33, 25, and 50 students. 
+One of the students is randomly selected. 
+Let $X$ denote the number of students 
+that were on the bus carrying the randomly selected student. 
+One of the 4 bus drivers is also randomly selected. 
+Let $Y$ denote the number of students on her bus.
+Determine the PMFs of $X$ and $Y$.
+
+
+
+
+
+
+\end{enumerate}
+
+
+\end{document}

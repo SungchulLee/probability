@@ -1,0 +1,609 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Variance}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] Variance} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+
+
+\item
+A certain project will be undertaken in 6 stages. There is a 95\% chance that each stage will be completed on time independently.
+\begin{enumerate}
+\item
+Compute the probability that all 6 stages are completed on time.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X_i$ be the $i$th stage.
+$$
+X_i=\left\{\ba{ll}
+1 &\ p=0.95 \\
+0 &\ q=0.05\
+\ea\right.
+$$
+$$P(X_1) \cdots P(X_6)=(0.95)^6$$
+
+\item
+Compute the expectation and variance of the number of stages that will be completed on time.
+\\
+{\color{blue}{\bf Sol.}}
+$X$ be the umber of stages that will be completed on time.
+$$X=X_1+ \cdots + X_6$$
+$$E(X)=E(X_1+ \cdots + X_6)=6\cdot0.95=5.7$$
+$$Var(X)=6\cdot0.95\cdot0.05=0.285$$
+
+\end{enumerate}
+
+
+
+
+\item
+Find the mean and variance of $1+2X+3Y$
+where
+$E(X)= 1$, $Var(X) = 5$, $E(Y) = 2$, $Var(Y) = 2$, and $\rho=0.5$.
+\\
+{\color{blue}{\bf Sol.}}
+$$E[1 + 2X+3Y]=1+2E[X]+3E[X]=1+2\cdot1+3\cdot2=9$$
+Since 
+$$\rho=\f{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}$$
+$$Cov(X,Y)=0.5\sqrt{10}$$
+\bea
+Var(1 + 2X+3Y)
+&=&Var(2X)+Var(3Y)+2\cdot Cov(2X,3Y) \nn\\
+&=&2^2Var(X)+3^2Var(Y)+2\cdot 2 \cdot 3Cov(X,Y) \nn\\
+&=&38+6 \sqrt{10} \nn
+\eea
+
+
+
+\item 
+Suppose that a fair coin is rolled twice, resulting 1 (head) or 0 (tail) each time independently. 
+\begin{enumerate}
+\item Calculate the variance of the maximum value $X$ to appear in the two rolls.
+\\
+{\color{blue}{\bf Sol.}}
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c||c|} \hline
+           $i$        &   $0$      &   $1$   & \\
+\hline 
+$P(X=i)$    & $\f{1}{4}$  & $\f{3}{4}$& 1\\
+\hline
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+$$EX=0\cdot\f{1}{4}+1\cdot\f{3}{4}=\f{3}{4}$$
+$$VarX=0^2\cdot\f{1}{4}+1^2\cdot\f{3}{4}-(\f{3}{4})^2=\f{3}{16}$$
+\item Calculate the variance of the minimum value $Y$ to appear in the two rolls.
+\\
+{\color{blue}{\bf Sol.}}
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c||c|} \hline
+           $i$        &   $0$      &   $1$   & \\
+\hline 
+$P(Y=i)$    & $\f{3}{4}$  & $\f{1}{4}$& 1\\
+\hline
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+$$EY=0\cdot\f{3}{4}+1\cdot\f{1}{4}=\f{1}{4}$$
+$$VarY=0^2\cdot\f{3}{4}+1^2\cdot\f{1}{4}-(\f{1}{4})^2=\f{3}{16}$$
+\item Calculate $Cov(X,Y)$ and check the sign of $Cov(X,Y)$ with your intuition.
+\\
+{\color{blue}{\bf Sol.}}
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c||c|} \hline
+           $i$        &   $0$      &   $1$   & \\
+\hline 
+$P(XY=i)$    & $\f{3}{4}$  & $\f{1}{4}$& 1\\
+\hline
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+$$Cov(X,Y)=E(XY)-EX\cdot EY=\f{1}{16}$$
+$$VarX=0^2\cdot\f{1}{4}+1^2\cdot\f{3}{4}-(\f{3}{4})^2=\f{3}{16}$$
+\item Calculate the variance of the sum of the two rolls.
+\\
+{\color{blue}{\bf Sol.}}
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c||c|} \hline
+           $i$        &   $0$      &   $1$   & $2$ & \\
+\hline 
+$P(X=i)$    & $\f{1}{4}$  & $\f{1}{2}$&  $\f{1}{4}$  &$1$\\
+\hline
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+$$EX=0\cdot\f{1}{4}+1\cdot\f{1}{2}+2\cdot\f{1}{4}=1$$
+$$VarX=0^2\cdot\f{1}{4}+1^2\cdot\f{1}{2}+2^2\cdot\f{1}{4}-1^2=\f{1}{2}$$
+\item Calculate the variance of the first roll number minus the second roll number.
+\\
+{\color{blue}{\bf Sol.}}
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c||c|} \hline
+           $i$        &   $-1$      &   $0$   & $1$ & \\
+\hline 
+$P(X=i)$    & $\f{1}{4}$  & $\f{1}{2}$&  $\f{1}{4}$  &$1$\\
+\hline
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+$$EX=(-1)\cdot\f{1}{4}+0\cdot\f{1}{2}+1\cdot\f{1}{4}=0$$
+$$VarX=(-1)^2\cdot\f{1}{4}+0^2\cdot\f{1}{2}+1^2\cdot\f{1}{4}-0^2=\f{1}{2}$$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+\item
+Let $X_i$ be independent with same mean 0, and variance 2.
+Let $Y_n=X_n+X_{n+1}+X_{n+2}$.
+For $j\ge 0$, calculate $Cov(Y_n,Y_{n+j})$.
+\\
+{\color{blue}{\bf Sol.}}
+Since $X_i$ is independent
+
+$$
+Cov(X_i,X_j)=\left\{\ba{ll}
+0 &i\neq j\ \\
+2 &i=j\
+\ea\right.
+$$
+If $j=0$, 
+$$Cov(Y_n,Y_{n})=Var(Y_n)=Var(X_n+X_{n+1}+X_{n+2})=Var(X_n)+Var(X_{n+1})+Var(X_{n+2})=6$$
+If $j=1$, 
+$$Cov(Y_n,Y_{n+1})=Var(X_{n+1})+Var(X_{n+2})=4$$
+If $j=2$, 
+$$Cov(Y_n,Y_{n+2})=Var(X_{n+2})=2$$
+If $j\ge 3$, 
+$$Cov(Y_n,Y_{n+3})=0$$
+
+
+
+
+
+
+
+
+
+
+\item
+Consider a graph having $n$ vertices labeled
+$1,2,\ldots,n$, and suppose that, between each of the ${n\choose 2}$ pairs of distinct vertices, an edge is independently present with probability $p$. The degree of vertex $i$, designated as $D_i$, is the number of edges that have vertex $i$ as one of their vertices.
+\begin{enumerate}
+\item What is the distribution of $D_i$?
+\\
+{\color{blue}{\bf Sol.}}
+Since each edge occurs independently with probability $p$, the number of edges connected to a given node is a binomial with parameters $n-1$ and $p$ ($n-1$ is the number of other nodes. hence the number of possible edges).
+
+\item Find $\rho(D_i , D_j )$, the correlation between $D_i$ and $D_j$.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X_{ij} = 1$ if there is an edge between vertices $i$ and $j$ and $0$ otherwise. Note that $X_{ij}=X_{ji}$. Then
+$$D_i = \sum_{\substack{j = 1 \\ j \neq i}}^n X_{ij}$$
+Thus, for $i\neq j$
+\bea
+Cov(D_i, D_j)
+&=&Cov(\sum_{k \neq i} X_{ik}, \sum_{k \neq j} X_{jk}) \nn\\
+&=&\sum_{k \neq i} \sum_{l \neq j} Cov(X_{ik}, X_{jl})  \nn\\
+&=&Cov(X_{ij}, X_{ji}) = Var(X_{ij}) = p(1-p) \nn
+\eea
+
+Where the step on the last line follows from noting that $k=j$ and $l = i$ are the only possible values of $k$ and $l$ for which $X_{ik}$ and $X_{jl}$ are not independent. Thus the correlation is then
+\bea
+\rho(D_i, D_j)
+&=&\frac{Cov(D_i, D_j)}{\sqrt{Var(D_i)}\sqrt{Var(D_j)}} \nn\\
+&=&\frac{p(1-p)}{(n-1)p(1-p)}   \nn\\
+&=&\f{1}{n-1}  (i\neq j)\nn
+\eea
+for $i=j$, $\rho(D_i, D_j)=1$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item
+A box contains 5 red and 5 blue marbles. Two marbles are withdrawn randomly. 
+If they are the same color, then you win \$1.10; if they are different, then you  lose \$1.00. Calculate the mean and variance of the amount you win.
+\\
+{\color{blue}{\bf Sol.}}
+$$P(X=1.1)=\f{{5 \choose 2}+{5 \choose 2}}{{10 \choose 2}}=\f{4}{9}$$
+$$P(X=-1)=\f{{5 \choose 1}\cdot{5 \choose 1}}{{10 \choose 2}}=\f{5}{9}$$
+$$E(X)=1.1\cdot\f{4}{9}+(-1)\cdot\f{5}{9}=-\f{1}{15}$$
+$$Var(X)=1.1^2\cdot\f{4}{9}+(-1)^2\cdot\f{5}{9}-(-\f{1}{15})^2$$
+
+
+
+
+\item
+A sample of 3 items is selected at random from a box containing 20 items of which 4 are defective. 
+Find the expectation and variance of the number of defective items in the sample.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ be the number of defective items in the sample.\\
+Then $X \sim HG(n,m,N)=HG(3,4,20) $\\
+$$EX=n\cdot \f{m}{N}=3\cdot\f{4}{20}=\f{3}{5}$$
+$$VarX=n\cdot \f{m}{N}\cdot(1-\f{m}{N})\cdot(1-\f{n-1}{N-1})=3\cdot\f{4}{20}\cdot(1-\f{4}{20})\cdot(1-\f{3-1}{20-1})=\f{204}{475}$$
+
+
+
+
+
+\item
+Five distinct numbers are randomly distributed 
+to players numbered 1 through 5. 
+Whenever two players compare their numbers, 
+the one with the higher one is declared the winner. 
+Initially, players 1 and 2 compare their numbers; 
+the winner then compares her number with that of player 3, and so on. 
+Let $X$ denote the number of times player 1 is a winner. 
+Find the expectation and variance of $X$.
+\\
+{\color{blue}{\bf Sol.}}
+In Homework4 \#4,
+$$P(X=0)=\f{1}{2},P(X=1)=\f{1}{6},P(X=2)=\f{1}{12} $$
+$$P(X=3)=\f{1}{20},P(X=4)=\f{1}{5}$$
+$$EX=0\cdot\f{1}{2}+1\cdot\f{1}{6}+2\cdot\f{1}{12} + 3\cdot\f{1}{20}+4\cdot\f{1}{5}=\f{77}{60}$$
+$$VarX=0^2\cdot\f{1}{2}+1^2\cdot\f{1}{6}+2^2\cdot\f{1}{12} + 3^2\cdot\f{1}{20}+4^2\cdot\f{1}{5}-(\f{77}{60})^2$$
+
+
+
+
+
+\item
+We mix the ordinary deck of the 52 cards and choose two cards.
+If we have 2 aces, we stop.
+Otherwise we mix the deck and choose two cards again.
+We do this until we get 2 aces.
+What is the expectation and variance of the number of trials to get the 2 aces?
+\\
+{\color{blue}{\bf Sol.}}
+$$p=\f{{4 \choose 2}}{{52 \choose 2}}=\f{1}{221}$$
+Since $X \sim Geo(p)$
+$$EX=\f{1}{p}=221$$
+$$VarX=\f{q}{p^2}=221\cdot220=48620$$
+
+
+
+
+\item
+Someone I know claims to be able to flip a coin in such a way that he can make it land head 90\% of the time, on the average. I want to test the hypothesis that he's bluffing against the alternative that he is right. I propose to test this hypothesis by having him flip the coin again and again until it first lands tail. If it takes more than 4 tries, I'll conclude that he's right. Assume that the flips are independent.
+\begin{enumerate}
+\item
+Under the null hypothesis $p=0.5$ that he cannot influence the outcome, 
+identify the distribution of the number of spins until the coin lands tail.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ be the number of spins until the coin lands tail under the null hypothesis.\\
+Then $X \sim Geo(0.5)$
+\item
+What is the expectation and variance of the number of spins to the first tail under the alternative hypothesis $p=0.9$(head)?
+\\
+{\color{blue}{\bf Sol.}}
+Let $Y$ be the number of spinsto the first tail under the alternative hypothesis.\\
+Then $Y \sim Geo(0.1)$
+$$EY=\f{1}{p}=10$$
+$$VarY=\f{q}{p^2}=90$$
+
+\end{enumerate}
+
+
+\end{enumerate}
+\vskip 0.3in
+
+
+
+
+
+\begin{center}
+{\Large\bf Extra} 
+\end{center}
+
+
+
+\begin{enumerate}
+\item
+We flips a $p$-coin many times, where $p=0.40$.
+\bea
+X_i&&\mb{$i^{th}$ flip record,
+where $H$ and $T$ are recorded as 1 and 0}\nn\\
+Y_i:=2X_i-1&&\mb{$i^{th}$ flip record,
+where $H$ and $T$ are recorded as 1 and $-1$}\nn
+\eea
+
+Calculate the mean and variance of the following related random variables,
+i.e., fill up blanks of the below table.
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c||c|} \hline
+Random variable&Mean&Variance\\\hline\hline  
+$Y_i$&&\\\hline
+$\sum_{i=1}^nY_i$&&\\\hline
+$\f{\sum_{i=1}^nY_i}{\sqrt{n}}$&&\\\hline
+\end{tabular}
+\end{table}
+
+
+
+
+\item
+On a multiple-choice exam with 4 possible answers for each of the 20 questions, 
+what is the mean and variance of the number of correct answers 
+that a student will get just by guessing?
+
+
+
+\item
+20 people consisting of 10 couples are in an island.
+Each person lives after 1 year with probability 0.5, independently.
+Let $X$ be the number of surviving couples after 1 year. 
+\begin{enumerate}
+\item
+Identify the distribution of $X$. 
+\\
+{\color{blue}{\bf Sol.}}
+$$
+X_i=\left\{\ba{ll}
+1 &i\mb{th couple survive}\ p=\f{1}{2}\cdot\f{1}{2} \\
+0 &\mb{otherwise}\ q=1-\f{1}{4}\
+\ea\right.
+$$
+Then $X_i \sim B(\f{1}{4})$
+$$X=X_1+X_2+\cdots+X_{10}$$
+$$X\sim B(10,\f{1}{4})$$
+\item
+Calculate the mean and variance of $X$. 
+\\
+{\color{blue}{\bf Sol.}}
+$$E(X)=np=10\cdot\f{1}{4}=\f{5}{2}$$
+$$Var(X)=npq=10\cdot\f{1}{4}\cdot\f{3}{4}=\f{15}{8}$$
+\end{enumerate}
+
+
+
+\item
+An urn contains 4 white and 4 black balls. 
+We randomly choose 4 balls. 
+If 2 of them are white and 2 are black, we stop. 
+If not, we replace the balls in the urn and again randomly select 4 balls. 
+This continues until exactly 2 of the 4 chosen are white. 
+What is the mean and variance of the number of trials?
+
+
+
+
+
+\item
+Let $X_i$, $1\le i \le 4$, have mean 3 and variance 2
+and the correlation $\rho_{ij}$ between two are all 0.5.
+Compute 
+\begin{enumerate}
+\item $Cov(X_1 +X_2,X_2 +X_3)$. 
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+Cov(X_1 +X_2,X_2 +X_3)
+&=&Cov(X_1,X_2)+Cov(X_1,X_3)+Cov(X_2,X_2)+Cov(X_2,X_3) \nn\\
+&=&\rho \{\sqrt{Var(X_1)Var(X_2)}+\sqrt{Var(X_1)Var(X_3)} \nn\\
+&&\ +Var(X_2)+\sqrt{Var(X_2)Var(X_3)} \} \nn\\
+&=&0.5(2+2+2+2)=4 \nn
+\eea
+\item $Cov(X_1+X_2,X_3+X_4)$.
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+Cov(X_1 +X_2,X_3 +X_4)
+&=&Cov(X_1,X_3)+Cov(X_1,X_4)+Cov(X_2,X_3)+Cov(X_2,X_4) \nn\\
+&=&\rho \{\sqrt{Var(X_1)Var(X_3)} +\sqrt{Var(X_1)Var(X_4)} \nn\\
+&&\ +\sqrt{Var(X_2)Var(X_3)}+\sqrt{Var(X_2)Var(X_4)} \} \nn\\
+&=&0.5(2+2+2+2)=4 \nn
+\eea
+\end{enumerate}
+
+
+\end{enumerate}
+\vskip 0.3in
+
+\end{document}

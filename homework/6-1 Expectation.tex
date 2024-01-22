@@ -1,0 +1,504 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Expectation}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] Expectation} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+
+\item
+Let $X$ be the number of heads minus the number of tails obtained 
+when a fair coin is tossed $n$ times. 
+Calculate the mean  of $X$. 
+\\
+{\color{blue}{\bf Sol.}}
+Let $i$ be the number of tails.\\
+Then $n-i$ is the number of heads and $X=n-2i$.
+$$P(X=i)={n \choose i}(\f{1}{2})^i(\f{1}{2})^{n-i}={n \choose i}(\f{1}{2})^n$$
+\bea
+E(X)
+&=&\sum_{x} x\cdot P(X=x) \nn\\
+&=&\sum_{i=0}^n (n-2i){n \choose i}(\f{1}{2})^n\nn\\
+&=&\{ n\sum_{i=0}^n {n \choose i}-2\sum_{i=0}^n i\cdot{n \choose i}\}\cdot (\f{1}{2})^n\nn\\
+&=&\{ n \cdot 2^n-2\cdot n\cdot2^{n-1}\}\cdot (\f{1}{2})^n\nn\\
+&=&0\cdot (\f{1}{2})^n=0\nn
+\eea
+
+\item  
+A salesman has scheduled two appointments to sell encyclopedias. 
+His first appointment will lead to a sale with probability 0.3, and 
+his second will lead independently to a sale with probability 0.6. 
+Any sale made is equally likely to be 
+either for the deluxe model, which costs \$1000, 
+or the standard model, which costs \$500. 
+Determine the expectation of $X$, 
+the total dollar value of all sales.
+\\
+{\color{blue}{\bf Sol.}}
+In Homework4 \#4,
+The possible values of $X$ are:\\
+$2000$ dollars. In this case, we have\\ 
+$$P\{X=2000\}=P(S_1 \cap D_1)P(S_2 \cap D_2)=\f{0.3}{2}\cdot\f{0.6}{2}=0.045$$\\
+$1500$ dollars. In this case, we have\\ 
+$$P\{X=1500\}=P(S_1 \cap D_1)P(S_2 \cap D_2^c)+P(S_1 \cap D_1^c)P(S_2 \cap D_2)=0.09$$\\
+$1000$ dollars. In this case, we have \\
+$$P\{X=1000\}=P(S_1 \cap D_1)P(S_2^c)+P(S_1^c)P(S_2 \cap D_2)+P(S_1 \cap D_1^c)P(S_2 \cap D_2^c)=0.315$$ 
+$500$ dollars. In this case, we have \\
+$$P\{X=500\}=P(S_1 \cap D_1^c)P(S_2^c)+P(S_1^c)P(S_2 \cap D_2^c)=0.27$$ 
+$0$ dollars. In this case, we have \\
+$$P\{X=0\}=P(S_1^c)P(S_2^c)=0.28$$ 
+$$EX=(2000 \cdot 0.045) + (1500 \cdot  0.09) + (1000 \cdot  0.315) + (500 \cdot  0.27) +(0 \cdot  0.28)= 675 \mb{dollars}.$$
+
+
+\item
+One of the numbers from 1 through 10 is randomly chosen. You are to try to guess the number chosen by asking  ``yes-no'' questions. Compute the expected number of questions you will need to ask in each of the following two cases:
+\begin{enumerate}
+\item Your $i^{th}$ question is ``Is it $i$?'' $i = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10$.
+\\
+{\color{blue}{\bf Sol.}}
+If at stage $n$ by asking the question ``is it $i$?'', one is able to eliminate one possible choice from further consideration (assuming that we have not guessed the correct number)before stage $n$. Thus let $E_n$ be the event at stage $n$ we guess the number correctly, assuming we have not guessed it correctly in the $n - 1$ earlier stages. Then
+$$P(E_n) =\f{1} {10 - (n -1)}=\f{1}{11-n} $$
+so we have that
+$$P(E_1) = \f{1}{10}, P(E_2) =\f{1}{9}, P(E_3) =\f{1}{8}, \cdots, P(E_{10}) = 1 $$ 
+The expected number of guesses to make using this method is then given by
+\bea
+E(N)
+&=&1\cdot\f{1}{10}+2\cdot(1-\f{1}{10})\cdot\f{1}{9}+3\cdot(1-\f{1}{10})\cdot(1-\f{1}{9})\cdot\f{1}{8}+\cdots \nn\\
+&=& 1\cdot\f{1}{10}+2\cdot\f{1}{10}+\cdots +10\cdot\f{1}{10}  \nn\\
+&=&5.5\nn
+\eea
+
+
+
+\item With each question you try to eliminate one-half of the remaining numbers, as nearly as possible.
+\\
+{\color{blue}{\bf Sol.}}
+Divide what you have in halves and ask, ``is it greater than or equal to $x$?'' where $x$ is the middle of the numbers. For instance,
+your first question is, ``is it greater than or equal to 5.5?''. Let $X$ denote the random number, so that $P\{X = i\} = \f{1}{10}$ for $i = 1, \cdots , 10$. \\
+If $X = 1, 2, 3, 6, 7, 8$ then Q = 3.\\
+If $X = 4, 5, 9, 10$ then $Q = 4$.\\ 
+Therefore, $P\{Q = 3\} = P\{X =1\} + P\{X = 2\} + P\{X = 3\} + P\{X = 6\} + P\{X = 7\} + P\{X = 8\} = 0.6$, and
+$P\{Q = 4\} = 0.4$. \\
+Thus, $E(Q) = (3 \cdot 0.6) + (4 \cdot 0.4) = 3.4$.
+
+\end{enumerate}
+
+
+
+\item
+Two baseball teams $A$ and $B$ with equal skills play korean series,
+where the team who wins 4 games first becomes the champion. 
+What is the expected number of games to play?
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ be the number of games, then $X \sim NB(4, \f{1}{2})$.\\
+$$P(X=4)=2\cdot{4-1 \choose 4-1}(1-0.5)^{4-4}(0.5)^4=\f{1}{8}$$
+$$P(X=5)=2\cdot{5-1 \choose 4-1}(1-0.5)^{5-4}(0.5)^4=\f{1}{4}$$
+$$P(X=6)=2\cdot{6-1 \choose 4-1}(1-0.5)^{6-4}(0.5)^4=\f{5}{16}$$
+$$P(X=7)=2\cdot{7-1 \choose 4-1}(1-0.5)^{7-4}(0.5)^4=\f{5}{16}$$
+$$E(X)=4\cdot\f{1}{8}+5\cdot\f{1}{4}+6\cdot\f{5}{16}+7\cdot\f{5}{16}=\f{93}{16}$$
+
+
+\item
+A player throws a fair die and simultaneously flips a fair coin. 
+If the coin lands heads, she wins \$2. If tails, she wins one-half of the value that appears on the die. Determine her expected winnings.
+\\
+{\color{blue}{\bf Sol.}}
+Let $H$ = $\{$heads$\}$, and define $N$ to be the number of dots on the rolled die. We
+know that $N$ and $H$ are independent. Let $W$ denote the amount won. We know
+that
+$$P(W = 2|H) = 1 \mb{and}  P(W = N/2 |H^c) = 1.$$
+Therefore,
+\bea
+E(W)
+&=&E(W |H)P(H) + E(W |H^c)P(H^c) \nn\\
+&=&E(2|H)P(H) + E(\f{N}{2}|H^c)P(H^c)\nn\\
+&=&2P(H) + E(\f{N}{2})P(H^c) \nn
+\eea
+by independence. But $P(H) = P(H^c) = \f{1}{2}$, and $E(N) = \f{1+\cdots+6}{6} = \f{7}{2}.$\\
+Consequently,
+$$E(W) = 2P(H) +\f{1}{2}E(N)P(H^c) =\f{15}{8}$$
+\item
+Two gamblers with equal skills play
+games.
+The player will win or lose \$1 for each game. 
+Let $W$ be the net winnings of a gambler whose strategy is to stop gambling immediately after his first win. Find
+\begin{enumerate}
+\item $P(W>0)$. 
+\\
+{\color{blue}{\bf Sol.}}
+There is only one way that will happen is when he wins the first time.\\
+Hence, $P(W>0) = P(\mb{win})=\f{1}{2}$
+\item $P(W<0)$.
+\\
+{\color{blue}{\bf Sol.}}
+Since $P(W=0) = P(\mb{lose,win})=\f{1}{2}\cdot\f{1}{2}=\f{1}{4}$ and \\
+$$P(W>0)+P(W=0)+P(W<0)=1$$
+So we have
+$$P(W<0)=\f{1}{4}$$
+
+\item $EW$.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ be the number of trial of which winning occurs.
+$$W = 1 \cdot 1+(-1)\cdot(X-1)$$
+\bea
+E(W)
+&=&E(E(W|X)) \nn\\
+&=&\sum_{x} E(W|X=x)P(X=x)   \nn \\
+&=&\sum_{x=1}^{\infty}(2-x)\cdot\f{1}{2^x}   \nn \\
+&=& 0 \nn
+\eea
+\end{enumerate}
+
+\item
+A box contains five tickets labeled with numbers $-3, -1, 0, 1, 3$. 
+We do 100 random draws with replacement from the box.
+Calculate the expected value of the sum of the positive numbers on the tickets drawn.
+\\
+{\color{blue}{\bf Sol.}}
+Each of the five numbers should be drawn about $\f{100}{5} = 20$ times. Taking just the positive numbers, $1$ and $3$,so the expected value of the sum of the positive numbers on the tickets drawn is 
+$$1\cdot20+3\cdot20=80$$
+
+
+
+\item
+There are $n$ components lined up in a linear arrangement. 
+Suppose that each component independently functions with probability $p$. 
+Let $X$ be the number of 2 neighboring pairs that both are functional. 
+Calculate $EX$. 
+\\
+{\color{blue}{\bf Sol.}}
+Let $a_i$ be the $i$th component and $X_i$ be the $a_i$ and $a_{i+1}$ are functional. 
+$$
+X_i=\left\{\ba{ll}
+1 &\ a_i\ \mb{and} \ a_{i+1}\ \mb{are functional with probability}\ p^2 \\
+0 &\ \mb{otherwise with probability}\ 1-p^2 \
+\ea\right.
+$$
+Then,
+\bea
+EX
+&=&E( \sum_{i=1}^{n-1} X_i )\nn\\
+&=&\sum_{i=1}^{n-1} EX_i \nn\\
+&=&\sum_{i=1}^{n-1} \{ 1\cdot p^2 + 0\cdot(1-p^2)\} \nn\\
+&=&(n-1)p^2 \nn
+\eea
+
+
+\item % ???
+A box contains 5 red and 5 blue marbles. 
+Five marbles are withdrawn randomly with replacement. 
+Each time you have red you win \$1.10 and
+each time you have blue you  lose \$1.00. 
+Let $X$ be the total amount you win after five trials.
+\begin{enumerate}
+\item
+Let $R$ be the number of red marbles drawn during 5 draws.
+Represent $X$ as a function of $R$.  
+\\
+{\color{blue}{\bf Sol.}}
+$$X=1.1R-1(5-R)=2.1R-5$$
+\item
+Calculate  $EX$. 
+\\
+{\color{blue}{\bf Sol.}}
+Since $R \sim B(5,\f{1}{2})$, $ER=np=\f{5}{2}$ 
+$$EX=E(2.1R-5)=2.1ER-5=\f{1}{4}$$
+
+\end{enumerate}
+
+
+
+\item 
+Four buses carrying 148 students from the same school 
+arrive at a football stadium. 
+The buses carry, respectively, 40, 33, 25, and 50 students. 
+One of the students is randomly selected. 
+Let $X$ denote the number of students 
+that were on the bus carrying the randomly selected student. 
+One of the 4 bus drivers is also randomly selected. 
+Let $Y$ denote the number of students on her bus.
+\begin{enumerate}
+\item Which of $EX$ and $EY$ do you think is larger? Why?
+\\
+{\color{blue}{\bf Sol.}}
+\item Compute $EX$ and $EY$.
+\\
+{\color{blue}{\bf Sol.}}
+$X$ corresponds to the method of drawing a student at random. The probability that a
+student comes from bus $i$, $i = \{A,B,C,D\}$ is simply the number of students on that bus divided by the total number of students.
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c|c||c|} \hline
+           $x$        &   $40$      &   $33$   &$25$    &$50$    &  \\
+\hline 
+$P(X=x)$    & $\f{40}{148}$  & $\f{33}{148}$&$\f{25}{148}$ & $\f{50}{148}$ &1\\
+\hline
+
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+
+
+
+Then, $$E(X) = 40 \cdot \f{40}{148} + 33  \cdot \f{33}{148} + 25  \cdot\f{ 25}{148} + 50  \cdot\f{50}{148} = 39.28.$$
+
+
+
+$Y$ corresponds to the method of drawing a bus driver at random. The probability that
+a bus driver comes from a particular bus is constant, $\f{1}{4}$.
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c|c||c|} \hline
+           $y$        &   $40$      &   $33$   &$25$    &$50$    &  \\
+\hline 
+$P(Y=y)$    & $\f{1}{4}$  & $\f{1}{4}$&$\f{1}{4}$ & $\f{1}{4}$ &1\\
+\hline
+
+
+\end{tabular}\vspace{3mm}
+%\caption{\small Bermudan Put option}
+%\label{Vol10}
+\end{table}
+
+Then, $$E(Y ) = 40 \cdot \f{ 1}{4} + 33 \cdot \f {1}{4} + 25\cdot \f{1}{4} + 50 \cdot \f {1}{4} = 37$$ .
+\end{enumerate}
+
+
+\item 
+There are $n$ components lined up in a linear arrangement. 
+Suppose that each component independently functions with probability $p$. 
+Let $X$ be the number of 2 neighboring pairs that both are not functional. 
+Calculate $P(X=0)$.
+% n개의 성분들이 선형배열로 정렬되어 있다. 각 성분은 독립적으로 작동할 확률이 p이다. 이웃한 2개의 성분이 모두 고장나지 않을 확률? n개 중 m개 불량품, 양품n-m개. 우선 n개를 일렬로 배열. 두 개가 연속해서 불량 아닌 경우 n-m+1 >=m,   n-m+1개 위치에서 m개를 선택하여 불량품 1개씩을 놓으면 된다. 
+\\
+{\color{blue}{\bf Sol 1.}}
+Let $X$= the number of nonfunctional components and $E$=event that no two neighboring components are both functional .
+Given $n$ components with $m$ functional, there are ${n-m+1 \choose m}$ possible ordering in which no two neighboring components are both nonfunctional provided $n+1\ge 2m$.\\
+If $n+1<2m$, then there must be a pair of neighboring nonfunctional components.\\
+\bea
+P(E)
+&=&\sum_{m=0}^n P(E|X=m)P(X=m) \nn\\
+&=&\sum_{0 \le m \le \f{n+1}{2}}\f{{n-m+1 \choose m}}{{n \choose m}}\cdot {n \choose m}p^{n-m}(1-p)^m \nn\\
+&=&\sum_{0 \le m \le \f{n+1}{2}}{n-m+1 \choose m}\cdot {n \choose m}p^{n-m}(1-p)^m \nn
+\eea
+\\
+{\color{blue}{\bf Sol 2.}}
+$$P_n=p\cdot P_{n-1}+p\cdot (1-p)\cdot P_{n-2},\ P_1=1, P_2=2p-p^2$$
+$$x^2-px+p(p-1)=0, \alpha, \beta = \f{p\pm \sqrt{4p-3p^2}}{2}$$
+$P_n=a \alpha^n+b \beta ^n$
+$$P_n=\f{2p^2-3p-\sqrt{4p-3p^2}}{-p\sqrt{4p-3p^2}-(4p-3p^2)}\alpha^n + \f{-2p^2+3p-\sqrt{4p-3p^2}}{-p\sqrt{4p-3p^2}+4p-3p^2}\beta^n  $$
+
+
+
+\end{enumerate}
+\vskip 0.3in
+
+
+
+
+
+
+\begin{center}
+{\Large\bf Extra} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+\item
+A statistics class contains 368 students. Homework in the class is submitted online and graded automatically. The instructor wrote software to detect cheating on the homework. Suppose that the software has a 99.6\% chance of correctly identifying a student who cheats, and a 0.2\% chance of mis-identifying an honest student as a cheater. Assume that the software identification of students as cheaters or honest is independent from student to student, and that twelve of the students cheat on the homework.
+\begin{enumerate}
+\item A student is selected at random from the class. Compute the probability that the student cheated, given that the software says he or she did.
+\item Compute the expected number of cheaters who are correctly identified by the software.
+\item Compute the expected number of honest students who are incorrectly identified to be cheaters by the software.
+\item Compute the probability that the software correctly identifies at least ten of the cheaters.
+\item Compute the probability that the software correctly identifies all twelve of the students who cheated, without mis-identifying any of the 356 honest students to be cheaters.
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+
+\end{document}

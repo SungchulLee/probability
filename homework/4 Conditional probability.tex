@@ -1,0 +1,586 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Detailed properties of conditional probability}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] Detailed properties of conditional probability} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+
+
+\item
+There are $n$ people in the class.
+Suppose each one choose one's birthday independently and uniformly over the 365 days.
+For each pair $i$ and $j$
+we let $A_{ij}$ be the event that $i$ and $j$ share the common birthday.
+$A_{ij}$ are not independent.
+However, show that they are pairwise independent.
+\\
+{\color{blue}{\bf Sol.}}
+Suppose 1 and 2 share the common birthday.
+Even if 1 and 2 share the common birthday,
+this does not have any impact on the birthday choice of 3 and 4.
+$$P(A_{34}|A_{12})=P(A_{34}).$$
+
+
+If 1 and 2 share the common birthday,
+this does have a definite impact on the birthday choice of 1.
+If 2 has $i$ as ones birthday,
+then under the event $A_{12}$ 
+1 does not have any choice on one's birthday and has $i$ as ones birthday.
+Let $B_i$ be the event that 2 has $i$ as ones birthday.
+Since $P(B_i)=1/365$ and $P(A_{12}|B_i)=1/365$,
+by the chain rule
+{\color{red}
+$$
+P(A_{12})=\sum_{i=1}^{365}P(A_{12}B_i)
+=\sum_{i=1}^{365}P(B_i)P(A_{12}|B_i)
+=\sum_{i=1}^{365}(1/365)(1/365)
+=1/365.
+$$
+}
+If 2 has $i$ as ones birthday
+and if 1 and 2 share the common birthday, 
+to have the event $A_{13}$ 
+3 should have $i$ as ones birthday and this probability is 1/365.
+Since $P(B_i)=1/365$, $P(A_{12}|B_i)=1/365$, and $P(A_{13}|A_{12}B_i)=1/365$,
+by the chain rule
+{\color{red}
+\bea
+P(A_{12}A_{13})
+&=&\sum_{i=1}^{365}P(A_{12}A_{13}B_i)
+=\sum_{i=1}^{365}P(B_i)P(A_{12}|B_i)P(A_{13}|A_{12}B_i)\nn\\
+&=&\sum_{i=1}^{365}(1/365)(1/365)(1/365)
+=(1/365)^2.\nn
+\eea
+}
+Therefore
+$$
+P(A_{13}|A_{12})=\f{P(A_{12}A_{13})}{P(A_{12})}=\f{(1/365)^2}{1/365}=1/365=P(A_{13}).
+$$
+
+Hence, $A_{ij}$ are pairwise independent; 
+$$
+P(A_{34}|A_{12})=P(A_{34})\ \ \ \ \ \mb{and}\ \ \ \ \ 
+P(A_{13}|A_{12})=P(A_{13}),
+$$
+or more generally
+$$
+P(A_{ik}|A_{ij})=P(A_{ik})\ \ \ \ \ \mb{and}\ \ \ \ \ 
+P(A_{kl}|A_{ij})=P(A_{kl}).
+$$
+
+
+If 1 and 2 share the common birthday
+and if 1 and 3 share the common birthday,
+then 2 and 3 should share the common birthday.
+So
+{\color{red} 
+$$
+A_{12}\cap A_{13}\cap A_{23}=A_{12}\cap A_{13}
+$$
+and hence $A_{ij}$ are not independent;
+$$
+P(A_{12}A_{13}A_{23})=P(A_{12}A_{13})=(1/365)^2\neq (1/365)^3=
+P(A_{12})P(A_{13})P(A_{23}).
+$$ 
+}
+
+
+\item %changed from Ross
+Barbara and Dianne go target shooting. Suppose that each of Barbara's shots hits a wooden duck target with probability $p_1$, while each shot of
+Dianne's hits it with probability $p_2$. Suppose that they shoot simultaneously at the same target. If the wooden duck is knocked over (indicating that it was hit), what is the probability that
+\begin{enumerate}
+\item both shots hit the duck?
+\\
+{\color{blue}{\bf Sol.}}
+Assume thath $B_h$ and $D_h$ are independent events that is equivalent to assuming that each of rhe events $B_h, B_m$ is independent of each of the events $D_h, D_m$
+\\
+$P(B_h)$=the probability that Barbara hits\\
+$P(D_h)$=the probability that Dianne hits\\
+\bea
+P(B_h \cup D_h)
+&=&P(B_h)+P(D_h)-P(B_h \cap D_h) \nn\\
+&=&P(B_h)+P(D_h)-P(B_h)\cdot P(D_h) \nn\\
+&=&p_1+p_2-p_1p_2  \nn
+\eea
+So we have
+$$P(B_h \cap D_h | B_h \cup D_h )=\f{P(B_h \cap D_h )}{P(B_h \cup D_h)}=\f{p_1p_2}{p_1+p_2-p_1p_2}$$
+
+
+
+
+\item Barbara's shot hit the duck? What independence assumptions have you made?
+\\
+{\color{blue}{\bf Sol.}}
+\end{enumerate}
+$$P(B_h| B_h \cup D_h )=\f{P(B_h)}{P(B_h \cup D_h)}=\f{p_1}{p_1+p_2-p_1p_2}$$
+
+
+
+
+
+\item
+In one pocket, I have two quarters; in the other, I have a quarter and a nickel. My toddler reaches into one of my pockets and grabs a coin. Assume that she picks the pocket and the coin randomly, and that the chance she reaches into each pocket is 50\%, and the chance that she pulls out each of the two coins in each pocket is the same. What is the conditional probability that the second coin in the pocket she reaches into is a quarter, given that the coin she pulls out is a quarter? 
+\\
+{\color{blue}{\bf Sol.}}
+Let $Q_i$ be the event that the $i$th coin is quarter and $P_1$ be the event that choose one pocket and $P_2$ be the event that choose other pocket\\
+$$P(Q_1)=P(Q_1|P_1)P(P_1)+P(Q_1|P_2)P(P_2)=\f{2}{2}\cdot \f{1}{2}+\f{1}{2}\cdot \f{1}{2}=\f{3}{4}$$
+\bea
+P(Q_1 \cap Q_2)
+&=&P(Q_1\cap Q_2|P_1)P(P_1)+P(Q_1\cap Q_2|P_2)P(P_2) \nn\\
+&=&1\cdot\f{1}{2}
++0\cdot \f{1}{2} \nn\\
+&=&\f{1}{2}  \nn
+\eea
+So the conditional probability that the second coin in the pocket she reaches into is a quarter, given that the coin she pulls out is a quarter is\\
+$$P(Q_2|Q_1)=\f{P(Q_1\cap Q_2)}{P(Q_1)}=\f{\f{1}{2}}{\f{3}{4}}=\f{2}{3}$$
+
+
+\item
+Suppose I commute to school by bus or subway, depending on the weather. If it is sunny, I take the subway, but if it is raining, I take the bus. If I take the subway, I will be on time. If I take the bus and there is a traffic jam, I will be late. If there is no traffic jam, I will be on time. The unconditional daily chance of a traffic jam is 20\%. Suppose I live in a part of the world that does not have seasons, and that the chance it is raining at the time in question is 10\% every day. 
+Compute the probability that I am on time this coming friday.
+\\
+{\color{blue}{\bf Sol.}}
+Let $S$ be the event that take the subway on a sunny day, $R$ be the event that take the bus on a rainy day and $T$ be the event that there is traffic jam, $O$ be the event that  arrive at school on time .\\
+$$P(O^c)=P(R)P(T|R)=0.1\cdot0.2=0.02$$
+So we have,
+$$P(O)=1-P(O^c)=1-0.02=0.98$$
+
+
+\item  
+We choose one out of 10 coins and flip it,
+where coin $i$ has success probability $p_i=i/10$.
+What is the probability of using coin 5,
+given that the coin lands on head?
+\\
+{\color{blue}{\bf Sol.}}
+Let $C_i$ be the event that the $i$th coin was selected to be flipped. Since any coin is equally likely we have $P(C_i)\f{1}{10}$ for all $i$. Let $H$ be the event that the flipped coin shows heads, then we want to compute $P(C_5|H)$. From Bayes’ rule we have
+$$P(C_5|H) = \f{P(H|C_5)P(C_5)}{P(H)}$$
+We compute P(H) by conditioning on the selected coin Ci we have
+\bea
+P(H) 
+&=&\sum_{i=1}^{10} P(H|C_i)P(C_i) \nn\\
+&=&\sum_{i=1}^{10} \f{i}{10}(\f{1}{10}) = \f{1}{100} \sum_{i=1}^{10} i \nn\\
+&=&\f{1}{100}(\f{10(10+1)}{2})\nn\\
+&=&\f{11}{20}  \nn
+\eea
+So that 
+$$P(C_5|H) = \f{\f{5}{10}\cdot\f{1}{10}}{\f{11}{20}}=\f{1}{11}$$
+
+
+
+
+\item  
+Urn $A$  contains 5 white and 7 black balls,
+whereas Urn $B$ contains 3 white and 12 black balls. 
+We flip a fair coin. 
+If the outcome is a head, then we choose a ball from urn $A$.
+If the outcome is a tail, then we choose a ball from urn $B$. 
+Suppose that we choose a white ball. 
+What is the probability that we choose a ball from urn $A$? 
+\\
+{\color{blue}{\bf Sol.}}
+Let $A$ be the event that a ball from urn $A$, and $W$ be the event
+that a white ball is selected. We like to find $P(A|W)$.
+Now,
+\bea
+P(A|W) 
+&=&\f{P(AW)}{P(W)} \nn\\
+&=&\f{P(W|A)P(A)}{P(W|A)P(A)+P(W|B)P(B)} \nn\\
+&=&\f{\f{5}{12}\cdot\f{1}{2}}{\f{5}{12}\cdot\f{1}{2}+\f{3}{15}\cdot\f{1}{2}}\nn\\
+&=&\f{\f{5}{12}}{\f{5}{12}+\f{3}{15}}=\f{25}{37} \nn
+\eea
+
+
+\item  
+Die $A$ has 4 red and 2 white faces,
+whereas die $B$ has 2 red and 4 white faces. 
+We flip a fair coin. 
+If the outcome is a head, then we rolls die $A$ all the time.
+If the outcome is a tail, then we rolls die $B$ all the time. 
+What is the probability that
+\begin{enumerate}
+\item  
+we have red in the first roll? 
+\\
+{\color{blue}{\bf Sol.}}
+Let $A$ be the event that rolls die $A$, $B$ be the event that rolls die $B$ and $R_i$ be the event that the $i$-th roll is red.\\
+$P(R_1)=P(R_1|A)P(A)+P(R_1|B)P(B) = \f{4}{6}\cdot\f{1}{2}+\f{2}{6}\cdot\f{1}{2}=\f{1}{2}$.
+
+\item
+we have red in the third roll, 
+given that the first two rolls are all red? 
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(R_3|R_1 \cap R_2)
+&=&\f{P(R_1 \cap R_2 \cap R_3)}{P(R_1 \cap R_2)} \nn\\
+&=&\f{P(R_1 \cap R_2 \cap R_3 |A)P(A)+P(R_1 \cap R_2 \cap R_3|B)P(B)}{P(R_1 \cap R_2  |A)P(A)+P(R_1 \cap R_2|B)P(B)} \nn\\
+&=&\f{\f{4}{6}\cdot\f{4}{6}\cdot\f{4}{6}\cdot\f{1}{2}+\f{2}{6}\cdot\f{2}{6}\cdot\f{2}{6}\cdot\f{1}{2}}{\f{4}{6}\cdot\f{4}{6}\cdot\f{1}{2}+\f{2}{6}\cdot\f{2}{6}\cdot\f{1}{2}}\nn\\
+&=&\f{3}{5} \nn
+\eea
+
+
+\item
+we are using die $A$,
+given that the first two rolls are all red? 
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(A|R_1 \cap R_2)
+&=&\f{P(A \cap R_1 \cap R_2)}{P(R_1 \cap R_2)} \nn\\
+&=&\f{P(A \cap R_1 \cap R_2)}{P(R_1 \cap R_2  |A)P(A)+P(R_1 \cap R_2|B)P(B)} \nn\\
+&=&\f{\f{1}{2}\cdot\f{4}{6}\cdot\f{4}{6}}{\f{4}{6}\cdot\f{4}{6}\cdot\f{1}{2}+\f{2}{6}\cdot\f{2}{6}\cdot\f{1}{2}}\nn\\
+&=&\f{4}{5} \nn
+\eea
+\end{enumerate}
+
+
+\item
+Coin 1 lands on heads with probability 0.4, whereas 
+coin 2 lands on heads with probability 0.7. 
+We will choose one of these coins randomly and flip it 10 times.
+\begin{enumerate}
+\item  
+What is the probability that we have 7 heads? 
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(A)
+&=&P(A|C_1)P(C_1)+P(A|C_2)P(C_2) \nn\\
+&=&{10 \choose 7}(0.4)^7(0.6)^3\cdot\f{1}{2}+{10 \choose 7}(0.7)^7(0.3)^3\cdot\f{1}{2}      \nn
+\eea
+\item
+After observing first flip lands on heads, 
+what is the probability that we have 7 heads?
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(A|A_1)
+&=&\f{P(A \cap A_1)}{P(A_1)} \nn\\
+&=&\f{P(A\cap A_1|C_1)P(C_1)+P(A\cap A_1|C_2)P(C_2)}{P(A_1|C_1)P(C_1)+P(A_1|C_2)P(C_2)} \nn\\
+&=&\f{0.4\cdot{9 \choose 6}(0.4)^6(0.6)^3\cdot\f{1}{2}+0.7\cdot{9 \choose 6}(0.7)^6(0.3)^3\cdot\f{1}{2} }{0.4\cdot\f{1}{2}+0.7\cdot\f{1}{2}}  \nn    
+\eea
+\end{enumerate}
+
+
+
+
+\item
+Two players $A$ and $B$ engages in trial by combat.
+For each trial,
+$A$ hits $B$ with probability 0.6, and 
+$B$ hits $A$ with probability 0.5, independently.
+This continues until one or both are hit. 
+What is the probability that
+\begin{enumerate}
+\item  
+$A$ is not hit at the first trial? %A가 총에 맞지 않을 확률
+\\
+{\color{blue}{\bf Sol.}}
+Let $A$ be the event that A is hit, $B$ be the event that B is hit.\\
+then $P(A)=0.5, P(B)=0.6$\\
+So we have
+$$P(A \mb{ is not hit})=1-P(A)=1-0.5=0.5$$
+\item
+both are hit at the first trial? % A,B 모두 총에 맞을 확률
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(A \cap B)
+&=&P(A \mb{ is hit})P(B \mb{ is hit}) \nn\\
+&=&P(A)P(B)=0.5\cdot0.6 \nn\\
+&=&0.3 \nn
+\eea
+
+\item  
+$A$ is not hit eventually? % A가 총에 맞지 않을 확률
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(A\  \mb{is not hit} | \mb{at least}\ A \ \mb{or}\ B\ \mb{is hit})
+&=&\f{P(A\ \mb{is not hit},\ B\ \mb{is hit})}{P(\mb{at least}\ A \ \mb{or}\ B\ \mb{is hit})} \nn\\
+&=&\f{0.6\cdot0.5}{1-0.4\cdot0.5}\nn\\
+&=&\f{3}{8}\nn
+\eea
+
+
+\item
+both are hit eventually? %A,B 모두 총에 맞을 확률
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P( \mb{both are hit} | \mb{at least}\ A \ \mb{or}\ B\ \mb{is hit})
+&=&\f{P(A,B\ \mb{are hit})}{P(\mb{at least}\ A \ \mb{or}\ B\ \mb{is hit})} \nn\\
+&=&\f{0.6\cdot0.5}{1-0.4\cdot0.5}\nn\\
+&=&\f{3}{8}\nn
+\eea
+\item
+trial by combat is not settled after 10 trials? 
+\\
+{\color{blue}{\bf Sol.}}
+Let $T_i$ be the event that one or both are not hit in $i$th trial.\\
+$$P(T_i)=P(A^c \cap B^c)=P(A^c)\cdot P(B^c)=0.4\cdot0.5=0.2$$
+So we have, 
+$$P(T_1 \cap \cdots \cap T_{10})=P(T_i)^{10}=0.2^{10}$$
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+\item
+A researcher is developing genetic screening for a certain type of cancer. She has discovered that a certain genetic marker is associated with the cancer: 0.5\% of the general population (including those with and without the genetic marker) are afflicted with this kind of cancer at some point in their lives, 0.1\% of the general population have the genetic marker, and 20\% of those with the genetic marker will eventually contract the disease. The researcher develops a genetic test that is 95\% accurate: the chance that an individual with the marker tests positive for the marker is 95\%, and the chance that an individual without the marker tests negative for the marker is 95\%.
+\begin{enumerate}
+\item
+Among those who will get the cancer, 
+compute the fraction who also have the genetic marker.
+\\
+{\color{blue}{\bf Sol.}}
+$P(D)=0.005, P(M)=0.001, P(M \cap D)=0.0002$\\
+$P(p|M)=0.95, P(ne|M^c)=0.95$
+$$P(M|D)=\f{P(M \cap D)}{P(D)}=\f{0.0002}{0.005}=0.04$$
+\item
+Compute the fraction of the general population (including those with and without the marker) that would be expected to test positive for the genetic marker.
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(p)
+&=&P(pM)+P(pM^c) \nn\\
+&=&P(M)P(p|M)+P(M^c)P(p|M^c)\nn\\
+&=&0.001\cdot0.95+0.999\cdot0.05\nn\\
+&=&0.0509 \nn
+\eea
+\item
+Among the general population, compute the fraction of individuals who both have the genetic marker, and will eventually contract the cancer.
+\\
+{\color{blue}{\bf Sol.}}
+$$P(M \cap D)=0.0002$$
+\item
+Compute the probability that an individual selected at random from the population really has the marker, given that he or she tests positive for the marker.
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(M|p)
+&=&\f{P(M \cap p)}{P(p)} \nn\\
+&=&\f{P(p|M)P(M)}{P(p)} \nn\\
+&=&\f{0.95\cdot0.001}{0.0509}\nn\\
+&=&\f{95}{5090}\nn
+\eea
+\item
+Suppose that whether someone will eventually contract the disease is independent of whether the genetic test gives the correct result (the factors that affect whether the test is accurate for a given individual are different from those that affect whether or not the individual will contract the cancer). Compute the probability that someone will eventually contract the disease, given that he or she tests positive for the genetic marker.
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(p|D)
+&=&P(pM|D)+P(pM^c|D) \nn\\
+&=&P(M)P(p|MD)+P(M^c)P(p|M^cD) \nn\\
+&=&0.04\cdot0.95+0.96\cdot0.05\nn\\
+&=&0.086\nn
+\eea
+
+\bea
+P(D|p)
+&=&\f{P(D \cap p)}{P(p)} \nn\\
+&=&\f{P(p|D)P(D)}{P(p)} \nn\\
+&=&\f{0.086\cdot0.005}{0.0509}=\f{43}{5090}\nn
+\eea
+
+
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,535 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Sum of random variables}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large{\bf [Homework] Sum of random variables}} 
+\end{center}
+
+
+\begin{enumerate}
+
+
+
+
+
+ \item
+We flips a $p$-coin many times, where $p=0.40$.
+\bea
+X_i&&\mb{$i^{th}$ flip record,
+where $H$ and $T$ are recorded as 1 and 0}\nn\\
+Y_i:=2X_i-1&&\mb{$i^{th}$ flip record,
+where $H$ and $T$ are recorded as 1 and $-1$}\nn
+\eea
+
+Calculate the mean and variance of the following related random variables,
+i.e., fill up blanks of the below table.
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c||c|} \hline
+Random variable&Mean&Variance\\\hline\hline  
+$Y_i$&$-0.2$&$0.96$\\\hline
+$\sum_{i=1}^nY_i$&$-0.2n$&$0.96n$\\\hline
+$\f{\sum_{i=1}^nY_i}{\sqrt{n}}$&$-0.2\sqrt{n}$&$0.96$\\\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+\item
+Suppose that $A$ and $B$ each randomly and independently choose 3 different integers from $\{1,2,\cdots,10\}$. Find the expected number of integers
+\begin{enumerate}
+\item chosen by both $A$ and $B$.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ be the number of objects that are selected by both $A$ and $B$. To further simplify
+ the problem we use indicator variables $X_i$. Let $X_i = 1$ if object $i$ is selected by both $A$
+ and $B$, and $X_i = 0$ otherwise, where $1\le i\le10$. Then,
+
+$$E(X)=E(\sum_{i=1}^{10} X_i)=\sum_{i=1}^{10} E(X_i)$$
+
+Now we must find $E(X_i)$. We know that $X_i$ only takes on one of two values, $X_i = 1$ or
+ $X_i = 0$. So, for the case of a sum of independent random indicator variables, $E(X_i) =
+ P(X_i = 1)$.
+ Each person can choose 3 of the 10 items. There are 3 ways to choose the item of
+ interest, since a person can draw 3 objects. Since person A and B draw independently,
+
+$$P(X_i=1)=(\f{3}{10})^2$$
+
+Then,
+
+$$E(X)=\sum_{i=1}^{10} E(X_i)=\sum_{i=1}^{10} (\f{3}{10})^2 =\f{9}{10}$$
+
+
+
+
+\item not chosen by either $A$  or $B$.
+\\
+{\color{blue}{\bf Sol.}}
+The principle is similar to part (a). Let $X_i = 1$ if object $i$ is not chosen by $A$ and is not chosen by $B$. $P(X_i = 1) = (\f{7}{10})^2$, because the probability that an arbitrary person does
+ not choose object $i$ is $\f{7}{10}$ and person A and person B draw independently. Then,
+
+$$E(X)=\sum_{i=1}^{10} E(X_i)=\sum_{i=1}^{10} (\f{7}{10})^2 =4.9$$
+
+
+
+
+\item chosen by exactly one of $A$ and $B$.
+\\
+{\color{blue}{\bf Sol.}}
+In this case, either person $A$ draws object $i$ and person $B$ does not, or person $B$ draws object $i$ and person $A$ does not. Again, let $X_i = 1$ if exactly one of $A$ or $B$ draws object $i$, $X_i = 0$ otherwise. The person that eventually draws object $i$ had probability $\f{3}{10}$ of
+ drawing the object and the person that does not draw object $i$ had probability $\f{7}
+ {10}$ of not drawing object $i$. But there are two ways to arrange this situation. A can draw the
+ object, and $B$ does not, or $B$ draws the object and $A$ does not. Thus,
+$$E(X_i)=P(X_i=1)=2 \cdot \f{3}{10} \cdot \f{7}{10}$$
+and
+$$E(X)=10(2\cdot\f{3}{10}\cdot \f{7}{10})=4.2$$
+
+
+\end{enumerate}
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+\item
+A group of eighteen students contains seven business majors; the rest are all liberal arts majors. 
+Five students will be drawn from the group and let $X$ be the number of business majors in the sample.
+\begin{enumerate}
+\item Calculate $P(X=3)$.
+\\
+{\color{blue}{\bf Sol.}}
+$$P(X=3)=\f{{7 \choose 3}{11 \choose 2}}{{18 \choose 5}}$$
+\item What is the distribution of $X$?
+\\
+{\color{blue}{\bf Sol.}}
+$X \sim $ Hypergeometric distribution $H(5,7,18)$
+\item What is $EX$?
+\\
+{\color{blue}{\bf Sol.}}
+$$EX=n\cdot \f{m}{N}=5\cdot \f{7}{18}=\f{35}{18}$$
+\item What is $Var(X)$?
+\\
+{\color{blue}{\bf Sol.}}
+$$Var(X)=n\cdot\f{m}{N}(1-\f{m}{N})(1-\f{n-1}{N-1})=5\cdot\f{7}{18}(1-\f{7}{18})(1-\f{5-1}{18-1})$$
+\end{enumerate}
+
+
+\item
+A pond contains 100 fish, of which 30 are carp. If 20 fish are caught, what are the mean and variance of the number of carp among the 20? 
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ be the number of carp. Then $X \sim H(20,30,100)$ 
+$$EX=n\cdot \f{m}{N}=20\cdot \f{30}{100}=6$$
+$$Var(X)=n\cdot\f{m}{N}(1-\f{m}{N})(1-\f{n-1}{N-1})=20 \cdot\f{30}{100}(1-\f{30}{100})(1-\f{20-1}{100-1})$$
+
+
+
+
+
+\item
+For a group of 100 people, compute
+\begin{enumerate}
+\item the expected number of days of the year that
+are birthdays of exactly 3 people.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ be the number of days of the year that are birthdays for exactly $3$ people. Let
+ $X_i = 1$ if day $i$ is a birthday for $3$ people. This is a binomial problem with $n = 100$ and $p = (\f{1}{365})^3$. Then,
+$$E(X_i) = P(X_i = 1) = { 100 \choose 3}(\f{1}{365})^3(\f{364}{365})^{97}$$
+Recall that $i$ represents a day of the year, so in the following calculation, we sum $i = 1$ to $i = 365$.
+$$E(X)=\sum_{i=1}^{365} E(X_i)=365\cdot{ 100 \choose 3}(\f{1}{365})^3(\f{364}{365})^{97}$$
+
+\item the expected number of days of the year that
+are birthdays of someone.
+\\
+{\color{blue}{\bf Sol.}}
+You may be tempted to think of this problem as the number of people that have different
+ birthdays, but that is incorrect. Let $X$ be the number of distinct birthdays. that is, the number of days of the year that are occupied by a birthday. Let $X_i = 1$ if someone
+ has a birthday on day $i$. We use the complement. We find the probability that all $100$ people have different birthdays and subtract from $1$.
+$$E(X_i)=1-(\f{364}{365})^{100}$$
+Then,
+$$E(X)=\sum_{i=1}^{365} E(X_i)=365\cdot \{1-(\f{364}{365})^{100} \}$$
+
+\end{enumerate}
+ 
+ 
+
+
+
+
+\item
+We have 10 different points on the unit circle.
+For any two point
+we flip a fair coin independently and,
+if the coin lands on head, we join these two by a line segment.
+Calculate the mean and variance of the number of triangles formed. 
+\\
+{\color{blue}{\bf Sol.}}
+$$
+A_{i,j,k}=\left\{\ba{ll}
+1 & i,j,k \  \mb{are connected} \ p=(\f{1}{2})^3 \\
+0 &\mb{otherwise}\ q=1-(\f{1}{2})^3\
+\ea\right.
+$$
+$$EX=(E \sum_{i,j,k} 1_{A_{i,j,k}}) = {10 \choose 3}(\f{1}{2})^3=15$$
+We have to find $EX^2$
+
+
+\begin{figure}[h] 
+\centering
+\includegraphics[width=6in,height=4in]{hw7.png}
+\caption{$EX^2$}
+\end{figure}
+
+
+
+$$(\f{1}{2})^6{10 \choose 3}{7 \choose 3}=\f{525}{8}$$
+$$3\cdot(\f{1}{2})^6{10 \choose 3}{7 \choose 2}=\f{945}{8}$$
+$$3\cdot(\f{1}{2})^5{10 \choose 3}{7 \choose 1}=\f{630}{8}$$
+$$(\f{1}{2})^3{10 \choose 3}=15$$
+
+$$E(X^2)=\f{525}{8}+\f{945}{8}+\f{630}{8}+15=\f{2220}{8}$$
+$$Var(X)=E(X^2)-(EX)^2=\f{105}{2}$$
+
+
+
+
+
+\item
+How many times would you expect to roll a fair die to see all 6 sides appeared at least once?
+How about the variance?
+\\
+{\color{blue}{\bf Sol.}}
+The time until the first result appears is $1$. After that, the random time until a second (different) result appears is geometrically distributed with parameter of success $\f{5}{6}$, hence with mean $\f{6}{5}$. After that, the random time until a third (different) result appears is geometrically distributed with parameter of success $\f{4}{6}$, hence with mean $\f{6}{4}$. And so on, until the random time of appearance of the last and sixth result, which is geometrically distributed with parameter of success $\f{1}{6}$, hence with mean $\f{6}{1}$. So the mean total time to get all six results is
+$$E(X)=\f{6}{6}+\f{6}{5}+\f{6}{4}+\f{6}{3}+\f{6}{2}+\f{6}{1}=14.7$$ 
+$$Var(X)=\f{0}{(\f{6}{6})^2}+\f{\f{1}{6}}{(\f{5}{6})^2}+\f{\f{2}{6}}{(\f{4}{6})^2}+\f{\f{3}{6}}{(\f{3}{6})^2}+\f{\f{4}{6}}{(\f{2}{6})^2}+\f{\f{5}{6}}{(\f{1}{6})^2}=\f{3899}{100}$$
+
+
+
+
+
+ 
+
+\item
+Consider $n$ independent flips of a fair coin. 
+Say that a changeover occurs whenever an outcome differs from the one preceding it. For instance, if $n=12$ and the outcome is $HHTTTTHHHHHT$, then there are 3 changeovers.
+$$
+\ba{cccccccccccc}
+H&H&T&T&T&T&H&H&H&H&H&T\\
+&&\uparrow&&&&\uparrow&&&&&\uparrow
+\ea
+$$
+$$
+\ \ \ \ \ \ \ \ \ \ \mb{changeover}\ \ \ \ \ \mb{changeover}\ \ \ \ \ \ \ \ \ \ \ \ \mb{changeover}
+$$ 
+Let $X$ be the number of changeovers during the $n$ flips.
+\begin{enumerate}
+\item
+Calculate $P(X=1)$. 
+\\
+{\color{blue}{\bf Sol.}}
+For $i=2, \cdots , n$
+$$
+X_i=\left\{\ba{ll}
+1 &\mb{if chageover occurs at} i\ p=\f{1}{2} \\
+0 &\mb{otherwise}\ q=\f{1}{2}\
+\ea\right.
+$$
+Then $X_i \sim B(\f{1}{2})$
+$$X=X_2+X_3+\cdots+X_{n}$$
+$$X\sim B(n-1,\f{1}{2})$$
+$$P(X=1)={ n-1 \choose 1}(\f{1}{2})^1(\f{1}{2})^{n-2}=(n-1)(\f{1}{2})^{n-1}$$
+\item
+Calculate the mean and variance of $X$. 
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+E(X)
+&=&E(\sum_{i=2}^n X_i) \nn\\
+&=&\sum_{i=2}^n E(X_i)= \sum_{i=2}^n 2p(1-p)\nn\\
+&=&2(n-1)p(1-p)=\f{1}{2}(n-1) \nn
+\eea
+
+
+$$Var(X)=npq=(n-1)\cdot\f{1}{2}\cdot\f{1}{2}=\f{n-1}{4}$$
+\end{enumerate}
+
+
+
+
+\item
+A box contains five tickets labeled with numbers $-3, -1, 0, 1, 3$. 
+We do 100 random draws with replacement from the box.
+Calculate the expectation and variance of the sum of the numbers on the tickets drawn.
+\\
+{\color{blue}{\bf Sol.}}
+Each of the five numbers should be drawn about $\f{100}{5} = 20$ times. 
+Let $X$ be the sum of the numbers on the tickets drawn.
+$$EX=(-3)\cdot20+(-1)\cdot20+0\cdot20+1\cdot20+3\cdot20=0$$
+$$VarX=(-3)^2\cdot20+(-1)^2\cdot20+0^2\cdot20+1^2\cdot20+3^2\cdot20-0^2=400$$
+
+\item
+Form 10 teams of 2 from 10 men and 10 women, randomly.
+\begin{enumerate}
+\item
+Calculate the mean and variance of the number of teams of different sex. 
+\\
+{\color{blue}{\bf Sol.}}
+Let $X_i$ be the $i$th team.
+$$P(X_i=1)=\f{{10 \choose 1}\cdot {10 \choose 1}}{{20 \choose 2}}=\f{10}{19}$$
+$$
+X_i=\left\{\ba{ll}
+1 &\ i\mb{th teams of different sex}, p=\f{10}{19}\\
+0 &\ \mb{otherwise}\
+\ea\right.
+$$
+$$E(1_{X_i})=\f{10}{19}$$
+So
+$$EX=E(\sum_{i=1}^{10} 1_{X_i})=10\cdot\f{10}{19}=\f{100}{19}$$
+$$E(X_iX_j)=P(X_i=1)P(X_j=1|X_i=1)=\f{16}{19}\cdot\f{{18 \choose 1}\cdot {19 \choose 1}}{{18 \choose 2}}=\f{10}{19}\cdot\f{9}{17}$$
+
+\bea
+VarX
+&=&\sum_{i=1}^{10} Var(X_i) + \sum_{i=1}^{10}\sum_{j=1,i\neq j}^{10}Cov(X_i,X_j) \nn\\
+&=&\sum_{i=1}^{10} Var(X_i) + \sum_{i=1}^{10}\sum_{j=1,i\neq j}^{10}\{E(X_iX_j)-EX_iEX_j\}\nn\\
+&=&10\cdot\f{10}{19}\cdot(1-\f{10}{19})+10\cdot9 \{ \f{10}{19}\cdot\f{9}{17}-(\f{10}{19})^2 \}\nn
+\eea
+
+\item
+If 20 people are actually 10 couples,
+calculate the mean and variance of the number of teams of couple. 
+\\
+{\color{blue}{\bf Sol.}}
+Let $Y_i$ be the $i$th couple.
+$$P(Y_i=1)=\f{1}{19}$$
+$$
+Y_i=\left\{\ba{ll}
+1 &\ i\mb{th team is couple}, p=\f{1}{19}\\
+0 &\ \mb{otherwise}\
+\ea\right.
+$$
+
+$$EY=\sum_{i=1}^{10}E(1_{Y_i})=\f{10}{19}$$
+$$E(1_{Y_i}1_{Y_j})=P(Y_i=1)P(Y_j=1|Y_i=1)=\f{1}{19}\cdot\f{1}{17}$$
+\bea
+VarY
+&=&\sum_{i=1}^{10} Var(Y_i) + \sum_{i=1}^{10}\sum_{j=1,i\neq j}^{10}Cov(Y_i,Y_j) \nn\\
+&=&10Var(Y_i) + 10\cdot9 \{E(Y_iY_j)-EY_iEY_j\}\nn\\
+&=&10\cdot\f{1}{19}\cdot(1-\f{1}{19})+90\cdot \{ \f{1}{19}\cdot\f{1}{17}-(\f{1}{19})^2 \}\nn
+\eea
+
+\end{enumerate}
+
+
+\end{enumerate}
+\vskip 0.3in
+
+
+
+
+\begin{center}
+{\Large{\bf Extra}} 
+\end{center}
+
+
+\begin{enumerate}
+
+
+
+
+
+
+
+
+
+\item
+Initially 
+100 black balls are in the bin. At each stage, you choose one ball from the bin, remove the chosen ball, and add one white ball.
+Compute 
+the expectation and variance of the number of stages needed until there are no more black balls in the bin.
+
+
+
+\end{enumerate}
+
+
+
+\end{document}

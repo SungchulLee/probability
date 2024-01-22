@@ -1,0 +1,378 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Variance, covariance, and correlation coefficient}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] Variance, covariance, and correlation coefficient} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+
+
+\item
+For $X$ and $Y$ with $E[X] = 1$, $Var(X) = 5$, $E[Y] = 2$, $Var(Y) = 2$, and $\rho=0.5$,  find 
+\begin{enumerate}
+\item $E[1 + 2X+3Y]$
+
+\item $Var(1 + 2X+3Y)$.
+\\
+{\color{blue}{\bf Sol.}}
+
+
+\end{enumerate}
+
+
+
+
+
+ \item
+We flips a fair coin many times
+and let $X_i$ be the $i$-th flip record,
+where $H$ and $T$ are recorded as 1 and 0.
+Let $Y_i$ be $Y_i=2X_i-1$, i.e.,
+the $i$-th flip record
+where $H$ and $T$ are recorded as 1 and $-1$.
+Calculate the mean and variance of related random variables,
+i.e., fill up the blank in below table.
+\begin{table}[H]    \center
+\begin{tabular}{|c||c|c|c||c|} \hline
+Random variable&Mean&Variance\\\hline\hline  
+$Y_i$&$0$&$1$\\\hline
+$\sum_{i=1}^nY_i$&$0$&$n$\\\hline
+$\f{\sum_{i=1}^nY_i}{\sqrt{n}}$&$0$&$\sqrt{n}$\\\hline
+\end{tabular}
+\end{table}
+
+
+
+
+\item
+Let $X_i$ be independent with same mean 0, variance 2, and
+let $Y_n=X_n+X_{n+1}+X_{n+2}$.
+For $j\ge 0$, calculate $Cov(Y_n,Y_{n+j})$.
+
+
+\item
+Let $X$ be the number of heads minus the number of tails obtained 
+when a fair coin is tossed $n$ times. 
+Calculate the mean and variance of $X$. 
+\\
+{\color{blue}{\bf Sol.}}
+Let $i$ be the number of tails. Then $n-i$ is the number of heads and $X=n-2i$.
+$$P(X=i)={n \choose i}(\f{1}{2})^i(\f{1}{2})^{n-i}={n \choose i}(\f{1}{2})^n$$
+\bea
+E(X)
+&=&\sum_{x} x\cdot P(X=x) \nn\\
+&=&\sum_{i=0}^n (n-2i){n \choose i}(\f{1}{2})^n\nn\\
+&=&\{ n\sum_{i=0}^n {n \choose i}-2\sum_{i=0}^n i\cdot{n \choose i}\}\cdot (\f{1}{2})^n\nn\\
+&=&\{ n \cdot 2^n-2\cdot n\cdot2^{n-1}\}\cdot (\f{1}{2})^n\nn\\
+&=&0\cdot (\f{1}{2})^n=0\nn
+\eea
+
+
+
+\bea
+Var(X)
+&=&\sum_{x} x^2\cdot P(X=x)-(EX)^2 \nn\\
+&=&\sum_{i=0}^n (n-2i)^2{n \choose i}(\f{1}{2})^n-0^2\nn\\
+&=&\{ n^2\sum_{i=0}^n {n \choose i}-4n\sum_{i=0}^n i\cdot{n \choose i}+4\sum_{i=0}^n i^2\cdot{n \choose i}\}\cdot (\f{1}{2})^n\nn\\
+&=&\{ n^2 \cdot 2^n-4n\cdot n\cdot2^{n-1}+4\cdot(n^2+n)2^{n-2}\}\cdot (\f{1}{2})^n\nn\\
+&=&n\nn
+\eea
+
+
+
+
+
+\item
+We flips a fair coin until heads appears 10 times. 
+Let $X$ be the number of tails during these flips.
+Calculate the mean and variance of $X$ . 
+\\
+{\color{blue}{\bf Sol.}}
+$$Y \sim NB(r=10, p=\f{1}{2})$$
+$$X \sim HG $$
+\bea
+P(X=n)
+&=&P(Y=n+10) \nn\\
+&=&{ n+10-1 \choose r-1}p^r(1-p)^{(n+10)-r} \nn\\
+&=&{ n+9 \choose 9}(\f{1}{2})^{(n+10)}\nn
+\eea
+
+
+
+
+\item
+If $X_i$, $1\le i \le 4$, have mean 3 and variance 2
+and if the correlation $\rho$ between two are all 0.5,
+compute 
+\begin{enumerate}
+\item $Cov(X_1 +X_2,X_2 +X_3)$. 
+
+
+\item $Cov(X_1+X_2,X_3+X_4)$.
+
+
+\end{enumerate}
+
+
+
+
+\item
+Consider a graph having $n$ vertices labeled
+$1,2,\ldots,n$, and suppose that, between each of the ${n\choose 2}$ pairs of distinct vertices, an edge is independently present with probability $p$. The degree of vertex $i$, designated as $D_i$, is the number of edges that have vertex $i$ as one of their vertices.
+\begin{enumerate}
+\item What is the distribution of $D_i$?
+
+\item Find $\rho(D_i , D_j )$, the correlation between $D_i$ and $D_j$.
+
+
+
+\end{enumerate}
+
+
+
+
+
+\item
+A group of eighteen students contains seven business majors; the rest are liberal arts majors. 
+Five students will be drawn from the group and let $X$ be the number of business majors in the sample.
+\begin{enumerate}
+\item Calculate $P(X=3)$.
+
+
+\item What is the distribution of $X$?
+
+
+\item What is $EX$?
+
+
+\item What is $Var(X)$?
+
+
+\end{enumerate}
+
+
+
+\item
+A pond contains 100 fish, of which 30 are carp. If 20 fish are caught, what are the mean and variance of the number of carp among the 20? 
+
+
+
+
+
+
+\item
+A box contains 5 red and 5 blue marbles. Two marbles are withdrawn randomly. 
+If they are the same color, then you win \$1.10; if they are different colors, then you win $-$\$1.00. (That is, you lose \$1.00.) Calculate
+\begin{enumerate}
+\item the expected value of the amount you win.
+
+\item the variance of the amount you win.
+
+
+\end{enumerate}
+
+
+\end{enumerate}
+\vskip 0.3in
+
+
+
+
+\begin{center}
+{\Large\bf [Extra] Variance, covariance, and correlation coefficient} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+\item
+A sample of 3 items is selected at random from a box containing 20 items of which 4 are defective. 
+Find the expectation and variance of the number of defective items in the sample.
+
+
+\end{enumerate}
+
+
+
+
+\end{document}

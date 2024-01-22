@@ -1,0 +1,599 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Poisson point process}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] Poisson point process} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+\item
+The probability of having a full house in a hand of poker is approximately $0.0014$. Approximate the probability that, in 1000 hands of poker, you will have at least 2 full houses.
+\\
+{\color{blue}{\bf Sol.}}
+$p=0.0014, n=1000, \la=np=1.4$
+\bea
+P(X_n \ge 2)
+&=& 1-P(X_n=0)-P(X_n=1) \nn\\
+&\approx& 1-P(Y=0)-P(Y=1)\nn\\
+&=&1- e^{-1.4}\cdot\f{1.4^0}{0!} - e^{-1.4}\cdot\f{1.4^1}{1!}\nn
+\eea
+
+
+
+\item
+A certain typing agency employs 2 typists. 
+The average number of errors per article is 3 when typed by the first typist and 4.2 when typed by the second. If your article is equally likely to be typed by either typist, approximate the probability that it will have no errors.
+\\
+{\color{blue}{\bf Sol.}}
+The number $X$ of typos is approximately a Poisson random variable with
+parameter $3$ when typed by the ¯rst typist, and is Poisson random variable with parameter $4.2$ when typed by the second typist. Let $E_1$ be the event that the article is typed by the first typist, and $E_2$ the event that the article is typed by the second typist. Then
+$$P(X = 0) = P(E_1)P(X = 0|E_1) + P(E_2)P(X = 0|E_2) =\f{1}{2}e^{-3}\cdot\f{3^0}{0!}
++\f{1}{2}e^{-4.2}\cdot\f{{4.2}^0}{0!}$$
+
+
+
+
+
+\ignore{
+\item
+$2n$ people consisting of $n$ couples sit on the round table randomly.
+\begin{enumerate}
+\item  
+Let $C_i$ be the event that couple $i$ sit next to each other.
+For $i\neq j$, calculate $P(C_i|C_j)$.
+\\
+{\color{blue}{\bf Sol.}}
+
+\item 
+Approximately calculate the probability that no couple sit next to each other,
+when $n$ is large.
+\\
+{\color{blue}{\bf Sol.}}
+\end{enumerate}
+}
+
+
+
+
+
+
+
+
+
+
+\item
+The monthly worldwide average number of airplane crashes of commercial airlines is 3.5. What is the probability that there will be
+\begin{enumerate}
+\item
+at least 2 such accidents in the next month?
+\\
+{\color{blue}{\bf Sol.}}
+Let X be the event that the monthly worldwide average number of airplane crashes of commercial airlines. Then $X \sim Po(3.5)$.\\
+$$P(X \ge 2)=1-P(X=0)-P(X=1)=1-e^{-3.5}\cdot\f{3.5}{1!}-e^{-3.5}\cdot\f{3.5^2}{2!}$$
+\item
+at most 1 accident in the next month?
+\\
+{\color{blue}{\bf Sol.}}
+$$P(X \le 1)=P(X=0)+P(X=1)=e^{-3.5}\cdot\f{1}{0!}+e^{-3.5}\cdot\f{3.5}{1!}$$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+\item
+People enter a gambling casino at a rate of 1 every 2 minutes.
+\begin{enumerate}
+\item
+What is the probability that no one enters between $12:00$ and $12:05$?
+\\
+{\color{blue}{\bf Sol.}}
+Let $N(t)$ = the number of people entering a gambling casino during time $t$.
+\\$N(t)$ is Poisson($\la t$) where $\la=1$ and $t=2.5$
+$$P(N(t) = 0) = e^{-\la t} = e^{-2.5}$$ 
+
+ 
+
+ 
+
+
+
+\item
+What is the probability that at least 4 people enter the casino during that time?
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(X\ge 4)
+&=& 1- P(X<4) \nn\\
+&=&1-\{P(N(2.5) = 0) + P(N(2.5) = 1)+ P(N(2.5) = 2)+ P(N(2.5) = 3)\}\nn\\
+&=&1-\{ e^{-2.5} + 2.5e^{-2.5}+\f{(2.5)^2}{2!}e^{-2.5}+\f{(2.5)^3}{3!}e^{-2.5}\}\nn
+\eea
+
+
+
+
+\end{enumerate}
+
+
+
+
+\item
+During the rush hour from 8 am to 9 am,
+traffic accidents occur according to a Poisson process with a rate of 5 accidents per hour. Between 9 am and 11 am, they occur as an independent Poisson process with a rate of 3 accidents per hour. 
+What is the distribution of the number of traffic accidents occur from 8 am and 11 am?
+\\
+{\color{blue}{\bf Sol.}}
+The total number of accidents between 8 am and 11
+am is the sum of two independent Poisson random variables with parameters 5 and
+$3 \cdot 2 = 6$, respectively. Since the sum of independent Poisson random variables is also
+Poisson, the total number of accidents has a Poisson PMF with parameter $5+6=11$
+
+
+
+
+\item
+A pizza parlor serves 10 different types of pizza, and is visited by a number $K$ of customers in a given period of time, where $K$ is a Poisson random variable with mean 100. Each customer orders a single pizza, with all types of pizza being equally likely, independent of the number of other customers and the types of pizza they order. Find the expected number of a particular type of pizzas ordered.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ be the number of different types of pizza ordered. Let $X_i$ be the random variable defined by
+$$
+X_i=\left\{\ba{ll}
+1 &\ \mb{if a type}~ i~ \mb{ pizza is ordered by at least one customer} \\
+0 &\ \mb{otherwise}\
+\ea\right.
+$$
+We have $X = X_1 + \cdots + X_{10}$, and $E[X] = 10E[X_1]$
+\\
+We can think of the customers arriving as a Poisson process, and with each
+customer independently choosing whether to order a type 1 pizza (this happens with
+probability $\f{1}{10}$) or not. This is the situation encountered in splitting of Poisson processes,
+and the number of type 1 pizza orders, denoted $Y_1$, is a Poisson random variable
+with parameter $\f{100}{10}$. We have
+$$E[X_1] = P(Y_1 > 0) = 1 - P(Y_1 = 0) = 1 - e^{-\f{100}{10}}$$,
+so that
+$$E[X] = 10E[X_1] = 10(1 - e^{-\f{100}{10}})$$
+
+
+
+
+
+\item
+An athletic facility has 5 tennis courts. Pairs of players arrive at the courts and use a court for an exponentially distributed time with mean 40 minutes. Suppose a pair of players arrives and finds all courts busy and 2 other pairs waiting in queue. What is the expected waiting time to get a court?
+\\
+{\color{blue}{\bf Sol.}}
+When all the courts are busy , the expected itme between two departueres is $\f{40}{5}=8$ minutes. If a pair sees $2$ pairs waiting in the queue, there must be exactly $2+1$ departures from the system before they get a court. Since all the courts would be busy during this whole time, the average waiting time required before 2+1 departures is $8\cdot(2+1)$ minutes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item
+Suppose that the length of a phone call in minutes is an exponential random variable
+with parameter $\la=\f{1}{10}$. If someone arrives immediately ahead of you at a public 
+telephone booth, find the probability that you will have to wait
+\begin{enumerate}
+\item  
+more than 10 minutes.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ = length of call made by person in the booth.
+$$P(X>10)=1-P(X \le 10)=1-F(10)=1-(1-e^{-\f{10}{10}})=e^{-1}$$
+
+
+\item
+between 10 and 20 minutes.
+\\
+{\color{blue}{\bf Sol.}}
+$$P(10<X<20)=F(20)-F(10)=e^{-1}-e^{-2}$$
+\end{enumerate}
+
+
+
+
+
+
+
+
+\item
+Suppose that the number of miles that a car can run before its battery wears out is 
+exponentially distributed with an average value of 10,000 miles. If a person desires to take a 5000 mile trip, what is the probability that he or she will be able to complete the trip without having to replace the car battery? What can be said when the distribution is not exponential?
+\\
+{\color{blue}{\bf Sol.}}
+It follows by the memoryless property of exponential distribution the the remaining life time X(in thousands of miles) of the battery is exponential with $ \la=\f{1}{10}$.
+\\ Hence the probability is $$P(X>5)=e^{-5 \la}=e^{-0.5}$$
+
+
+
+
+\item 
+A computer system carries out tasks submitted by two users. Time is divided into slots. A slot can be idle, with probability $p_I = 1/6$, and busy with probability $p_B = 5/6$. During a busy slot, there is probability $p_{1|B} = 2/5$ (respectively, $p_{2|B} = 3/5$) that a task from user 1 (respectively, 2) is executed. We assume that events related to different slots are independent.
+\begin{enumerate}
+\item Find the probability that a task from user 1 is executed for the first time during the 4th slot.
+\\
+{\color{blue}{\bf Sol.}}
+$$p_I+p_B\cdot p_{2|B}=\f{1}{6}+\f{5}{6}\cdot\f{3}{5}=\f{2}{3}$$
+$$p_B\cdotp_{1|B}=\f{5}{6}\cdot\f{2}{5}=\f{1}{3}$$
+So the probability that a task from user 1 is executed for the first time during the 4th slot is 
+$$(\f{4}{6})^3\cdot\f{2}{6}=\f{8}{81}$$
+
+\item Given that exactly 5 out of the first 10 slots were idle, find the probability that the 6th idle slot is slot 12.
+\\
+{\color{blue}{\bf Sol.}}
+slot 11 is busy and slot 12 is idle.
+$$p_B\cdot p_I=\f{5}{6}\cdot\f{1}{6}=\f{5}{36}$$
+\item Find the expected number of slots up to and including the 5th task from user 1.
+\\
+{\color{blue}{\bf Sol.}}
+$$T_i \sim Geo(p_B\cdot p_{1|B})=Geo(\f{2}{6})$$
+
+$$ET_i=\f{1}{p}=3$$
+
+$$E(T_1+\cdots+T_5)=15$$
+
+\item Find the expected number of busy slots up to and including the 5th task from user 1.
+\\
+{\color{blue}{\bf Sol.}}
+$$K_i \sim Geo(p_{1|B})=Geo(\f{2}{5})$$
+
+$$EK_i=\f{1}{p}=\f{5}{2},~ VarK_i=\f{q}{p^2}=\f{1-\f{2}{5}}{(\f{2}{5})^2}$$
+
+$$E(K_1+\cdots+K_5)=\f{25}{2},~Var(K_1+\cdots+K_5)=5\cdot \f{1-\f{2}{5}}{(\f{2}{5})^2}$$
+
+\item Find the PMF, mean, and variance of the number of tasks from user 2 until the time of the 5th task from user 1.
+\\
+{\color{blue}{\bf Sol.}}
+The number $T$ of tasks from user 2 until the 5th task from user 1 is the same as the
+number $B$ of busy slots until the 5th task from user 1, minus 5. The number of busy
+slots (“trials”) until the 5th task from user 1 (“success”) is a Pascal random variable
+of order 5, with parameter $p_{1|B} = \f{2}{5}$. Thus,
+$$p_B(t)={t-1 \choose 4}(\f{2}{5})^5(1-\f{2}{5})^{t-5},~ t=5,6, \cdots$$  
+Since $T = B - 5$, we have $p_T (t) = p_B(t + 5)$, and we obtain
+$$p_T(t)={t+4 \choose 4}(\f{2}{5})^5(1-\f{2}{5})^t,~t=0,1,2, \cdots $$
+$$E[T] = E[B] - 5 =\f{25}{2}-5=\f{15}{2}$$
+$$var(T) = var(B)=\f{5(1-(\f{2}{5}))}{(\f{2}{5})^2}$$
+
+
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+\begin{center}
+{\Large\bf [Extra]} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+\item
+If you buy a lottery ticket in 50 lotteries, in each of which your chance of winning a prize is $0.01$, what
+is the approximate probability that you will win a prize
+\begin{enumerate}
+\item
+at least once? 
+\item
+exactly once? 
+\item
+at least twice?
+\end{enumerate}
+
+
+
+
+
+
+
+
+\item 
+A fisherman catches fish according to a Poisson process with rate $\la=0.6$ per hour. The fisherman will keep fishing for two hours. If he has caught at least one fish during the first two hours, he quits. Otherwise, he continues until he catches at least one fish.
+\begin{enumerate}
+\item Find the probability that he stays for more than two hours.
+\item Find the probability that the total time he spends fishing is between two and five hours.
+\item Find the probability that he catches at least two fish.
+\item Find the expected number of fish that he catches.
+\item Find the expected total fishing time, given that he has been fishing for four hours.
+\end{enumerate}
+
+
+
+
+
+
+
+\item
+The suicide rate in a certain state is 1 suicide per 100,000 inhabitants per month. 
+\begin{enumerate}
+\item  
+Find the probability that, in a city of 400,000 inhabitants within this states, there will be 8 or more suicides in a given month.
+\item 
+What is the probability that there will be at least 2 month during the year 
+that will have 8 or more suicides?
+\item 
+Counting the present month as month number 1, 
+what is the probability that the first month of having 8 or more suicides will be month number $i$, $i \ge1$?
+What assumptions are you making? 
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+\item
+Suppose that the number of accidents occurring on a highway each day is $Po(\la)$, $\la=3$.
+\begin{enumerate}
+\item  
+Find the probability that 3 or more accidents occur today.
+\item
+Repeat part (a) under the assumption that at least 1 accident occurs today.
+\end{enumerate}
+
+
+
+
+
+
+
+
+\item
+Suppose that the average number of cars abandoned weekly on a certain highway is 2.2. Approximate the probability that there will be
+\begin{enumerate}
+\item
+no abandoned cars in the next week?
+\item
+at least 2 abandoned cars in the next week?
+\end{enumerate}
+
+
+
+
+
+
+
+\item
+Suppose that earthquakes occur in the western portion of the United States in accordance with 
+$PPP(\la)$, $\la=2$,  with 1 week as the unit of time.
+\begin{enumerate}
+\item  
+Find the probability that at least 3 earthquakes occur during the next 2 weeks.
+\item
+Find the probability distribution of the time, starting from now, until the next earthquake.
+\end{enumerate}
+
+
+
+
+
+
+
+\item
+The time (in hours) required to repair a machine is
+an exponentially distributed random variable with parameter $\la= 1/2$. What is
+\begin{enumerate}
+\item the probability that a repair time exceeds 2
+hours?
+\item the conditional probability that a repair takes
+at least 10 hours, given that its duration
+exceeds 8 hours?
+\end{enumerate}
+
+
+\item
+Consider a post office that is staffed by two clerks. Suppose that when Mr. Smith enters the system, he discovers that Ms. Jones is being served by one of the clerks and Mr. Brown by the other. Suppose also that Mr. Smith is told that his service will begin as soon as either Ms. Jones or Mr. Brown leaves. If the amount of time that a clerk spends with a customer is exponentially distributed with parameter $\la$, what is the probability that, of the three customers, Mr. Smith is the last to leave the post office?
+
+
+
+
+
+\end{enumerate}
+
+
+
+\end{document}

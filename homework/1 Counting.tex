@@ -1,0 +1,514 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Counting}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] Counting} 
+\end{center}
+
+
+
+
+
+\begin{enumerate}
+
+
+
+
+
+\item
+How many different letter arrangements can be made from 
+\begin{enumerate}
+\item cat?
+\\
+{\color{blue}{\bf Sol.}}
+Since “cat” has three unique letters we have 3! = 6 possible arrangements.
+\item bob?
+\\
+{\color{blue}{\bf Sol.}}
+Since “bob” has three characters with the \textquotedblleft b \textquotedblright repeated two times, so we have $\f{3!}{2!}$ possible arrangements.
+\item paper?
+\\
+{\color{blue}{\bf Sol.}}
+Since “paper” has five characters with the \textquotedblleft p \textquotedblright repeated two times, so we have $\f{5!}{2!}$ possible arrangements.
+\item pepper?
+\\
+{\color{blue}{\bf Sol.}}
+Since “pepper” has six characters with the \textquotedblleft p \textquotedblright repeated three times, the \textquotedblleft e \textquotedblright
+repeated two times so we have $\f{6!}{2!\cdot3!}$ possible arrangements.
+\item Mississippi?
+\\
+{\color{blue}{\bf Sol.}}
+Since “Mississippi” has eleven characters with the \textquotedblleft i \textquotedblright repeated four times, the \textquotedblleft s \textquotedblright
+repeated four times and the \textquotedblleft p \textquotedblright repeated two times, so we have $\f{11!}{4!\cdot4!\cdot2!}$ possible arrangements.
+\end{enumerate}
+
+
+
+
+
+\item
+Delegates from 10 countries, including Korea, Japan, China, and the United States, are to be seated in a row. 
+How many different seating arrangements are possible if 
+\begin{enumerate}
+\item there is no constraint?
+\\
+{\color{blue}{\bf Sol.}}
+$10!$
+
+\item Korea and Japan delegates are to be seated next to each other?
+\\
+{\color{blue}{\bf Sol.}}
+$9!\cdot2!$
+\item Korea and Japan delegates are to be seated next to each other and the China and U.S. delegates are not to be next to each other?
+\\
+{\color{blue}{\bf Sol.}}
+If the Korea and Japan delegates are to be seated next to each other, they can be
+placed in $2!$ ways. Then this pair constitutes a new object which we can place anywhere
+among the remaining eight people, i.e. there are $9!$ arrangements of the eight remaining
+people and the Korea and Japan pair. Thus we have $2\cdot9! = 725760$ possible combinations.
+Since in some of these the China and U.S. delegates are next to each other, this number
+over counts the true number we are looking for by $2 \cdot 2\cdot8!$ = 161280 (the first two is for the
+number of arrangements of the China and U.S. pair). Combining these two criterion we
+have $2\cdot9! - 2 \cdot 2\cdot8!$.
+\end{enumerate}
+
+
+
+
+
+\item
+An elevator starts at the basement of the 12 story building with 10 people
+and each one choose one's stop. 
+How many different stop arrangements are possible if 
+\begin{enumerate}
+\item there is no constraint?
+\\
+{\color{blue}{\bf Sol.}}
+Let $x_i$ equal the number of people getting off at floor $i$, where $i = 1,\cdots,12$.
+Then the constraint that all people are off at the twelveth floor means that $x_1+ \cdots +x_{12}=10$ with $x_i \ge 0 $. 
+\\
+This has ${n+r-1\choose r-1}={10+12-1\choose 12-1}={21\choose 11}$ possible distribution people.
+\item three are from the same family and they move as a group?
+\\
+{\color{blue}{\bf Sol.}}
+Three people are from the same family means that $x_1+ \cdots +x_{12}=8.$
+This has ${n+r-1\choose r-1}={8+12-1\choose 12-1}={19\choose 11}$ possible distribution people.
+\item three move as a group and another four move as a group, but these two groups stop at different floors?
+\\
+{\color{blue}{\bf Sol.}}
+This means that \\
+(the number of non-negative integer solution $x_1+ \cdots +x_{12}=5$) - (the number of non-negative integer solution $x_1+ \cdots +x_{12}=4$)\\
+${5+12-1\choose 12-1}-{4+12-1\choose 12-1}={16\choose 11}-{15\choose 11}$
+
+\end{enumerate}
+
+
+
+
+
+\item
+12 people are to be divided into 3 groups.
+How many different group formations are possible if the size of 3 groups are 
+\begin{enumerate}
+\item 3, 4, and 5?
+\\
+{\color{blue}{\bf Sol.}}
+There are ${12\choose 3}\cdot{9\choose 4}\cdot{5\choose 5}={12\choose 3,4,5}$ possible divisions.
+\item 3, 3, and 6? {\color{red}Here, we assume two groups of size 3 are not distinguishable.}
+\\
+{\color{blue}{\bf Sol.}}
+There are $\f{ {12\choose 3}\cdot{9\choose 3}\cdot{6\choose 6}}{2!}$ possible divisions.
+
+\item 3, 3, and 6? {\color{red}Here, we assume (different tasks are assigned to each group and hence) two groups of size 3 are distinguishable.} 
+\\
+{\color{blue}{\bf Sol.}}
+There are ${{12\choose 3}\cdot{9\choose 3}\cdot{6\choose 6}}$ possible divisions.
+\end{enumerate}
+
+
+
+\item
+When we expand $(x+2y+3z+4w)^{100}$,
+find the coefficient of
+\begin{enumerate}
+\item $x^{10}y^{20}z^{30}w^{39}$.
+\\
+{\color{blue}{\bf Sol.}} 0
+
+
+\item $x^{10}y^{20}z^{30}w^{40}$.
+\\
+{\color{blue}{\bf Sol.}} by multinomial theorem\\
+ ${100 \choose 10,20,30,40}2^{20}\cdot3^{30}\cdot4^{40}=\f{100!}{10!20!30!40!}2^{20}\cdot3^{30}\cdot4^{40}={100 \choose 10}\cdot{90\choose 20}\cdot{70\choose 30}\cdot{40\choose 40}\cdot2^{20}\cdot3^{30}\cdot4^{40}$
+
+ 
+ 
+ 
+\item $x^{10}y^{20}z^{30}w^{41}$.
+\\
+{\color{blue}{\bf Sol.}} 0
+\end{enumerate}
+
+
+
+
+
+\item 
+If 20 balls are to be distributed into 4 distinct urns, 
+how many different configurations are possible if
+\begin{enumerate}
+\item 20 balls are all different.
+\\
+{\color{blue}{\bf Sol.}}
+$4^{20}$
+
+\item 20 balls are all identical.
+\\
+{\color{blue}{\bf Sol.}}
+If we let $x_i, i = 1, 2, 3, 4$, $i$-th urn, then $x_1, x_2, x_3, x_4$ are integers satisfying the equation $x_1+x_2+x_3+x_4=20, x_i \ge 0$
+\\So we have ${20+4-1\choose 4-1}={23\choose 3}$ possible configurations.
+
+\item 20 balls are all identical and each urn has at least one ball.
+\\
+{\color{blue}{\bf Sol.}}
+If we let $x_i, i = 1, 2, 3, 4$, $i$-th urn, then $x_1, x_2, x_3, x_4$ are integers satisfying the equation $x_1+x_2+x_3+x_4=20, x_i > 0$
+\\
+let $x_i^{'}=x_i-1$
+\\
+$\Leftrightarrow $  $x_1^{'}+x_2^{'}+x_3^{'}+x_4^{'}=16, x_i \ge 0$
+\\So we have ${16+4-1\choose 4-1}={19\choose 3}$ possible configurations.
+\item 12 balls are identically red and 8 balls are identically white.
+\\
+{\color{blue}{\bf Sol.}}
+(the number of non-negative integer solutions of $x_1+x_2+x_3+x_4=12)\cdot$
+(the number of non-negative integer solutions of $y_1+y_2+y_3+y_4=8$)
+\\So we have ${12+4-1\choose 4-1}\cdot {8+4-1\choose 4-1}={15\choose 3}\cdot {11\choose 3}$
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item %changed from Ross
+Prove
+$$
+{2n\choose n}=\sum_{k=0}^n{n\choose k}^2
+$$
+\\
+{\color{blue}{\bf Sol.}}
+From problem 8 we have that when $m = n$ and $r = n$ that
+$$
+{n+n\choose n}={n\choose 0}{n\choose n}+{n\choose 1}{n\choose n-1}+\cdots+{n\choose n}{n\choose 0}$$
+Using the fact that ${n\choose k}={n\choose n-k}$ the above is becomes
+$$
+{2n\choose n}={n\choose 0}^2+{n\choose 1}^2+\cdots+{n\choose n}^2$$
+
+
+
+\item  
+Prove that
+$$
+{n+m\choose r}={n\choose 0}{m\choose r}+{n\choose 1}{m\choose r-1}+\cdots+{n\choose r}{m\choose 0}$$
+\\
+{\color{blue}{\bf Sol.}}
+We can do this in a combinatorial way by considering subgroups of size $r$ from a group of $n$ men and $m$ women. The left hand side of the above represents one way of obtaining this identity. Another way to count the number of subsets of size $r$ is to consider the number of possible groups can be found by considering a subproblem of how many men chosen to be included in the subset of size $r$. This number can range from zero men to $r$ men. When
+we have a subset of size $r$ with zero men we must have all women. This can be done in
+${n\choose 0}{m\choose r}$ ways. If we select one man and $r-1$ women the number of subsets that meet this criterion is given by ${n\choose 1}{m\choose r-1}$. Continuing this logic for all possible subset of
+the men we have the right hand side of the above expression.
+
+
+\item 
+Show the following combinatorial identities
+\bea
+(a)\sum_{k=1}^n k  {n \choose k}&=&n2^{n-1}\nn\\
+(b)\sum_{k=0}^n k(k-1)  {n \choose k}&=&n(n-1)2^{n-2}\nn
+\eea
+\\
+{\color{blue}{\bf Sol.}}
+(a) Consider $n$ people from which we want to count the total number of committees
+of any size with a chairman. For a committee of size $k = 1$ we have $1\cdot{n\choose 0}=n$ possible choices. For a committee of size $k = 2$ we have ${n\choose 2}$ subsets of two people and two choices
+for the person who is the chair. This gives $2\cdot {n\choose 2}$ possible choices. For a committee of size
+$k = 3$ we have $3\cdot {n\choose 3}$ etc. Summing all of these possible choices we find that the total
+number of committees with a chair is $\sum_{k=1}^n k  {n \choose k}$
+\\
+Another way to count the total number of all committees with a chair, is to consider first
+selecting the chairperson from which we have $n$ choices and then considering all possible
+subsets of size $n - 1$ (which is $2^{n-1}$) from which to construct the remaining committee
+members. The product then gives $n2^{n-1}$.
+\\
+
+(b) Consider again $n$ people where now we want to count the total number of committees of size $k$ with a chairperson and a secretary. We can select all subsets of size $k$ in ${n\choose k}$ ways. Given a subset of size $k$, there are $k$ choices for the chairperson and $k-1$ choices for the secretary giving $k(k-1){n\choose k}$
+committees of size $k$ with a chair and a secretary. The
+total number of these is then given by summing this result or 
+$$\sum_{k=0}^n k(k-1){n \choose k}$$
+
+Now consider first selecting the chairman which can be done in $n$ ways. And selecting for the secretary which can be done in $n-1$ ways
+and then we look for all subsets of a set with $n - 2$ elements (i.e. $2^{n-2}$)
+\\So we have 
+$$\sum_{k=0}^n k(k-1)  {n \choose k} = n(n-1)2^{n-2}$$
+\item  
+Let $A_n$, $B_n$, and $C_n$ be the number of $n$ coin flip outcomes 
+such that, when we divide the number of heads by 3,
+the remainder is 0, 1, 2, respectively.  
+Show that
+$$A_n=A_{n-1}+C_{n-1},\quad \mb{for $n\ge 2$}$$
+$$B_n=B_{n-1}+A_{n-1},\quad \mb{for $n\ge 2$}$$
+$$C_n=C_{n-1}+B_{n-1},\quad \mb{for $n\ge 2$}$$
+or
+$$
+\left[\ba{c}A_n\\B_n\\C_n\ea\right]
+=
+\left[\ba{ccc}1&0&1\\1&1&0\\0&1&1\ea\right]
+\left[\ba{c}A_{n-1}\\B_{n-1}\\C_{n-1}\ea\right]
+$$
+Since $A_1=1,\ B_1=1,\ C_1=0$,
+$$
+\left[\ba{c}A_n\\B_n\\C_n\ea\right]
+=
+\left[\ba{ccc}1&0&1\\1&1&0\\0&1&1\ea\right]^{n-1}
+\left[\ba{c}1\\1\\0\ea\right]
+$$
+\\
+{\color{blue}{\bf Sol.}}
+\\
+(1) $A_n$ = the number of heads is the form of $3k$  
+If $n$th flip is head, the number of heads is the form of $3k+2$ in $n-1$ flips.
+If $n$th flip is tail, the number of heads is the form of $3k$ in $n-1$ flips.
+So we have $A_n=A_{n-1}+C_{n-1}$
+\\
+(2) $B_n$ = the number of heads is the form of $3k+1$ 
+If $n$th flip is head, the number of heads is the form of $3k$ in $n-1$ flips.
+If $n$th flip is tail, the number of heads is the form of $3k+1$ in $n-1$ flips.
+So we have $B_n=B_{n-1}+A_{n-1}$
+\\
+(3) $C_n$ = the number of heads is the form of $3k+2$ 
+If $n$th flip is head, the number of heads is the form of $3k+1$ in $n-1$ flips.
+If $n$th flip is tail, the number of heads is the form of $3k+2$ in $n-1$ flips.
+So we have $C_n=C_{n-1}+B_{n-1}$
+\item
+An elevator starts at the basement of the 12 story building with 10 people
+and each one choose one's stop. 
+Count
+\begin{enumerate}
+\item all the possible red stop button number configurations.
+\\
+{\color{blue}{\bf Sol.}}
+$${12 \choose 1}+{12 \choose 2} \cdots + {12 \choose 12} $$
+\item all the possible stopping configurations of all 10 people.
+\\
+{\color{blue}{\bf Sol.}}
+$$12^10$$
+\item all the possible stopping configurations of all 10 people {\color{red}if we cannot identify (or don't care) one from another.}
+\\
+{\color{blue}{\bf Sol.}}
+$$ {10+12-1\choose 12-1}={21\choose 11} $$
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,525 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Expectation and variance of sum of random variables}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large{\bf [Homework] Expectation and variance of sum of random variables}} 
+\end{center}
+
+
+\begin{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+\item
+Suppose that $A$ and $B$ each randomly and independently choose 3 of 10 objects. Find the expected number of objects
+\begin{enumerate}
+\item chosen by both $A$ and $B$.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ be the number of objects that are selected by both $A$ and $B$. To further simplify
+ the problem we use indicator variables $X_i$. Let $X_i = 1$ if object $i$ is selected by both $A$
+ and $B$, and $X_i = 0$ otherwise, where $1\le i\le10$. Then,
+
+$$E(X)=E(\sum_{i=1}^{10} X_i)=\sum_{i=1}^{10} E(X_i)$$
+
+Now we must find $E(X_i)$. We know that $X_i$ only takes on one of two values, $X_i = 1$ or
+ $X_i = 0$. So, for the case of a sum of independent random indicator variables, $E(X_i) =
+ P(X_i = 1)$.
+ Each person can choose 3 of the 10 items. There are 3 ways to choose the item of
+ interest, since a person can draw 3 objects. Since person A and B draw independently,
+
+$$P(X_i=1)=(\f{3}{10})^2$$
+
+Then,
+
+$$E(X)=\sum_{i=1}^{10} E(X_i)=\sum_{i=1}^{10} (\f{3}{10})^2 =\f{9}{10}$$
+
+
+
+
+\item not chosen by either $A$  or $B$.
+\\
+{\color{blue}{\bf Sol.}}
+The principle is similar to part (a). Let $X_i = 1$ if object $i$ is not chosen by $A$ and is not chosen by $B$. $P(X_i = 1) = (\f{7}{10})^2$, because the probability that an arbitrary person does
+ not choose object $i$ is $\f{7}{10}$ and person A and person B draw independently. Then,
+
+$$E(X)=\sum_{i=1}^{10} E(X_i)=\sum_{i=1}^{10} (\f{7}{10})^2 =4.9$$
+
+
+
+
+\item chosen by exactly one of $A$ and $B$.
+\\
+{\color{blue}{\bf Sol.}}
+In this case, either person $A$ draws object $i$ and person $B$ does not, or person $B$ draws object $i$ and person $A$ does not. Again, let $X_i = 1$ if exactly one of $A$ or $B$ draws object $i$, $X_i = 0$ otherwise. The person that eventually draws object $i$ had probability $\f{3}{10}$ of
+ drawing the object and the person that does not draw object $i$ had probability $\f{7}
+ {10}$ of not drawing object $i$. But there are two ways to arrange this situation. A can draw the
+ object, and $B$ does not, or $B$ draws the object and $A$ does not. Thus,
+$$E(X_i)=P(X_i=1)=2 \cdot \f{3}{10} \cdot \f{7}{10}$$
+and
+$$E(X)=10(2\cdot\f{3}{10}\cdot \f{7}{10})=4.2$$
+
+
+
+
+\end{enumerate}
+ 
+ 
+ 
+ 
+ 
+ \item
+20 people consisting of 10 couples are in an island.
+Each person lives after 1 year with probability 0.5, independently.
+Let $X$ be the number of surviving couples after 1 year. 
+\begin{enumerate}
+\item
+Identify the distribution of $X$. 
+
+
+
+\item
+Calculate the mean and variance of $X$. 
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+\item
+For a group of 100 people, compute
+\begin{enumerate}
+\item the expected number of days of the year that
+are birthdays of exactly 3 people.
+
+
+
+
+\item the expected number of distinct birthdays.
+
+
+
+
+\end{enumerate}
+ 
+ 
+
+
+
+
+\item
+We have 10 different points on the unit circle.
+For any two point
+we flip a fair coin independently and,
+if the coin lands on head, we join these two by a line segment.
+Calculate the mean and variance of the number of triangles formed. 
+
+
+
+
+\item
+Someone I know claims to be able to spin a coin in such a way that he can make it land head 90\% of the time, on the average. I want to test the hypothesis that he's bluffing against the alternative that he is right. I propose to test this hypothesis by having him spin the coin again and again until it first lands tail. If it takes more than 4 tries, I'll conclude that he's right. Assume that the spins are independent.
+\begin{enumerate}
+\item
+Under the null hypothesis that he cannot influence the outcome, 
+identify the distribution of the number of spins until the coin lands tail.
+
+
+
+
+
+\item
+What is the expectation and variance of the number of spins to the first tail under the alternative hypothesis?
+
+
+\end{enumerate}
+
+
+
+
+
+\item
+A certain project will be undertaken in 6 stages. There is a 95\% chance that each stage will be completed on time independent.
+\begin{enumerate}
+\item
+Compute the probability that all 6 stages are completed on time.
+
+
+\item
+Compute the expectation and variance of the number of stages that will be completed on time.
+
+\end{enumerate}
+
+
+
+
+\item
+A statistics class contains 368 students. Homework in the class is submitted online and graded automatically. The instructor wrote software to detect cheating on the homework. Suppose that the software has a 99.6\% chance of correctly identifying a student who cheats, and a 0.2\% chance of mis-identifying an honest student as a cheater. Assume that the software identification of students as cheaters or honest is independent from student to student, and that twelve of the students cheat on the homework.
+\begin{enumerate}
+\item A student is selected at random from the class. Compute the probability that the student cheated, given that the software says he or she did.
+\\
+{\color{blue}{\bf Sol.}}
+
+
+
+
+\item Compute the expected number of cheaters who are correctly identified by the software.
+\\
+{\color{blue}{\bf Sol.}}
+
+
+
+
+\item Compute the expected number of honest students who are incorrectly identified to be cheaters by the software.
+\\
+{\color{blue}{\bf Sol.}}
+
+
+
+
+\item Compute the probability that the software correctly identifies at least ten of the cheaters.
+\\
+{\color{blue}{\bf Sol.}}
+
+
+
+
+\item Compute the probability that the software correctly identifies all twelve of the students who cheated, without mis-identifying any of the 356 honest students to be cheaters.
+\\
+{\color{blue}{\bf Sol.}}
+
+
+
+
+\end{enumerate}
+
+
+
+
+\item
+How many times would you expect to roll a fair die to see all 6 sides appeared at least once?
+How about the variance?
+
+
+
+
+
+
+ 
+
+\item
+Consider $n$ independent flips of a fair coin. 
+Say that a changeover occurs whenever an outcome differs from the one preceding it. For instance, if $n=12$ and the outcome is $HHTTTTHHHHHT$, then there are 3 changeovers.
+$$
+\ba{cccccccccccc}
+H&H&T&T&T&T&H&H&H&H&H&T\\
+&&\uparrow&&&&\uparrow&&&&&\uparrow
+\ea
+$$
+$$
+\ \ \ \ \ \ \ \ \ \ \mb{changeover}\ \ \ \ \ \mb{changeover}\ \ \ \ \ \ \ \ \ \ \ \ \mb{changeover}
+$$ 
+Let $X$ be the number of changeovers during the $n$ flips.
+\begin{enumerate}
+\item
+Calculate $P(X=1)$. 
+
+
+\item
+Calculate the mean and variance of $X$. 
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+\item
+A total of $n$ balls, numbered 1 through $n$, are put into $n$ urns, also numbered 1 through $n$ in such a way that ball $i$ is equally likely to go into any of the urns $1,2,\ldots,i$. 
+Find
+\begin{enumerate}
+\item the probability that none of the urns is empty.
+\\
+{\color{blue}{\bf Sol.}}
+For all of the urns to have at least one ball in them, the nth ball must be dropped into
+the nth urn, which has probability $\f{1}{n}$. The $n-1$st ball must be placed in the $n -1$st urn which has probability $\f{1}{n-1}$ and so on. So, the probability that none of the urns will be empty is
+$$\f{1}{n}\cdot\f{1}{n-1}\cdots\f{1}{2}\cdot\f{1}{1}=\f{1}{n!}$$
+
+
+\item the expected number of urns that are empty.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ be the number of empty urns. Define an indicator variable $X_i = 1$ if urn $i$ is empty, $X_i = 0$ otherwise. We must find $E(X_i) = P(X_i = 1)$.\\
+The $i$th urn remains empty as the first $i-1$ balls are deposited into the other urns. On the $i$th drop, urn $i$ must remain empty. Since a ball can land in any of the $i$ urns with
+equal probability, the probability that the ith ball will not land in urn $i$ is $1 -\f{ 1}{i}$. To
+remain empty, the urn must not receive a ball on the i+1st drop etc. so the probability
+that the $i + 1$st ball will not land in urn $i$, is $1-\f{1}{i+1}$. So,
+\bea
+E(X_i)
+&=&(1-\f{1}{i})(1-\f{1}{i+1})(1-\f{1}{i+2})\cdots (1-\f{1}{n}) \nn\\
+&=&(\f{i-1}{i})(\f{i}{i+1})\cdots(\f{n-1}{n})\nn\\
+&=&\f{i-1}{n} \nn
+\eea
+\bea
+E(X)
+&=&\sum_{i=1}^n E(X_i)\nn\\
+&=&\sum_{i=1}^n \f{i-1}{n}\nn\\
+&=&\f{n-1}{2} \nn
+\eea
+
+
+\item the variance of the number of urns that are empty.
+\\
+{\color{blue}{\bf Sol.}}
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+\end{enumerate}
+\vskip 0.3in
+
+
+
+
+\begin{center}
+{\Large{\bf [Extra] Expectation and variance of sum of random variables}} 
+\end{center}
+
+
+\begin{enumerate}
+
+
+
+\item
+A box contains tickets labeled with the numbers $\{-3, -1, 0, 1, 3\}$. 
+In 100 random draws with replacement from the box, 
+calculate the expectation and the variance of the sum of the positive numbers on the tickets drawn.
+[From SticiGui]
+
+
+
+
+
+\item
+Form 10 teams of 2 from 10 men and 10 women, randomly.
+\begin{enumerate}
+\item
+Calculate the mean and variance of the number of teams of different sex. 
+\item
+If 20 people are actually 10 couples,
+calculate the mean and variance of the number of teams of couple. 
+\end{enumerate}
+
+
+
+
+\item
+An urn has $m$ black balls. At each stage, a black ball is removed and a new ball that is black with
+probability $p$ and white with probability $1-p$ is put in its place. Find 
+the expectation and variance of the number of stages needed until there are no more black balls in the urn.
+
+
+
+\end{enumerate}
+
+
+
+\end{document}

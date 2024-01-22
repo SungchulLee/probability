@@ -1,0 +1,402 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Law of large numbers}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] Law of large numbers} 
+\end{center}
+
+
+
+
+\begin{enumerate}
+\item
+100 men and 100 women are randomly grouped into 100 pairs disjointly. Give an upper bound to the probability that at least 60 of these pairs will consist of a man and a woman.
+
+
+
+
+
+
+
+
+\item
+The number of items produced in a factory during a week is a random variable with mean 50.
+\begin{enumerate}
+\item
+What can be said about the probability that this week's production will exceed 75?
+\item
+If the variance of a week's production is known to equal 25, then what can be said about the probability that this week's production will be between 40 and 60?
+\end{enumerate}
+
+\item
+Let $X_i$ be iid $Po(1)$.
+\begin{enumerate}
+\item
+Use Markov inequality to obtain a bound on
+$P(\sum_{i=1}^{20}X_i>15)$.
+\item
+Use CLT to approximate
+$P(\sum_{i=1}^{20}X_i>15)$.
+\end{enumerate}
+
+
+
+
+
+\item  
+Let $X$ be $B(n,p)$, $n=1000$, $p=0.01$. 
+Get the Chernoff bound of the probability $P(X\ge 20)$.  
+
+
+
+
+
+
+
+
+\item
+Show that
+for a standard normal $Z$, by Chernoff's method  
+$$
+P(Z\ge a)\le e^{-\f{a^2}{2}}\quad \mb{for any $a\ge 0$}
+$$
+
+
+
+
+
+
+
+
+
+\item
+Let $X$ be $\Ga(n,1)$.
+How large need $n$ be so that
+$$
+P\left(\left|\f{X}{n}-1\right|>0.01\right)<0.01?
+$$
+
+
+
+\item
+To determine the average lifetime of their light-emitting diode (LED) light bulbs, a manufacturer takes a simple random sample of 100 bulbs from a manufacturing lot of 32,000 bulbs. The mean lifetime of the bulbs in the sample is 102.59 thousand hours, and the sample standard deviation of their lifetimes is 8.65 thousand hours.
+\begin{enumerate}
+\item
+Construct a conservative 95\% confidence interval for the average lifetime of their light-emitting diode (LED) light bulbs. 
+\item
+Construct an approximate 95\% confidence interval for the average lifetime of their light-emitting diode (LED) light bulbs. 
+\end{enumerate}
+
+
+
+
+\item
+A lake contains 4 distinct types of fish. Suppose that each fish caught is equally likely to be any one of these types. Let $Y$ denote the number of fish that need be caught to obtain at least one of
+each type.
+\begin{enumerate}
+\item
+Give an interval $(a, b)$ such that $P(a\le Y\le b)\ge 0.90$.
+\item
+Using the one-sided Chebyshev inequality,
+how many fish need we plan on catching so as to be at least 90 percent certain of obtaining at least one of each type.
+\end{enumerate}
+
+
+\item 
+The lifetimes of interactive computer chips produced by a certain semiconductor manufacturer are normally distributed with parameters $\mu = 1.4 \times 10^6$ hours and $\si = 3 \times 10^5$ hours.
+What is the approximate probability that a batch of 100 chips will contain at least 20 
+whose lifetimes are less than
+$1.8 \times 10^6$? 
+
+
+
+
+
+
+
+\item
+From past experience, a professor knows that the test score of a student taking her final examination is a random variable with mean 75 and variance 25.
+\begin{enumerate}
+\item
+Give an upper bound for the probability that
+a student's test score will exceed 85. 
+\item
+What can be said about the probability that a
+student will score between 65 and 85?
+\item
+How many students would have to take the examination to ensure, with probability at least 0.9, that the class average would be within 5 of 75? Do not use the central limit
+theorem.
+\item
+Solve (c) again using CLT.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+\begin{center}
+{\Large\bf [Extra]} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+\item
+Suppose that the number of typographical errors on a single page of a particular book is $Po(\la)$, $\la=1$. Calculate 
+\begin{enumerate}
+\item
+the probability that there is no error on one particular page. 
+\item
+the probability that there is at most two errors on next 10 pages. 
+\item
+the probability that there is at most 200 errors in this book of 1000 pages.
+Use the Markov inequality and calculate the upper bound of this probability. 
+\item
+the probability that there is at most 200 errors in this book of 1000 pages.
+Use the Chebyshev inequality and calculate the upper bound of this probability. 
+\item
+the probability that there is at most 200 errors in this book of 1000 pages.
+Use the one-sided Chebyshev inequality and calculate the upper bound of this probability.
+\item
+the probability that there is at most 200 errors in this book of 1000 pages.
+Use the Chernoff bound and calculate the upper bound of this probability.
+\item
+the probability that there is at most 200 errors in this book of 1000 pages.
+Use the CLT and approximately calculate this probability. 
+\item
+the expectation and variance of the page number that there is an error for the first time when we examine the book from page 1.
+In this computation we assume that this book has an infinite number of pages for simplicity. 
+\item
+the expectation and variance of the page number that we find an error for the first time when we examine the book from page 1,
+under the assumption that we find the error with probability 40\% when we encounter.
+In this computation we assume that this book has an infinite number of pages for simplicity. 
+\end{enumerate}
+
+
+
+
+\item
+Let $X_i$ be iid with $P(X_i=1)=P(X_i=-1)=\f12$.
+Calculate the Chernoff bound of $P(S_{10}\ge 6)$, where $S_{10}=\sum_{i=1}^{10}X_i$.
+
+
+
+\item
+Show that 
+for $X\sim Po(\la)$, by Chernoff's method 
+$$
+P(X\ge n)\le e^{-\la}\left(\f{e\la}{n}\right)^n\quad \mb{for any non-negative integer $n$}
+$$
+
+
+
+
+
+\item
+The entering class at a certainUniversity is about 1000 students. The dean's office seeks to determine the percentage of entering students who have credit cards. The dean's office will take a simple random sample of 35 entering students, interview them, and compute the sample percentage. 
+The sample is taken, and the sample percentage is observed to be 50\%.
+\begin{enumerate}
+\item
+Construct a conservative 95\% confidence interval for the percentage of entering students who have credit cards. 
+\item
+Construct an approximate 95\% confidence interval for the percentage of entering students who have credit cards. 
+\end{enumerate}
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+\end{document}

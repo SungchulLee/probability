@@ -1,0 +1,606 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] CLT}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] CLT} 
+\end{center}
+
+
+
+
+
+
+
+
+
+\begin{enumerate}
+\item
+Calculate the following integrals;
+$$
+\int_{-\infty}^{\infty}xe^{-x^2-2x}dx\ \ \ \ \ \mb{and}\ \ \ \ \ 
+\int_{-\infty}^{\infty}x^2e^{-x^2-2x}dx.
+$$
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+\int_{-\infty}^{\infty}xe^{-x^2-2x}dx
+&=&e\cdot\int_{-\infty}^{\infty}xe^{-(x+1)^2}dx \nn\\
+&=&e\cdot\sqrt{2\pi\f{1}{2}}\int_{-\infty}^{\infty}\sqrt{2\pi\f{1}{2}}xe^{-\f{(x+1)^2}{2\cdot\f{1}{2}}}dx \nn\\
+&=&-e\sqrt{\pi}\nn
+\eea
+
+\bea
+\int_{-\infty}^{\infty}x^2e^{-x^2-2x}dx
+&=&\f{3}{2}e\sqrt{\pi}\nn
+\eea
+
+
+\item
+From the fact that the MGF of $Geo(p)$ is 
+$$
+\varphi_{Geo(p)}(t)=\f{pe^t}{1-qe^t}\ \ \ \ \ \mb{for $t<-\ln q$},
+$$
+drive the MGF of $Exp(\la)$.
+\\
+{\color{blue}{\bf Sol1.}}
+\bea
+\varphi_{Exp(\la)}(t)
+&=&E(e^{tX}) \nn\\
+&=&\int_{-\infty}^{\infty}e^{tX}f_X(x)dx \nn\\
+&=&\int_{-\infty}^{0}e^{tX}\la e^{-\la x}dx \nn\\
+&=&\f{\la}{\la-t}\nn
+\eea
+\\
+{\color{blue}{\bf Sol2.}}
+Since $np= \la$
+\bea
+\f{pe^t}{1-qe^t}
+&=&\lim_{n \rightarrow \infty}\f{\f{\la}{n}e^{\f{t}{n}}}{1-(1-\f{\la}{n})e^{\f{t}{n}}} \nn\\
+&=&\lim_{n \rightarrow \infty}\f{\la e^{\f{t}{n}}}{n(1-e^{\f{t}{n}})+\la e^{\f{t}{n}}} \nn\\
+&=&\f{\la}{\la-t}\nn
+\eea
+
+\item
+From the fact that the MGF of $Exp(\la)$ is 
+$$
+\varphi_{Exp(\la)}(t)=\f{\la}{\la-t}\ \ \ \ \ \mb{for $t<\la$},
+$$
+drive the MGF of $\Ga(n,\la)$
+and from this derivation of the MGF of $\Ga(n,\la)$
+guess the MGF of $\Ga(\al,\la)$.
+\\
+{\color{blue}{\bf Sol.}}
+$X_1, \cdots , X_n$ : $n$ mutually independent random variable $\sim Exp(\la)$
+\bea
+\varphi_{Gamma(n,\la)}(t)=\f{\la}{\la-t}
+&=&\prod_{i=1}^n \varphi_{Exp(\la)}(t) \nn\\
+&=&\prod_{i=1}^n\f{\la}{\la-t} \nn\\
+&=&(\f{\la}{\la-t})^n \nn
+\eea
+
+
+
+
+
+
+
+\item
+Using the following MGF
+recover the mean and variance.
+{\small
+\begin{table}[H]    \center
+\begin{tabular}{|c|c|c|c|} \hline
+Distribution&MGF&Mean&Variance\\ \hline \hline
+$B(p)$&$1+p(e^t-1)$&$p$&$p(1-p)$\\\hline
+$B(n,p)$&$(1+p(e^t-1))^n$&$np$&$np(1-p)$\\\hline
+$Po(\la)$&$e^{\la (e^t-1)}$&$\la$&$\la$\\\hline
+$N(\mu,\si^2)$&$e^{\mu t+\f{1}{2}\si^2t^2}$&$\mu$&$\sigma^2$\\\hline
+\end{tabular}
+\end{table}
+}
+
+
+\item
+An insurance company has 10,000 automobile policy holders. The expected yearly claim per policy holder is \$240, with a standard deviation of \$ 800. Approximate the probability that the total yearly claim exceeds \$2.7 million.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X_i (i = 1,\cdots 10000)$ be the yearly claim of the $i$th policyholder. Note that
+$X_1, \cdots X_{10000}$ are independent random variables with mean 240 and variance $800^2$.
+\\
+From the central limit theorem, it follows
+$$Z=\f{\sum_{i=1}^{10000} X_i -10000\cdot 240}{800\cdot 100}$$
+has approximately a standard normal distribution. Hence
+$$P(\sum_{i=1}^{10000} X_i>2700000) \approx P(Z \ge \f{2700000-2400000}{800\cdot 100})=P(Z \ge 3.75)=1-\Phi(3.75) $$
+
+
+
+
+
+
+
+\item
+A person has 100 light bulbs whose lifetimes are independent exponentials with mean 5 hours. 
+% 어떤 사람이 100개의 전구를 가지고 있는데, 전구의 수명들은 독립이며 평균이 5시간인 지수분포를 따른다. 만일 한 번에 한 개의 전구를 사용하여 고장난 전구는 즉시 새 전구로 교환한다면, 525시간 후에도 여전히 사용할 확률은 얼마인가?
+\begin{enumerate}
+\item
+If the bulbs are used one at a time, with a failed bulb being replaced immediately by a new one, approximate the probability that there is still a working bulb after 525 hours.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X_1,\cdots ,X_{100}$ be the lifetimes of the bulbs and $X$ their sum. Then $E[X] = 500$ and $Var(X) = 2500$. So
+$$P(X \ge 525)=P(\f{X-500}{50}\ge\f{1}{2}) \approx 1- \Phi(\f{1}{2})$$
+
+
+
+\item
+Suppose that it takes a random time, uniformly distributed over $(0, 1)$, to replace a failed bulb. Approximate the probability that all bulbs have failed by time 550.
+%고장난 전구의 교체 시간이 (0,1)에서 균일하게 분포된 확률변수라 하자. 모든 전구가 550시간 이내에 고장날 확률은 얼마인가?
+\\
+{\color{blue}{\bf Sol.}}
+We include a minor error in our computations if we include a replacement time for the very last bulb in the total time of operation of the 100 bulbs. Let $X_i$ be the operation time of the ith bulb,
+this has Exponential($\f{1}{5}$) distribution. Let also $Y_i$ be the replacement time for bulb $i$. In this case
+we need to take the sum of 100 independent $Z_i = X_i + Y_i$ variables into account. For any of these
+variables, we have
+$$E(Z) = E(\sum_{i=1}^{100}X_i)+E(\sum_{i=1}^{99}Y_i) = 5\cdot100+0.5\cdot99=\f{1099}{2}$$
+$$Var(Z) = Var(\sum_{i=1}^{100}X_i)+Var(\sum_{i=1}^{99}Y_i) = 25\cdot100+\f{1^2}{12}\cdot99=\f{30099}{12}$$
+
+$$P(Z<550)=P(\f{Z-\f{1099}{2}}{\sqrt{\f{30099}{12}}}<\f{550-\f{1099}{2}}{\sqrt{\f{30099}{12}}})\approx \Phi(~~)$$
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+\item
+The ideal size of a first-year class at a particular college is 150 students. The college, knowing from past experience that, on the average, only 30 percent of those accepted for admission will actually attend, uses a policy of approving the applications of 450 students. Compute the probability that more than 150 first-year students attend this college.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ denote the number of students that attend, then $X$ is a binomial random variable with parameter $n=450$ and $p=0.3$. The normal approximation yields that
+
+
+\bea
+P(X \ge 150)
+&=&P(\f{X-450\cdot 3}{\sqrt{450\cdot 0.3 \cdot 0.7}} \ge \f{150-450\cdot 0.3}{\sqrt{450\cdot 0.3 \cdot 0.7}}) \nn\\
+&\approx & 1- \Phi(\f{15}{\sqrt{94.5}})   \nn
+\eea
+
+
+
+\item
+$A$ has 20 jobs that she must do in sequence, with the times required to do each of these jobs being independent random variables with mean 50 minutes and standard deviation 10 minutes. $B$ has 20 jobs that he must do in sequence, with the times required to do each of these jobs being independent random variables with mean 52 minutes and standard deviation 15 minutes.
+\begin{enumerate}
+\item Find the probability that $A$ finishes in less than 900 minutes.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X_i$ be the time it takes to finish job $i$ and $X=\sum_{i=1}^{20} X_i$.
+$$EX=20\cdot50=1000,VarX=20\cdot100=2000$$
+\bea
+P(X<900)
+&=&P(\f{X-1000}{\sqrt{2000}}\le\f{900-1000}{\sqrt{2000}})\nn\\
+&=&P(Z \le -\f{100}{\sqrt{2000}})\nn\\
+&=&1-\Phi(\f{100}{\sqrt{2000}})\nn
+\eea
+
+
+
+\item Find the probability that $B$ finishes in less than 900 minutes.
+\\
+{\color{blue}{\bf Sol.}}
+Let $Y_i$ be the time it takes to finish job $i$ and $Y=\sum_{i=1}^{20} Y_i$.
+$$EY=20\cdot52=1040,VarY=20\cdot225=4500$$
+\bea
+P(Y<900)
+&=&P(\f{Y-1040}{\sqrt{4500}}\le\f{900-1040}{\sqrt{4500}})\nn\\
+&=&P(Z \le -\f{140}{\sqrt{4500}})\nn\\
+&=&1-\Phi(\f{140}{\sqrt{4500}})\nn
+\eea
+
+\item Find the probability that $A$ finishes before $B$.
+\\
+{\color{blue}{\bf Sol.}}
+$$E(X-Y)=-40, Var(X-Y)=6500$$
+
+\bea
+P(X<Y)
+&=&P(X-Y<0)\nn\\
+&=&P(\f{(X-Y)-(-40)}{\sqrt{6500}}<\f{0-(-40)}{\sqrt{6500}})\nn\\
+&=&P(Z <\f{4}{\sqrt{65}})=\Phi(\f{4}{\sqrt{65}})\nn
+\eea
+
+
+\end{enumerate}
+
+
+
+\item
+(Binomial model of the stock price movement)
+Let's consider a stock.
+Comparing to the previous trading day close $S$ of the stock, 
+at the end of the trading day we model that this stock will move up $uS$ with probability $p$
+or down $dS$ with probability $1-p$ independently,
+where $u=e^{0.01}$, $d=e^{-0.01}$, $p=0.5$.
+Today's close of this stock is \$100.
+What is the probability that the stock price is more than \$110 one month later, or after
+21 trading days approximately?
+\\
+{\color{blue}{\bf Sol.}}
+$$
+X_i=\left\{\ba{ll}
+0.01 &\ p=0.5\\
+-0.01 &\ q=0.5\
+\ea\right.
+$$
+let $X=\sum_{i=1}^{21}X_i$
+Then,$EX=0,VarX=0.0021$
+\bea
+P(100\cdot e^{\sum_{i=1}^{21}X_i}\ge 110)
+&=&P({\sum_{i=1}^{21}X_i}\ge \ln\f{110}{100})\nn\\
+&=&P(\f{\sum_{i=1}^{21}X_i-0}{\sqrt{0.0021}}\ge\f{\ln\f{110}{100}-0}{\sqrt{0.0021}})\nn\\
+&=&P(Z\ge \f{\ln\f{110}{100}-0}{\sqrt{0.0021}})=1-\Phi(\f{\ln\f{110}{100}}{\sqrt{0.0021}})\nn
+\eea
+
+
+
+\item
+One thousand independent rolls of a fair die will be made. Compute an approximation to the probability that the number 6 will appear between 150 and 200 times inclusively. If the number 6 appears exactly 200 times, find the probability that the number 5 will appear less than 150 times.
+\\
+{\color{blue}{\bf Sol.}}
+First, let's compute an approximation to the probability that number 6 will appear
+between 150 and 200 times. The die is rolled 1,000 times. These are independent trials
+which are Bernoulli trials since a die shows either a 6 or not. Thus, $n = 1000$. The
+probability of success is constant, $p = \f{1}{6}$. We can use the binomial model.\\
+Let $X$ be the number of times the die shows a $6$.
+Again, consider how difficult it would be to use the binomial. We would have to compute
+the following.
+\bea
+P(150 \le X \le 200)
+&=&P(X \le 200)-P(X \le 150) \nn\\
+&=&\sum_{i=0}^{200} {200 \choose i}(\f{1}{6})^i(\f{5}{6})^{200-i}-\sum_{i=0}^{0} {150 \choose i}(\f{1}{6})^i(\f{5}{6})^{150-i}\nn
+\eea
+We can use the normal approximation to the binomial model because $np = 1000\cdot\f{1}
+{6} > 10$ and $n(1 - p) = 1000 \cdot \f{5}{6}>10$. But, using the normal approximation, let $Y$ be normally distributed using the parameters from the binomial model. That is, in the normal model,
+$\mu= np$ and $\si=\sqrt{np(1-p)}$. So, let $Y \sim N(\f{1000}{6}, \f{5000}{36})$.
+
+\bea
+P(150 \le X \le 200)
+&=&P(X \le 200)-P(X \le 150) \nn\\
+&=&P(Z \le \f{200-\f{1000}{6}}{\sqrt{\f{5000}{36}}})-P(Z \le \f{150-\f{1000}{6}}{\sqrt{\f{5000}{36}}})\nn\\
+&=&\Phi(\f{200-\f{1000}{6}}{\sqrt{\f{5000}{36}}})-\Phi( \f{150-\f{1000}{6}}{\sqrt{\f{5000}{36}}})\nn
+\eea
+\\
+Let $Y$ be the number of 6s that appear and
+let $X$ be the number of 5s that appear. Then we need to compute
+$P(Y < 150|X = 200)$. That is, we consider that 200 of the rolls show a 5, therefore, we
+have 800 trials remaining that can display anything except a 5, so $n = 800$ now. Since
+we have already considered those 200 trials where a 5 appears, the probability of success
+(a 6 appears) is $p = \f{1}{5}$. \\
+Again, we use the normal approximation due to the large value
+for $n$ and since the success/failure conditions hold ($np > 10$ and $n(1 - p) > 10$). We know that $\mu = np = 800\cdot\f{1}{5} = 160$ and $\si=\sqrt{800\cdot\f{1}{5}\f{4}{5}}=\sqrt{128}$.\\
+Let $Y^* \sim N(160, 128)$. Then,
+$$P(Y^*<150)=P(Z<\f{150-160}{\sqrt{128}})=\Phi(\f{150-160}{\sqrt{128}})$$
+
+
+\end{enumerate}
+
+
+\begin{center}
+{\Large\bf [Extra]} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item
+Fill the below blank;
+{\small
+\begin{table}[H]    \center
+\begin{tabular}{|c|c|c|c|} \hline
+Distribution&MGF&Mean&Variance\\ \hline \hline
+$Geo(p)$&&&\\\hline
+$Exp(\la)$&&&\\\hline
+$\Ga(\al,\la)$&&&\\\hline
+\end{tabular}
+\end{table}
+}
+\ignore{
+{\small
+\begin{table}[H]    \center
+\begin{tabular}{|c|c|c|c|} \hline
+Distribution&MGF&Mean&Variance\\ \hline \hline
+$Geo(p)$&$\f{pe^t}{1-qe^t}$ for $t<-\ln q$&&\\\hline
+$Exp(\la)$&$\f{\la}{\la-t}$ for $t<\la$&&\\\hline
+$\Ga(\al,\la)$&$(\f{\la}{\la-t})^\al$ for $t<\la$&&\\\hline
+\end{tabular}
+\end{table}
+}
+}
+
+
+
+
+
+
+
+
+\item
+100 numbers are rounded off to the nearest integer and then summed. If the individual round-off errors are uniformly distributed over $(-0.5, 0.5)$, approximate the probability that the resultant sum differs from the exact sum by more than 1.
+
+
+
+
+
+
+
+
+\item
+We take turns tossing a fair coin, over and over. 
+When the coin lands heads, I win \$1; when the coin lands tails, you win \$1. 
+Approximately compute the probability that after 2000 tosses you are up by \$36.
+
+
+
+
+
+
+
+
+
+
+
+
+\item
+Civil engineers believe that $W$, the amount of weight (in units of 1000 pounds) that a certain span of a bridge can withstand without structural damage resulting, is 400. Suppose that the weight (again, in units of 1000 pounds) of a car is a random variable with mean 3 and standard deviation 0.3. Approximately how many cars would have to be on the bridge span for the probability of structural damage to exceed 2.5\%?
+
+
+
+
+
+
+
+\item
+To determine the effectiveness of a certain diet in reducing the amount of cholesterol in the bloodstream, 100 people are put on the diet. After they have been on the diet for a sufficient length of time, their cholesterol count will be taken. The nutritionist running this experiment has decided to endorse the diet if at least 65 percent of the people have a lower cholesterol count after going on the diet. What is the probability that the nutritionist endorses the new diet if, in fact, it has no effect on the cholesterol level?
+
+
+
+
+
+\item
+Twelve percent of the population is left handed. Approximate the probability that there are at least 20 left-handers in a school of 200 students. 
+
+
+
+\item
+Explain why $\Ga(t, \la)$ has an approximately normal distribution when $t$ is large.
+
+
+
+\item
+An examination is frequently regarded as being good (in the sense of determining a valid grade spread for those taking it) if the test scores of those taking the examination can be approximated by a normal density function. (In other words, a graph of the frequency of grade scores should have approximately the bell-shaped form of the normal density.) The instructor often uses the test scores to estimate the normal parameters $\mu$ and $\si^2$ and then assigns the letter grade 
+$A$ to those whose test score is greater than $\mu+\si$,
+$B$ to those whose score is between $\mu$ and $\mu+\si$,
+$C$ to those whose score is between $\mu-\si$ and $\mu$,
+$D$ to those whose score is between $\mu-2\si$ and $\mu-\si$, and 
+$F$ to those getting a score below $\mu-2\si$. 
+(This strategy is sometimes referred to as grading ``on the curve.") 
+Approximately calculate how many percent of the class will get $A$?
+
+
+
+\item
+Suppose that a binary message-either 0 or 1-must be transmitted by wire from location $A$ to location $B$. However, the data sent over the wire are subject to a channel noise disturbance, so, to reduce the possibility of error, the value 2 is sent over the wire when the message is 1 and the value $-2$ is sent when the message is 0. If $x$, $x = \pm 2$, is the value sent at location $A$, then $R$, the value received at location $B$, is given by $R = x + Z$, where $Z$ is the channel noise disturbance. When the message is received at location $B$, the receiver decodes it according to the following rule:
+\bea
+\mb{If $R\ge 0.5$},&& \mb{then 1 is concluded.}\nn\\
+\mb{If $R< 0.5$},&& \mb{then 0 is concluded.}\nn
+\eea
+Because the channel noise is often normally distributed, we will determine the error probabilities when $Z$ is a standard normal random variable.
+Calculate the error probability when the original binary message is 1.
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+\end{document}

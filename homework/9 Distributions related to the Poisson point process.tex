@@ -1,0 +1,502 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Distributions related to the Poisson point process}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] Distributions related to the Poisson point process} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+
+\item
+The county hospital is located at the center of a square whose sides are 4 km wide. If an accident occurs within this square, then the hospital sends out an ambulance. The road network is rectangular, so the travel distance from the hospital, whose coordinates are $(0, 0)$, to the point $(x, y)$ is $|x| + |y|$. If an accident occurs at a point that is uniformly distributed in the square, find the expected travel distance of the ambulance.
+\\
+{\color{blue}{\bf Sol.}}
+We can assume that the coordinates $X$ and $Y$ of the accident are independent and uniformly distributed over $(-2, 2)$. Hence the expected travel distance of the ambulance is
+ $$E(|X| + |Y |) = E(|X|) + E(|Y |)=2\cdot \int_{-2}^{2}|x|\cdot\f{1}{3} dx = \f{8}{3}$$
+ 
+ 
+
+\item
+Buses arrive at a specified stop at 15-minute intervals starting at 7 A.M. 
+That is, they arrive at 7, 7:15, 7:30, 7:45, and so on. 
+If a passenger arrives at the stop at a time that is uniformly distributed between 7 and 7:30, find the probability that he waits
+\begin{enumerate}
+\item
+less than 5 minutes for a bus.
+\\
+{\color{blue}{\bf Sol.}}
+$X$ = number of minutes past $7$ the passenger arrives.\\
+$X$ is a uniform random variable over the interval $(0,30)$.
+$$P(10 < X <15) + P(25 < X <30) = \int_{10}^{15} \f{1}{30} dx +\int_{25}^{30} \f{1}{30} dx =\f{1}{3}$$
+
+ 
+
+
+
+
+\item
+more than10 minutes for a bus.
+\\
+{\color{blue}{\bf Sol.}}
+$$P(0 < X <5) + P(15 < X <20) = \int_{0}^{5} \f{1}{30} dx +\int_{15}^{20} \f{1}{30} dx =\f{1}{3}$$
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+\item
+The joint PDF $f_{X,Y}(x,y)$ of $X$ and $Y$ is given by
+$$
+f(x,y)=12xy(1-x),\ \ \ \ \ \mb{for $0<x<1$ and $0<y<1.$}
+$$
+\begin{enumerate}
+\item
+Find the PDF $f_{X}(x)$ of $X$ and the PDF $f_{Y}(y)$ of $Y$.
+\\
+{\color{blue}{\bf Sol.}}
+$$f_X(x)=\int_0^1 f(x,y)dy=6x-6x^2$$
+$$f_Y(y)=\int_0^1 f(x,y)dx=2y$$
+
+
+
+
+\item
+Are $X$ and $Y$ independent?
+\\
+{\color{blue}{\bf Sol.}}
+Since $f(x,y) = f_X(x)f_Y(y)$, $X$ and $Y$ are independent.
+
+
+
+\item
+Calculate $EX$, $EY$, $Var(X)$, $Var(Y)$, $Cov(X,Y)$.
+\\
+{\color{blue}{\bf Sol.}}
+(c)
+
+$$EX=\int_0^1 xf_X(x)dx=\f{1}{2},~~ EY=\int_0^1 yf_Y(y)dy=\f{2}{3}$$
+$$EX^2=\int_0^1 x^2f_X(x)dx=\f{3}{10}, ~~ EY^2=\int_0^1 y^2f_Y(y)dy=\f{1}{2}$$
+$$VarX=EX^2-(EX)^2=\f{1}{20}, ~~ VarY=EY^2-(EY)^2=\f{1}{18}$$
+$$EXY=\int_0^1 \int_0^1   xyf(x,y)dxdy=\f{1}{3}$$
+$$Cov(X,Y)=EXY-EX\cdot EY=0$$
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+\item
+The joint PDF $f(x,y)$ of $X$ and $Y$ is given by
+$$
+f(x,y)=x+y,\ \ \ \ \ \mb{for $0\le x\le 1$ and $0\le y\le 1.$}
+$$
+\begin{enumerate}
+\item
+Are $X$ and $Y$ independent?
+\\
+{\color{blue}{\bf Sol.}}
+ Since $f(x,y) \neq f_X(x)f_Y(y)$, $X$ and $Y$ are not independent.
+
+
+\item
+Find the PDF $f_{X}(x)$ of $X$.
+\\
+{\color{blue}{\bf Sol.}}
+
+$$ f_X(x)= \int_0^1 f(x,y)dy=x+\f{1}{2} $$
+$$ f_Y(y)= \int_0^1 f(x,y)dx=y+\f{1}{2} $$
+
+\item
+Calculate $P(X+Y<1)$.
+\\
+{\color{blue}{\bf Sol.}}
+$$ P(X+Y<1)= \int_0^1 \int_0^{1-y} f(x,y)dxdy=\f{1}{3} $$
+
+\end{enumerate}
+
+
+
+
+
+\item
+The joint PDF $f(x,y)$ of $X$ and $Y$ is given by
+$$
+f(x,y)=xe^{-(x+y)},\ \ \ \ \ \mb{for $x>0$ and  $y>0$.}
+$$
+\begin{enumerate}
+\item
+Identify the distribution of $X$ and report its mean and variance.
+\\
+{\color{blue}{\bf Sol.}}
+$$f_X(x)=\int_0^\infty f(x,y)dy=xe^{-x}$$
+$$X \sim \Ga(2,1)$$
+$$EX=\f{n}{\la}=2, VarX=\f{n}{\la^2}=2$$
+
+ 
+
+
+
+
+\item
+Are $X$ and $Y$ independent?
+\\
+{\color{blue}{\bf Sol.}}
+
+$$f_Y(y)=\int_0^\infty  f(x,y)dx=e^{-y}$$
+$$Y \sim \exp(1),EX=\f{1}{\la}=1, VarY=\f{1}{\la^2}=1$$
+Since $f(x,y) = f_X(x)f_Y(y)$, $X$ and $Y$ are independent.
+
+\item
+Identify the distribution of $X+Y$ and report its mean and variance.
+\\
+{\color{blue}{\bf Sol.}}
+Since $X$ and $Y$ are independent, $X+Y \sim \Ga(3,1)$
+$$E(X+Y)=EX+EY= 3$$
+$$Var(X+Y)=VarX+VarY+2Cov(X,Y)=3$$
+
+ 
+
+
+
+\end{enumerate}
+
+
+\item
+Show that
+$$
+B(n,p)
+*
+B(m,p)
+=
+B(n+m,p)
+$$
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+f_Z(z)
+&=&f_{X+Y}(z)\nn\\
+&=&\sum_{x=0}^z f_X(x)f_Y(z-x)\nn\\
+&=&\sum_{x=0}^z {n_1 \choose x}p^x(1-p)^{n_1-x} {n_2 \choose z-x}p^{z-x}(1-p)^{n_2-(z-x)}\nn\\
+&=&p^z(1-p)^{n_1+n_2-z}\sum_{x=0}^z {n_1 \choose x}{n_2 \choose z-x}\nn\\
+&=&{n_1+n_2 \choose z}p^z(1-p)^{n_1+n_2-z} \nn
+\eea
+
+\item
+Show that
+$$
+Exp(\la)
+*
+Exp(\la)
+=
+\Ga(2,\la)
+$$
+\\
+{\color{blue}{\bf Sol.}}
+Let $X, Y$, and $Z = X + Y$ denote the relevant random variables, and $f_X, f_Y$,
+and $f_Z$ their densities. Then
+$$
+f_X(x)=f_Y(x)=\left\{\ba{ll}
+\la e^{-\la x} & x\ge0  \\
+0 &\mb{otherwise}\
+\ea\right.
+$$
+
+for $z>0$
+\bea
+f_Z(z)
+&=&\int_{-\infty}^{\infty} f_X(z-y)f_Y(y)\nn\\
+&=&\la^2ze^{-\la z}\nn\\
+&=&\f{1}{\Ga(2)}\la\cdot(\la z)^{2-1}e^{-\la z}\nn
+\eea
+
+Therfore, $$Exp(\la)*Exp(\la)=\Ga(2,\la)$$
+
+
+\item
+The lifetime in hours of an electronic tube is a random variable having a PDF given by
+$$
+f(x)=xe^{-x},
+\quad
+x>0
+$$
+Compute the expected lifetime of such a tube.
+\\
+{\color{blue}{\bf Sol.}}
+
+
+$$f(x)=xe^{-x}=\f{1}{\Ga(2)}\cdot1\cdot(1\cdot x)^{2-1}e^{-1\cdot x}$$
+$$X \sim \Ga(\al =2, \la=1) $$
+$$EX=\f{n}{\la}=2$$
+
+
+
+
+
+
+
+
+
+\item 
+When I enter the bank, there are already two people in line waiting for the service and I join the queue. 
+In the bank there are four service desks and we assume the service time is iid $Exp(\la_1)$, $\la_1 = 2$ (in minutes). 
+After I got serviced at bank, I visit the post office.
+When I enter the post office,  there are already three people in line waiting for the service and I join the queue. 
+In the post office
+there are two service desks and we assume the service time is iid $Exp(\la_2)$, $\la_2 = 4$ (in minutes). 
+Let $F$ be the fraction of waiting time in post office
+among the total waiting time in both the bank and the post office.
+Calculate
+the mean and variance of $F$.
+\\
+{\color{blue}{\bf Sol.}}
+$X_i$ : the $i(i=1,2)$th person waiting time in the bank, then $X_i \sim Exp(4\la_1)$\\
+$X_3$ : my waiting time in the bank, then $X_3 \sim Exp(4\la_1)$\\
+$X=X_1+X_2+X_3 \sim \Ga(3,4 \la_1)$\\
+
+
+$Y_i$ : the $i(i=1,2,3)$th person waiting time in the post office, then $Y_i \sim Exp(2\la_2)$\\
+$Y_4$ : my waiting time in the post office, then $Y_3 \sim Exp(2\la_2)$\\
+$Y=Y_1+Y_2+Y_3+Y_4 \sim \Ga(4,2 \la_2)$
+
+
+
+$F=\f{Y}{X+Y}$ is the fraction of waiting time spent in post office
+among the total waiting time in both the bank and the post office. Then
+$$F \sim Beta(\beta,\al)$$
+
+
+
+$$EF=\f{\beta}{\al+\beta}=\f{4}{7}$$
+$$VarF=\f{\al\beta}{(\al+\beta)^2(\al+\beta+1)}=\f{3}{98}$$
+
+
+
+\item
+Let $T$ be the inter arrival time containing 05/05/2013 of $PPP(2)$.
+Find its mean and variance.
+\\
+{\color{blue}{\bf Sol.}}
+$T \sim \Ga(2,2)$
+$$ET=\f{n}{\la}=1,~~ VarT=\f{n}{\la^2}=\f{1}{2}$$
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+\begin{center}
+{\Large\bf [Extra]} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+\item
+An accident occurs at a point $X$ that is uniformly distributed on a road of length $L$. 
+At the time of the accident, an ambulance is at a location $Y$ that is also uniformly
+distributed on the road. Assuming that $X$ and $Y$ are independent, find the expected
+distance between the ambulance and the point of the accident.
+
+
+
+
+
+\end{enumerate}
+
+
+
+\end{document}

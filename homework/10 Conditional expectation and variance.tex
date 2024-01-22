@@ -1,0 +1,782 @@
+\documentclass[12pt]{article}%report, article
+%\documentstyle[12pt,leqno]{article}
+
+\textwidth=15.5cm \textheight=21.6cm \topmargin=-0.5cm
+\oddsidemargin=0.05cm
+
+\newcommand{\bbA}{{\bf A}}
+\newcommand{\bba}{{\bf a}}
+\newcommand{\bbB}{{\bf B}}
+\newcommand{\bbb}{{\bf b}}
+\newcommand{\bbC}{{\bf C}}
+\newcommand{\bbc}{{\bf c}}
+\newcommand{\bbD}{{\bf D}}
+\newcommand{\bbd}{{\bf d}}
+\newcommand{\bbE}{{\bf E}}
+\newcommand{\bbe}{{\bf e}}
+\newcommand{\bbI}{{\bf I}}
+\newcommand{\bbi}{{\bf i}}
+\newcommand{\bbJ}{{\bf J}}
+\newcommand{\bbj}{{\bf j}}
+\newcommand{\bbK}{{\bf K}}
+\newcommand{\bbk}{{\bf k}}
+\newcommand{\bbP}{{\bf P}}
+\newcommand{\bbp}{{\bf p}}
+\newcommand{\bbQ}{{\bf Q}}
+\newcommand{\bbq}{{\bf q}}
+\newcommand{\bbT}{{\bf T}}
+\newcommand{\bbt}{{\bf t}}
+\newcommand{\bbU}{{\bf U}}
+\newcommand{\bbu}{{\bf u}}
+\newcommand{\bbV}{{\bf V}}
+\newcommand{\bbv}{{\bf v}}
+\newcommand{\bbW}{{\bf W}}
+\newcommand{\bbw}{{\bf w}}
+\newcommand{\bbX}{{\bf X}}
+\newcommand{\bbx}{{\bf x}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\bbY}{{\bf Y}}
+\newcommand{\bby}{{\bf y}}
+\newcommand{\bbZ}{{\bf Z}}
+\newcommand{\bbz}{{\bf z}}
+\newcommand{\0}{{\bf 0}}
+\newcommand{\R}{{\bf R}}
+\newcommand{\txi}{\bar{\xi}}
+\def\Comment#1{ \marginpar{$\bullet$\quad{\tiny #1}}}
+
+
+\usepackage{graphics,graphicx,amsmath,float,color,subfigure,enumerate,booktabs}
+%\usepackage[tiling]{pst-fill}
+\usepackage[dvips]{xy}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\input{rgb}
+\xyoption{all}
+
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+\begin{document}
+%controls the margin
+\baselineskip=6.0mm
+
+
+
+
+
+
+
+
+%Ignore some parts of statements
+\newcommand{\ignore}[1]{}{}
+
+
+
+
+
+%Equation numbers contain section number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+
+
+
+
+%Activate this if I want to display eq number only
+\newcommand{\lbl}{\label}
+
+%Activate this if I want to display eq number and text number, too
+%\newcommand{\lbl}[1]{\hspace{1cm} \underline{({#1})} \label{#1}}
+
+
+
+
+
+%Call this eq numbers in text
+\newcommand{\eq}[1]{$(\ref{#1})$}
+
+
+\newcommand{\f}{\frac}    
+
+
+%Short for Greek letters
+\newcommand{\al}{\alpha}                         %\al=\al
+\newcommand{\bt}{\beta}                          %\bt=w
+\newcommand{\ga}{\gamma}                         %\ga=\gamma
+\newcommand{\Ga}{\Gamma}                         %\Ga=\Gamma
+\newcommand{\de}{\delta}                         %\de=\delta
+\newcommand{\De}{\Delta}                         %\De=\Delta
+\newcommand{\ep}{\epsilon}                       %\ep=\epilon
+\newcommand{\ve}{\varepsilon}                    %\ve=\varepsilon
+\newcommand{\la}{\lambda}                        %\la=\lambda
+\newcommand{\La}{\Lambda}                        %\La=\Lambda
+\newcommand{\ro}{\rho}                           %\ro=\rho
+\newcommand{\ta}{\tau}                           %\ta=tau
+%\newcommand{\th}{\theta}                         %\th=\theta
+\newcommand{\si}{\sigma}                         %\si=\sigma
+\newcommand{\Si}{\Sigma}                         %\si=\sigma
+\newcommand{\om}{\omega}                           %\ro=\rho
+\newcommand{\Om}{\Omega}                           %\ta=tau
+
+
+
+
+
+%Short for equation array and for equations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}               %\be=\begin{equation}
+\newcommand{\ee}{\end{equation}}                 %\ee=\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bea}{\begin{eqnarray}}              %\bea=\begin{eqnarray}
+\newcommand{\eea}{\end{eqnarray}}                %\eea=\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bean}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+\newcommand{\eean}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\beq}{\begin{eqnarray*}}            %\beq=\begin{eqnarray*}
+%\newcommand{\eeq}{\end{eqnarray*}}              %\eeq=\end{eqnarray*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ba}{\begin{array}}                  %\ba=\begin{array}
+\newcommand{\ea}{\end{array}}                    %\ea=\end{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nn}{\nonumber}                      %\nn=\nonumber
+\newcommand{\mb}{\mbox}                          %\mb=\mbox
+
+
+
+
+
+%\newcommand{\ra}{\rightarrow}                    %\ra=\rightarrow
+\newcommand{\Ra}{\Rightarrow}                    %\ra=\rightarrow
+\newcommand{\ua}{\uparrow}   
+\newcommand{\da}{\downarrow}   
+\newcommand{\Lra}{\Leftrightarrow}          %\llra=\longleftrightarrow
+\newcommand{\llra}{\longleftrightarrow}          %\llra=\longleftrightarrow
+
+\newcommand{\stac}{\stackrel}                    %\stac=\stackrel
+\newcommand{\noin}{\noindent}                    %\noin=\noindent
+
+%Symbol for the end of the proof
+\newcommand{\qed}{\nobreak\quad\vrule width6pt depth3pt height10pt}
+
+\newcommand{\ngi}{n \ra \infty}
+
+%heading
+%\pagestyle{myheadings} \markright{Rooted edges of a minimal directed spanning tree on random points}
+\pagestyle{myheadings} \markright{[Homework] Conditional variance}
+
+\thispagestyle{plain}
+
+
+\begin{center}
+{\Large\bf [Homework] Conditional variance} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+\item
+Customers depart from a bookstore according to a Poisson process with rate $\la=10$ per hour. Each customer buys a book with probability $p=0.3$, independent of everything else.
+If a customer buys a book,
+she spend \$10 on average with the standard deviation \$3 independently. 
+\begin{enumerate}
+\item Find the distribution of the time until the first sale of a book.
+\\
+{\color{blue}{\bf Sol.}}
+This is the time until the first customer departure in the split Poisson process. It
+is therefore exponentially distributed with parameter $p\la=3$.
+
+\item Find the probability that no books are sold during a particular hour.
+\\
+{\color{blue}{\bf Sol.}}
+This is the probability of no customers in the split Poisson process during an hour,
+and using the result of part (a), $e^{-3}\cdot \f{3^0}{0!}$
+
+\item Find the expected number of customers who buy a book during a particular hour.
+\\
+{\color{blue}{\bf Sol.}}
+This is the expected number of customers in the split Poisson process during an
+hour, $$EN=p\la=3$$
+
+
+
+\item Find the expectation and the standard deviation of the sales during a particular day of 12 hours business opening.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X_i$ : amount of money that customer spend at bookstore per hour and $Y_i$ : total amount of money that customer spend at ith time.
+$$EX_i=EX=10,  VarX_i=VarX=9$$
+$$EX_iX_j=EX_iEX_j=(EX)^2=100(~\mb{for}~ i \neq j)$$
+$$Y_k=X_1+ \cdots X_N$$
+\bea
+EY_k
+&=&\sum_{i=1}^{\infty} P(N=i)E[Y_k|N=i] \nn\\
+&=&\sum_{i=1}^{\infty} P(N=i)i\cdot EX\nn\\
+&=&EX\cdot \sum_{i=1}^{\infty} P(N=i)i \nn\\
+&=&EX\cdot EN =10 \cdot 3  \nn
+\eea
+\bea
+EY_k^2
+&=&\sum_{i=1}^{\infty} P(N=i)E[Y_k^2|N=i] \nn\\
+\ignore{
+&=&\sum_{i=1}^{\infty} P(N=i)E[(X_1+ \cdots +X_N)^2|N=i] \nn\\
+&=&\sum_{i=1}^{\infty} P(N=i)\{ iEX^2+i(i-1)(EX)^2 \} \nn\\
+&=&EX^2\sum_{i=1}^{\infty} iP(N=i)+(EX)^2 \sum_{i=1}^{\infty} i(i-1)P(N=i)\nn\\
+&=&EX^2\cdot EN + (EX)^2 (EN^2-EN) \nn\\
+}
+&=&VarX\cdot EN + (EX)^2\cdot EN^2 \nn
+\eea
+(Why? Explain!)
+\bea
+VarY_k
+&=&EY_k^2-(EY_k)^2 \nn\\
+&=&VarX\cdot EN+(EX)^2\cdot \{ EN^2-(EN)^2 \}\nn\\
+&=&VarX\cdot EN+(EX)^2\cdot VarN\nn
+\eea
+Let $Y$ : the sales during a particular day of 12 hours business opening.
+$Y=Y_1+Y_2+\cdots+Y_{11}+Y_{12}$
+\bea
+EY
+&=&E(\sum_{k=1}^{12}Y_k) \nn\\
+&=&12E(Y_k)\nn
+\eea
+\bea
+\sigma_Y
+&=&\sigma_{\sum_{i=k}^{12}Y_k} \nn\\
+&=&12\sigma_{Y_k}\nn
+\eea
+\end{enumerate}
+
+
+
+
+
+
+
+\item
+Each morning, as you pull out of your driveway, you would like to make a U-turn rather than drive around the block. 
+Unfortunately U-turn are illegal in your neighborhood, and police cars drive by according to a Poisson process with rate $\la$. 
+You decide to make a U-turn once you see that the road has been clear of police cars for $\tau$ time units. 
+Let $N$ be the number of police cars you see before you make the U-turn.
+\begin{enumerate}
+\item  
+Find $E[N]$.
+\\
+{\color{blue}{\bf Sol.}}
+Let $T_n$ : the time difference between the police car $n$ and $n + 1$ arrival
+$$P(N=0)=P(T_1>\tau)$$
+$$P(N=1)=P(T_1\le \tau)P(T_2>\tau)$$
+
+$$P(N=k)=P(T_1\le \tau)P(T_2\le \tau)\cdots P(T_k\le \tau)P(T_{k+1}>\tau)=q^kp$$
+Since $T_n \sim$ Exp($\la$), 
+$$p=P(T_n>\tau)=\int_\tau^{\infty} \la e^{-\la x}dx=e^{-\tau\la}$$\\
+Since $N+1 \sim Geo(p)$.\\
+
+$$EN=\f{1}{p}-1=e^{\la\tau}-1$$
+$$VarN=\f{q}{p^2}=(1-e^{-\la\tau})e^{2\la\tau}$$
+
+\item 
+Find the conditional expectation of the time elapsed between police cars $n - 1$
+and $n$, given that $N \ge n$.
+\\
+{\color{blue}{\bf Sol.}}
+$$E[T_n|N \ge n]=E[T_n|T_n \le \ta]$$
+(because of the memorylessness of the exponential PDF)\\
+{\bf M1.}\\
+$$E(T_n|T_n>\tau)=\tau+\f{1}{\la}$$
+$$ET_n=E(T_n|T_n \le \tau)P(T_n \le \tau)+E(T_n|T_n>\tau)P(T_n>\tau)$$
+$$\f{1}{\la}=E(T_n|T_n \le \tau)(1-e^{-\la\tau})+(\tau+\f{1}{\la})\cdot e^{-\la\tau}$$
+So,
+$$E(T_n|T_n \le \tau)=\f{\f{1}{\la}-(\tau+\f{1}{\la})\cdot e^{-\la\tau}}{1-e^{-\la\tau}}$$
+{\bf M2.}\\
+$$E[T_n|N \ge n]=E[T_n|T_n \le \ta]=\f{\int_0^{\ta}s \la e^{-\la s}ds}{\int_0^{\ta}\la e^{-\la s}ds}$$
+
+
+\item
+Find the expectation of your waiting time until you make the U-turn.
+\\
+{\color{blue}{\bf Sol.}}
+Let $T$ be the waiting time until you make the U-turn.
+$$ET_n=E(T_n|T_n \le \tau)P(T_n \le \tau)+E(T_n|T_n>\tau)P(T_n>\tau)$$
+$$\f{1}{\la}=E(T_n|T_n \le \tau)(1-e^{-\la\tau})+(\tau+\f{1}{\la})\cdot e^{-\la\tau}$$
+So,
+$$E(T_n|T_n \le \tau)=\f{\f{1}{\la}-(\tau+\f{1}{\la})\cdot e^{-\la\tau}}{1-e^{-\la\tau}}$$
+Let $T$ : total waiting time until you make the U-turn
+$$T=T_1+T_2+\cdots T_N+\tau=\sum_{k=1}^N T_k+\tau$$
+\bea
+E(T)
+&=&\sum_{n=0}^{\infty}P(N=n)E(T_1+\cdots+T_N|N=n)+\tau \nn\\
+&=&\sum_{n=0}^{\infty}P(N=n)\sum_{i=1}^nE(T_i|T_1 \le \tau,\cdots, T_n \le \tau, T_{n+1}>\tau)+\tau \nn\\
+&=&\sum_{n=0}^{\infty}P(N=n)\sum_{i=1}^nE(T_i|T_i \le \tau)+\tau \nn\\
+&=&\sum_{n=0}^{\infty}P(N=n)\cdot n\cdot E(T_i|T_i \le \tau)+\tau \nn\\
+&=&E(N)\cdot E(T_i|T_i \le \tau)+\tau \nn
+\eea
+
+
+
+
+\item
+Find the variance of your waiting time until you make the U-turn.
+\\
+{\color{blue}{\bf Sol.}}
+$$VarT=Var[E(T|N)]+E[Var(T|N)]$$
+
+\end{enumerate}
+
+
+\item
+The joint PDF of $X$ and $Y$ is given by
+$$
+f(x,y)= \f{e^{-x/y}e^{-y}}{y}, 
+\quad
+0 < x < \infty, 0 < y < \infty
+$$
+Compute $E[X^2|Y = y]$.
+\\
+{\color{blue}{\bf Sol1.}}
+\bea
+f_{X|Y}(x|y)
+&=&\f{f(x,y)}{f_Y(y)} \nn\\
+&=&\f{1}{y}e^{-\f{x}{y}} \nn
+\eea
+
+\bea
+E[X^2|Y = y]
+&=&\int_0^{\infty} x^2 f_{X|Y}(x|y)dx\nn\\
+&=&\int_0^{\infty} x^2 \cdot \f{1}{y}e^{-\f{x}{y}} dx \nn\\
+&=&\lim_{t \rightarrow \infty} (-x^2-2xy-2y^2)e^{-\f{x}{y}}|_{x=0}^{x=t}\nn\\
+&=&2y^2\nn
+\eea
+{\color{blue}{\bf Sol2.}}
+$$E[X^2 |Y = y] = Var(X| Y = y) + (E[X|Y = y])^2 = y^2 + y^2 = 2y^2$$
+
+\item
+Let $Y$ denote a uniform random variable on $[0,1]$, and suppose that, conditional on $Y = p$, the random variable $X_n$ has a binomial distribution with parameters $n$ and $p$. 
+What is the mean and variance of $X_n$?
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+P(X_n=i)
+&=&\int_0^1 P(X_n=i|U=p)f_U(p) dp \nn\\
+&=&\int_0^1 {n \choose i}p^i(1-p)^i\cdot 1 dp \nn\\
+&=& {n \choose i}\int_0^1 p^i(1-p)^i\cdot 1 dp \nn\\
+&=& {n \choose i}\f{\Ga(i+1)\Ga(n-i+1)}{\Ga(i+1+n-i+1)} \nn\\
+&=& \f{1}{n+1}\nn
+\eea
+
+
+$$EX_n=E(E(X_n|Y=p))=E(np)=n\cdot Ep=n\cdot\f{1}{2}$$
+\bea
+VarX_n
+&=&Var(E(X_n|p))+E(Var(X_n|p))\nn\\
+&=&Var(np)+E(np(1-p))\nn\\
+&=&n^2Var(p)+n(Ep-Ep^2)\nn\\
+&=&n^2Var(p)+n(Ep-(Varp+(Ep)^2))\nn\\
+&=&n^2\cdot \f{1}{12}+n\cdot(\f{1}{2}-(\f{1}{12}+(\f{1}{2})^2))\nn\\
+&=&\f{n^2}{12}+\f{n}{6}\nn
+\eea
+
+
+
+
+
+
+
+
+\item
+Ten hunters are waiting for ducks to fly by. 
+When a flock of ducks flies overhead, the hunters fire at the same time, but 
+each chooses his target at random, independently of the others. 
+If each hunter independently hits his target with probability 0.6, 
+compute the expected number of ducks that are hit, 
+where the number of ducks in a flock is a Poisson random variable with mean 6.
+How about the variance?
+\\
+{\color{blue}{\bf Sol.}}
+Let $N$ be the number of ducks in a flock, which is $Po(\la)$, $\la=6$.
+For each duck $i$
+let $X_i$ be the indicator of the event $A_i$ that duck $i$ is hit; $X_i=1_{A_i}$.
+Consider the number $Y$ of ducks that are hit;
+$$
+Y=\sum_{i=1}^NX_i.
+$$
+\bea
+E(1-X_i|N)
+&=&E(1_{A_i^c}|N)=P(A_i^c|N)\nn\\
+&=&\sum_{k=0}^{10}P(H_i=k|N)P(A_i^c|N,H_i=k)\nn\\
+&=&\sum_{k=0}^{10}{10\choose k}\left(\f1N\right)^k\left(\f{N-1}{N}\right)^{10-k}(0.4)^k\nn\\
+&=&\sum_{k=0}^{10}{10\choose k}\left(\f{0.4}{N}\right)^k\left(\f{N-1}{N}\right)^{10-k}\nn\\
+&=&\left(\f{0.4}{N}+\f{N-1}{N}\right)^{10}\nn
+\eea
+
+\bea
+E(Y|N)
+&=&\sum_{i=1}^NE(X_i|N)=\sum_{i=1}^N\left[1-\left(\f{0.4}{N}+\f{N-1}{N}\right)^{10}\right]\nn\\
+&=&N\left[1-\left(\f{N-0.6}{N}\right)^{10}\right]\nn\\
+\eea
+with $\la=6$
+$$
+EY=\sum_{N=1}^{\infty}N\left[1-\left(\f{N-0.6}{N}\right)^{10}\right]\f{\la^N}{N!}e^{-\la}
+$$
+
+\bea
+E(Y^2|N)
+&=&NP(A_1)+N(N-1)P(A_1A_2)\nn\\
+\eea
+
+
+
+
+
+\item
+The number of people who enter an elevator on the ground floor is a Poisson random variable with mean 10. If there are $N$ floors above the ground floor, and if each person is equally likely to get off at any one of the $N$ floors, independently of where the others get off, compute the expected number of stops that the elevator will make before discharging all of its passengers.
+\\
+{\color{blue}{\bf Sol.}}
+Let
+$$
+I_i=\left\{\ba{ll}
+1 & ~ \mb{elevator stops at floor} ~ i \\
+0 & ~ \mb{otherwise} \
+\ea\right.
+$$
+Let $X$ be the number of people that enter on the ground floor. Then we obtain
+$$E[\sum_{i=1}^N I_i|X = k]=\sum_{i=1}^N E[I_i|X = k]=N[1-(\f{N-1}{N})^k]$$
+where
+\bea
+E[I_i|X = k]
+&=&P\{I_i=1|X=k \}\nn\\
+&=&P\{\mb{at least one person gets off at floor}~ i |X=k\}\nn\\
+&=&1-P\{\mb{no person gets off at floor}~ i |X = k\}\nn\\
+&=&1-(\f{N-1}{N})^k\nn
+\eea
+Therefore, the expected number of stops that the elevator will make can be computed as follows.
+\bea
+E[\sum_{i=1}^N I_i]
+&=&\sum_{k=0}^{\infty} E[\sum_{i=1}^N I_i|X=k]P\{X=k\}\nn\\
+&=&N-N\sum_{k=0}^{\infty} (\f{N-1}{N})^k e^{-10}\cdot\f{{10}^k}{k!}\nn\\
+&=&N-Ne^{-\f{10}{N}}\nn\\
+&=&N(1-e^{-\f{10}{N}})\nn
+\eea
+
+
+
+
+
+
+\item
+Suppose that the expected number of accidents per week at an industrial plant is 5. Suppose also that the numbers of workers injured in each accident are independent random variables with a common mean of 2.5. If the number of workers injured in each accident is independent of the number of accidents that occur, compute the expected number of workers injured in a week.
+\\
+{\color{blue}{\bf Sol.}}
+Let $N$ = the number of accidents in a week. $E(N) = 5$.\\
+Let $X_i$ = the number of workers injured in $i$-th accident. $E(X_i) = 2.5$.\\
+$S =\sum_{i \le N} X_i$ = the number of workers injured in a week.
+\bea
+E[S|N=n]
+&=&E[\sum_{i=1}^{n}X_i|N=n]\nn\\
+&=&E[\sum_{i=1}^{n}X_i]\nn\\
+&=&\sum_{i=1}^{n}E[X_i]\nn\\
+&=&2.5n\nn
+\eea
+$$ES=E[E[S|N]]=E(2.5N)=2.5\cdot5=12.5$$
+
+
+
+
+\item
+A certain region is inhabited by $r$ distinct types of a certain species of insect. Each insect caught will, independently of the types of the previous catches, be of type $i$ with probability
+$p_i$.
+\begin{enumerate}
+\item Compute the mean and variance of the number of insects that are caught before the first type 1 catch.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ denote the number of insects caught before the first type 1 catch. Then 
+$$P(X=x)=(1-P_1)^xP_1$$
+{\bf M1.}
+Hence,
+\bea
+EX
+&=&\sum_{x=0}^{\infty} x(1-P_1)^xP_1\nn\\
+&=&P_1\sum_{x=0}^{\infty} x(1-P_1)^x\nn\\
+&=&P_1\cdot\f{1-P_1}{P_1^2}\nn\\
+&=&\f{1-P_1}{P_1}\nn
+\eea
+{\bf M2.}
+Since $X+1 \sim Geo(P_1)$
+$$EX=\f{1}{P_1}-1$$
+
+
+
+
+
+
+
+\item Compute the mean and variance of the number of types of insects that are caught before the first type 1 catch.
+\\
+{\color{blue}{\bf Sol.}}
+Let $X_i$ denote the number of insects of type $i$ caught before the first type 1 catch.\\
+Let $g(0)=0$ and $g(x)=1$ for positive integers $x>0$. We want to compute
+$$E[\sum_{i=2}^r g(X_i)]=\sum_{i=2}^rE[ g(X_i)]=\sum_{i=2}^rP(g(X_i)=1)=\sum_{i=2}^rP(X_i \ge 1)$$
+Let $X$ denote the number of insects of caught before the first type 1 catch as in part (a). Then
+\bea
+P(X_i \ge 1)
+&=&\sum_{x=0}^{\infty} P(X_i \ge 1,X=x)\nn\\
+&=&\sum_{x=0}^{\infty} \{P(X=x)-P(X_i = 0,X=x)\} \nn\\
+&=&\sum_{x=0}^{\infty} \{(1-P_1)^xP_1-(1-P_1-P_i)^xP_1\} \nn\\
+&=&\f{P_1}{P_1}-\f{P_1}{P_1+P_i}\nn\\
+&=&\f{P_i}{P_1+P_i}\nn
+\eea
+Hence,
+$$E[\sum_{i=2}^r g(X_i)]=\sum_{i=2}^rP(X_i \ge 1)=\sum_{i=2}^r\f{P_i}{P_1+P_i}$$
+\end{enumerate}
+
+
+
+\item
+Initially there were 10 new tennis balls and 10 used tennis balls in the bin.
+We choose 5 balls.
+Let $X$ be the number of new balls in these chosen five balls
+and let $p_i$ be the probability that we choose $i$ new balls at this first draw, i.e.,
+$p_i=P(X=i)$. 
+We play a tennis game with these chosen five balls
+(so after playing a game all these five balls become used), and put them back into the bin.
+Now we choose 5 balls again from the bin and let $Y$ be the number of new balls chosen at the second draw.
+\begin{enumerate}
+\item
+Calculate $p_3$. 
+\\
+{\color{blue}{\bf Sol.}}
+$$p_3=P(X=3)=\f{{10 \choose 3}{10 \choose 2}}{{10+10 \choose 5}}$$
+
+\item
+We chose $3$ new balls at the first draw, i.e., $X=3$. 
+What is the distribution of $Y$ in this case?
+\\
+{\color{blue}{\bf Sol.}}
+$X=3$ (new balls is $7$, used balls is $13$)
+$Y$ be new balls chosen at the second draw.\\
+$$Y \sim HG(n=5,m=7,N=20)$$
+
+\item
+We chose $3$ new balls at the first draw, i.e., $X=3$. 
+What is the mean $E(Y|X=3)$ and variance $Var(Y|X=3)$ of $Y$ in this case?
+Just write down your answer. 
+\\
+{\color{blue}{\bf Sol.}}
+$$E(Y|X=3)=n\cdot\f{m}{N}=5\cdot\f{7}{20}$$ 
+$$Var(Y|X=3)=n\cdot\f{m}{N}\cdot\f{N-m}{N}\cdot(1-\f{n-1}{N-1})=5\cdot\f{7}{20}\cdot\f{13}{20}\cdot(1-\f{4}{19})$$
+
+
+\item
+Represent the mean $EY$ and variance $Var(Y)$ of $Y$ in terms of $p_i$. 
+Don't calculate $p_i$ explicitly and don't simplify you answer.
+Represent your answer in terms of $p_i$ and the summation. 
+\\
+{\color{blue}{\bf Sol.}}
+$$E(Y|X=i)=n\cdot\f{m}{N}=5\cdot\f{10-i}{20},~ i=0,\cdots,5$$ 
+$$E(Y|X)=5\cdot\f{10-X}{20}$$ 
+$$E(Y)=E(E(Y|X))=\sum_{i=0}^5 5 \cdot \f{10-i}{20} \cdot p_i$$ 
+$$Var(Y|X=i)=5 \cdot \f{10-i}{20}\cdot \f{10+i}{20}\cdot \f{15}{19}$$ 
+$$E[Var(Y|X)]=\sum_{i=0}^5 5 \cdot \f{10-i}{20}\cdot \f{10+i}{20}\cdot \f{15}{19}\cdot p_i$$ 
+$$Var[E(Y|X)]=Var(\f{20-X}{4})=\f{1}{16}\cdot 5\cdot \f{10}{20}\cdot \f{10}{20}\cdot \f{15}{19}$$
+Therefore,
+
+\bea
+VarY
+&=&E[Var(Y|X)]+Var[E(Y|X)]\nn\\
+&=&\sum_{i=0}^55 \cdot \f{10-i}{20}\cdot \f{10+i}{20}\cdot \f{15}{19}\cdot p_i+\f{1}{16}\cdot 5\cdot \f{10}{20}\cdot \f{10}{20}\cdot \f{15}{19} \nn
+\eea
+
+
+\end{enumerate}
+
+
+
+\item
+Let's flip the fair coin until we get the pattern $HH$.
+Let $W_{HH}$ be the waiting time to get the pattern $HH$.
+\begin{enumerate}
+\item
+Calculate $EW_{HH}$. 
+\\
+{\color{blue}{\bf Sol.}}
+Let $X$ denote the number of flips the fair coin until we have the first head.
+Then $X \sim $ Geo($\f{1}{2}$).\\
+Now we renew to flip the fair coin until we see the first tail and call the number of such extra flips $Y$. Then $Y \sim $ Geo($\f{1}{2}$).\\
+Since $X$ and $Y$ are independent,
+$$EW_{HT}=EX+EY=\f{1}{\f{1}{2}}+\f{1}{\f{1}{2}}=4$$
+$$E(W_{HH}|H)=P(H)E(W_{HH}|HH)+P(T)E(W_{HH}|HT)=P(H)\cdot2+P(T)\cdot(2+EW_{HH})$$
+$$E(W_{HH}|T)=1+EW_{HH}$$
+
+\bea
+EW_{HH}
+&=&P(H)E(W_{HH}|H)+P(T)E(W_{HH}|T)\nn\\
+&=&\f{1}{2}\{1+\f{1}{2}(2+EW_{HH})\}+\f{1}{2}(1+EW_{HH}) \nn
+\eea
+$$EW_{HH}=6$$
+
+\item
+Calculate  $Var(W_{HH})$. 
+\\
+{\color{blue}{\bf Sol.}}
+\bea
+E(W_{HH}^2|H)
+&=&P(H)E(W_{HH}^2|HH)+P(T)E(W_{HH}^2|HT)\nn\\
+&=&\f{1}{2}\cdot 2^2 +\f{1}{2}E(W_{HH}+2)^2 \nn\\
+&=&\f{1}{2}EW_{HH}^2+16 \nn
+\eea
+
+\bea
+E(W_{HH}^2|T)
+&=&E((W_{HH}+1)^2)\nn\\
+&=&EW_{HH}^2+2EW_{HH}+1 \nn\\
+&=&EW_{HH}^2+13 \nn
+\eea
+
+$$EW_{HH}^2=P(H)E(W_{HH}^2|H)+P(T)E(W_{HH}^2|T)=58$$
+Therefore
+$$VarW_{HH}=EW_{HH}^2-(EW_{HH})^2=22$$
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+\begin{center}
+{\Large\bf [Extra]} 
+\end{center}
+
+
+
+
+
+
+\begin{enumerate}
+
+
+
+
+
+
+
+\item
+Let $X$ be the number of 1's and $Y$ the number of 2's that occur in $n$ rolls of a fair die. Compute $Cov(X,Y)$.
+
+
+\item
+Roll the fair dice twice independently.
+$X$ is the sum of the two and $Y$ is the number of 2 appears.
+Calculate $Cov(X,Y)$.
+
+\item
+A coin having probability $p$ of coming up heads is continually flipped until both heads and tails have appeared. Find
+the expectation and variance of the number of flips.
+
+
+
+
+
+\item
+A fair die is successively rolled. Let $X$ be the number of rolls to get the first 6
+and
+let $Y$ be the number of rolls to get the first 5. Find
+\begin{enumerate}
+\item $E[X]$.
+\item $E[X|Y = 1]$.
+\item $E[X|Y = 5]$.
+\item $Var[X|Y = 5]$.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item
+Consider a population consisting of individuals able to produce offspring of the same kind. 
+Suppose that, by the end of its lifetime, each individual will have produced $j$ new offspring 
+with probability $p_j$, $j\ge 0$, independently of the number produced by any other individual. 
+The number of individuals initially present, denoted by $X_0$, is called 
+the size of the zero-th generation. 
+All offspring of the zero-th generation constitute the first generation,
+and their number is denoted by $X_1$. 
+In general,
+let $X_n$ denote the size of the $n$-th generation. 
+Let $\mu$ and $\si^2$ be 
+the mean and the variance of the number of offspring produced by a single individual;
+$$
+\mu=\sum_{j=0}^\infty jp_j\ \ \ \ \ \mb{and}\ \ \ \ \ 
+\si^2=\sum_{j=0}^\infty (j-\mu)^2p_j.
+$$
+Suppose that $X_0 = 1$, that is, initially there is a single individual in the population.
+\begin{enumerate}
+\item
+Show that $EX_n=\mu EX_{n-1}.$
+\item
+Use (a) to conclude $EX_n=\mu^n$.
+\item
+Show that $Var(X_n)=\si^2\mu^{n-1}+\mu^2Var(X_{n-1}).$
+\item
+Use (c) to conclude 
+$$
+Var(X_n)=\left\{\ba{ll}
+\si^2\mu^{n-1}\left(\f{\mu^n-1}{\mu-1}\right)&\mb{if}\ \mu\neq 1,\\
+n\si^2&\mb{if}\ \mu=1.
+\ea\right.
+$$
+\end{enumerate}
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
